@@ -1,0 +1,25 @@
+site_name: AcaDocs
+nav:
+  - Forside: index.md
+  - Modtagelse:
+    - acquisition/index.md
+    - Analog materiale: acquisition/acquiring-analog-material.md
+    - Digitalt materiale: acquisition/acquiring-digital-material.md
+  - Om: about.md
+theme:
+  name: material
+  font: false
+  language: da
+  features:
+    - navigation.instant
+    - navigation.tabs
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#navigation-sections
+    - navigation.sections
+repo_url: https://github.com/aarhusstadsarkiv/acadocs
+edit_uri: edit/master/docs/
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+
+
