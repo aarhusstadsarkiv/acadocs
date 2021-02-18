@@ -1,0 +1,60 @@
+site_name: AcaDocs
+nav:
+  - Udvælgelse:
+    - selection/index.md
+  - Modtagelse:
+    - Introduktion: acquisition/index.md
+    - Analog materiale: acquisition/acquiring-analog-material.md
+    - Digitalt materiale: acquisition/acquiring-digital-material.md
+  - Digitalisering:
+    - Introduktion: digitization/index.md
+  - Registrering:
+    - Introduktion: registration/index.md
+  - Bevaring:
+    - Introduktion: preservation/index.md
+  - Tilgængeliggørelse:
+    - Introduktion: dissemination/index.md
+  - Hjemmesider:
+    - Introduktion: sites/index.md
+    - AarhusArkivet: sites/aarhusarkivet.md
+    - AarhusWiki: sites/aarhuswiki.md
+    - Smartarkivering: sites/smartarkivering.md
+    - Byrådsarkivet: sites/byraadsarkivet.md
+  - Software:
+    - Introduktion: software/index.md
+    - FileZilla: software/filezilla.md
+  - Blanketter:
+    - Introduktion: documents/index.md
+extra_css:
+  - css/extra.css
+theme:
+  name: material
+  font: false
+  language: da
+  features:
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+  custom_dir: overrides
+plugins:
+  # https://squidfunk.github.io/mkdocs-material/reference/variables/#macros
+  - macros
+  - search
+extra:
+  unit:
+    price: 12
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - meta
+  # Alerts
+  # https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types
+  - admonition 
+  # Make alerts collapsible
+  - pymdownx.details
+  - pymdownx.superfences
+  # Align images left or right
+  # E.g. ![Placeholder](https://dummyimage.com/600x400/eee/aaa){: align=left }
+  - attr_list

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Procedure</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Navn</td>
+                <td>{{page.meta.name}}</td>
+            </tr>
+            <tr>
+                <td>Version</td>
+                <td>{{page.meta.version}}</td>
+            </tr>
+            <tr>
+                <td>Sidst redigeret</td>
+                <td>{{page.meta.edited}}</td>
+            </tr>
+            <tr>
+                <td>Sidst redigeret af</td>
+                <td>{{page.meta.edited_by}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if page.meta %}
+        <h4>page.meta</h4>
+        {% for k, v in page.meta.items() %}
+            <p><span>{{k}}:</span><span>{{v}}</span></p>
+        {% endfor %}
+    {% endif %}
+
+    {{ super() }}
+{% endblock %}
