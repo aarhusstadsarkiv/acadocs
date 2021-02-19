@@ -1,5 +1,7 @@
 ---
-title: Forside
+hide:
+  - navigation # Hide navigation
+  - toc        # Hide table of contents
 ---
 
 # Welcome to MkDocs
