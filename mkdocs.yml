@@ -32,6 +32,11 @@ nav:
     - FileZilla: software/filezilla.md
   - Blanketter:
     - Introduktion: documents/index.md
+  - Inbox:
+    - Introduktion: inbox/index.md
+    - inbox/archiving_practices.md
+    - inbox/database_tables.md
+    - inbox/framework.md
 extra_css:
   - css/extra.css
 theme:
