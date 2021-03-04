@@ -30,6 +30,9 @@ nav:
   - Software:
     - Introduktion: software/index.md
     - FileZilla: software/filezilla.md
+    - Digiarch: software/digiarch.md
+    - Convertool: software/convertool.md
+    - Symphovert: software/symphovert.md
   - Blanketter:
     - Introduktion: documents/index.md
   - Inbox:
