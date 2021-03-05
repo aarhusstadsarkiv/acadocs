@@ -16,8 +16,24 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 Når programmer installeres via Chocolatey, skal det altid foregå via en administrativ PowerShell. Programmer kan findes ved at søge i [packages](https://chocolatey.org/packages).
 
-### Eksempel på pakkeinstallation
+### Eksempel på installation
 Følgende kommando installerer den seneste version af Python.
+
 ```powershell 
 choco install python
 ```
+
+## Opdatering 
+Alle programmer installeret via Chocolatey skal opdateres via Chocolatey, igen i en administrativ PowerShell. Følgende kommando opdaterer alle installerede programmer.
+
+```powershell 
+choco upgrade all
+```
+
+Hvis man blot vil opdatere et program, skal man bare skrive navnet. Her bruges Python igen som eksempel.
+
+```powershell 
+choco upgrade python
+```
+
+Den officielle dokumentation af `upgrade` kan findes [her](https://docs.chocolatey.org/en-us/choco/commands/upgrade).
