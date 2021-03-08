@@ -1,5 +1,10 @@
 # Digiarch
 Intro
+
+## Installation
+
+## Forudsætninger
+
 ## Indeksering
 
 ## Processering
