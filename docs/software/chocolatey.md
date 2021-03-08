@@ -1,5 +1,5 @@
 # Chocolatey
-Chocolatey er en såkaldt package manager til Windows. Formålet er, at gøre det lettere at installere og opdatere software.
+Chocolatey er en såkaldt package manager til Windows. Formålet er at gøre det lettere at installere og opdatere software.
 
 ## Installation
 Denne installationsguide er skrevet med udgangspunkt i [den officielle guide](https://chocolatey.org/install).
@@ -16,8 +16,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 Når programmer installeres via Chocolatey, skal det altid foregå via en administrativ PowerShell. Programmer kan findes ved at søge i [packages](https://chocolatey.org/packages).
 
-### Eksempel på installation
-Følgende kommando installerer den seneste version af Python.
+Som eksempel installerer følgende kommando den seneste version af Python.
 
 ```powershell 
 choco install python
