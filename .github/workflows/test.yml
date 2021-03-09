@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    name: Check linting & types
+    name: Build site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 
