@@ -36,6 +36,9 @@ nav:
     - Symphovert: software/symphovert.md
   - Blanketter:
     - Introduktion: documents/index.md
+  - Arkiveringsversioner:
+    - Introduktion: archival-versions/index.md
+    - Notesarkivering: archival-versions/notes-arkivering.md
   - Inbox:
     - Introduktion: inbox/index.md
     - inbox/archiving_practices.md
