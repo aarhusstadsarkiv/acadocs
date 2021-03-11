@@ -1,16 +1,18 @@
 I det følgende beskrives processen med arkiveringsversioner, som modtages i forbindelse med Notes-projektet.
 
-!!! note
-    I dokumentationen bruges AVID.AARS.3.1 som eksempel. Husk at udskifte AVID "3" med det relevante id. 
+!!! note "Bemærk"
+    - I dokumentationen bruges *AVID.AARS.3.1* som eksempel. Husk at udskifte AVID "3" med det relevante id.
+    - *Arkiveringsversion* betegnes i det følgende også *aflevering*.
 
-## Modtagelse
-Arkiveringsversioner fra Notes-projektet modtages på usb-diske, hvorfra de umiddelbart efter modtagelse kopieres over på en ekstern usb-harddisk, og efter indledende identifikationstests med digiarch, også kopieres til AcaStorage med Microsoft Azure Storage Explorer.
+## Modtagelse og validering
 
-!!! Warning
+### Kopiering til lokal disk
+Arkiveringsversioner fra Notes-projektet afleveres på usb-diske, hvorfra de umiddelbart efter modtagelse kopieres til en placering på vores infrastrutur (ekstern usb-harddisk, intern D-drev eller lignende).
+
+!!! Danger "Advarsel"
     Det er vigtigt at stoppe Kaspersky så snart den modtagne usb-disk er plugget til den administrative PC, da Kaspersky i det skjulte sletter gamle .xls-filer, hvis de indeholder macroer.
 
-### Kopiering af arkiveringsversionen til ekstern harddisk
-Den modtagne arkiveringsversion kopieres til en mappe på den eksterne harddisk med følgende struktur:
+Arkiveringsversionen kopieres fuldgyldigt til en mappe, som navngives med afleveringens AVID og tilføjes en "_metadata"-mappe, hvori vi efterfølgende samler diverse logs, mails, statusdokumenter m.m. med relation til afleveringen og testen:
 
 ```
 /AVID.AARS.3.1
@@ -28,11 +30,18 @@ Den modtagne arkiveringsversion kopieres til en mappe på den eksterne harddisk 
     |-- ...
 ```
 
-!!! Note
-    Mappen "_metadata" er ikke en del af afleveringen, men skal oprettes for at have et sted at samle diverse logs, mails, statusdokumenter m.m. med relation til afleveringen.
+Efter fuldendt kopiering lægges den afleverede usb-disk til side. Vi skal ikke bruge den originale aflevering mere, med mindre vi senere i processen ved et uheld kommer til at slette eller ændre noget.
 
-### Overordnet filidentifikation med digiarch
-Inden arkiveringsversionen også kan kopieret til AcaStorage, skal vi teste om afleveringens dokumenter overhovedet kan godkendes. Vi benytter **[digiarch](../../software/digiarch)** til at lave en indledningsvis test for 1) tomme mapper og 2) .zip-filer.
+### Validering af dokumenter
+Hvis afleveringen indeholder digitale dokumenter (OriginalDocuments), foretages nu en indledningsvis validering af disse (tjekker for tomme mappe/filer, tilstedeværelsen af *.zip*-filer, andet?).
+
+Vi benytter **[digiarch](../../software/digiarch)** til at foretage denne indledende validering af dokumenterne og strukturen i de enkelte *docCollections*. Kald *process* på den mappe, som arkiveringsversionen er kopieret til:
+
+```powershell
+digiarch D:\filer\AVID.AARS.3.1 process
+```
+
+[Dokumentationen til digiarch](../../software/digiarch) indeholder yderligere beskrivelser af, hvordan værktøjet benyttes, men
 
 *Digiarch* producerer sin egen "_metadata"-mappe med en "files.db"-fil, som efter den indledningsvise test skal placeres i roden af "OriginalDocuments":
 
@@ -48,11 +57,11 @@ Inden arkiveringsversionen også kan kopieret til AcaStorage, skal vi teste om a
     |-- ...
 ```
 
-### Kopiering af arkiveringsversionen til AcaStorage
-Hvis den indledende fil-test med *digiarch* er succesfuld, kopieres hele arkiveringsversionsmappen til AcaStorage.
+### Kopiering til AcaStorage
+Hvis resultatet af den indledende filvalidering ikke giver anledning til en genaflevering, kopieres hele arkiveringsversionsmappen inkl. *"_metadata"*-mapperne til AcaStorage:
 
 1. Åbn Microsoft Azure Storage Explorer
-2. Arkiveringsversionen kopieres nu samlet eller over flere omkgange ind i følgende mappe: MKB {din mail}/Storage Accounts/acastorage/archival-versions/, så mappeindholdet eks. ser således ud:
+2. Mappen med arkiveringsversionen kopieres nu samlet eller over flere omgange ind i følgende mappe: MKB {din mail}/Storage Accounts/acastorage/arkver/
 
 ```
 /AVID.AARS.3.1
