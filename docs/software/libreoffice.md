@@ -9,4 +9,8 @@ choco install libreoffice-fresh
 ```
 eller via download af en `.exe`-fil [her](https://www.libreoffice.org/download/download/). 
 
+!!! attention "Husk"
+    Chocolatey skal **altid** bruges via en administrativ PowerShell.
+
+
 I begge tilfælde er det nødvendigt at tilføje `program`-folderen i installationslokationen til brugeres `PATH`-miljøvariabel. Den typiske sti er `C:\Program Files\LibreOffice\program`.
