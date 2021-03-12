@@ -14,8 +14,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 5. Luk PowerShell og kør en ny som administrator
 6. Skriv `choco` for at tjekke, at installationen er gået som forventet
 
-Når programmer installeres via Chocolatey, skal det altid foregå via en administrativ PowerShell. Programmer kan findes ved at søge i [packages](https://chocolatey.org/packages).
-
+!!! attention "Bemærk"
+    Chocolatey skal **altid** bruges via en administrativ PowerShell.
+    
+Programmer kan findes ved at søge i [packages](https://chocolatey.org/packages).
 Som eksempel installerer følgende kommando den seneste version af Python.
 
 ```powershell 

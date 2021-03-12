@@ -9,6 +9,9 @@ choco install ghostscript.app
 ```
 eller via download af en `.exe`-fil [her](https://www.ghostscript.com/download/gsdnld.html). 
 
+!!! attention "Husk"
+    Chocolatey skal **altid** bruges via en administrativ PowerShell.
+
 I begge tilfælde er det nødvendigt at tilføje `bin`-folderen i installationslokationen til brugeres `PATH`-miljøvariabel. Den typiske sti er `C:\Program Files\gs\gs[version]\bin`.
 
 !!! hint "Eksempel"
