@@ -6,7 +6,7 @@ Convertool skal installeres via [releases](https://github.com/aarhusstadsarkiv/c
 
 !!! hint "Eksempel"
     ```powershell
-    pip install --user C:\Downloads\convertool-0.3.4-py3-none-any.whl
+    pip install --user C:\Downloads\convertool-0.3.5-py3-none-any.whl
     ```
 
 !!! attention "Bemærk"
@@ -19,7 +19,7 @@ Når Convertool skal opdateres, bruges igen `pip` med en ny `.whl`-fil og `--upg
 
 !!! hint "Eksempel"
     ```powershell
-    pip install --user --upgrade C:\Downloads\convertool-0.3.5-py3-none-any.whl
+    pip install --user --upgrade C:\Downloads\convertool-[new version]-py3-none-any.whl
     ```
 
 ## Forudsætninger
@@ -76,7 +76,7 @@ Convertool har pt. én kommando kaldet `main`. Denne kommando konverterer filer 
     ```powershell
     convertool D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out main
     ```
-I fremtiden skal Convertool også kunne håndtere konvertering af alle Master-filer til TIFF, således der kan genereres juridiske afleveringer. Dette bør være en separat kommando.
+I fremtiden skal Convertool også kunne håndtere konvertering af alle Master-filer til arkiveringsformater, således der kan genereres juridiske afleveringer. Dette bør være en separat kommando.
 
 
 ## Konvertering
