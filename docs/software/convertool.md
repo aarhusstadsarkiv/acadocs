@@ -80,5 +80,81 @@ I fremtiden skal Convertool også kunne håndtere konvertering af alle Master-fi
 
 
 ## Konvertering
+Når Convertool sættes i gang med at konvertere, er der ikke umiddelbart behov for yderligere brugerinput. Konvertering tager i gennemsnit 2s/fil, og det kan derfor være fordelagtigt at have processen kørende i baggrunden, mens man tager sig af andre opgaver.
+
+!!! attention "Bemærk"
+    Convertool gør *meget* brug af LibreOffices CLI. Det er ikke testet, hvorvidt brug af LibreOffice samtidig med konvertering kan foregå uden problemer. Vær derfor forsigtig, hvis LibreOffice skal benyttes sideløbende med konvertering.
+
+Under konvertering skriver Convertool til tabellen `_ConvertedFiles` i den `files.db`, som Convertool læser fra. I `files.db` laves også et såkaldt view, `_NotConverted`, der på brugervenlig vis angiver de filer, der endnu ikke er konverteret. `_ConvertedFiles`-tabellen ser ud som følger.
+
+**`_ConvertedFiles`**
+
+| column  | required | type  | description                       |
+| ------- | -------- | ----- | --------------------------------- |
+| file_id | true     | `int` | Fremmednøgle til `Files`-tabellen |
+| uuid    | true     | `str` | Universally Unique ID 4           |
+
+`_NotConverted`-viewet baserer sig på `_ConvertedFiles` og `Files`. Det ser ud som følger.
+
+**`_NotConverted`**
+
+| column    | required | type  | description               |
+| --------- | -------- | ----- | ------------------------- |
+| id        | true     | `int` | ID fra `Files`-tabellen   |
+| uuid      | true     | `str` | Universally Unique ID 4   |
+| path      | true     | `str` | Fuld sti til filen        |
+| aars_path | true     | `str` | Sti med rod i AARS-mappen |
+| puid      | false    | `str` | PRONOM ID                 |
+| signature | false    | `str` | Filsignatur               |
+| warning   | false    | `str` | Advarsel, hvis relevant   |
+
+
+I [afsnittet om fejlrettelser](#fejlrettelser) beskrives det, hvorledes `_ConvertedFiles` manuelt opdateres, hvis der er behov herfor.
+
+Under konvertering skrives også til en logfil, `convertool.log`, der kan findes i `_metadata` folderen under `OUTDIR\AARS-ID`.
+
+!!! hint "Eksempel"
+    Antag, at originalfilerne `D:\filer\AVID.AARS.3.1` bliver konverteret som følger.
+    ```powershell
+    convertool D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out main
+    ```
+    `_ConvertedFiles` og `_NotConverted` kan nu findes i databasefilen `D:\filer\AVID.AARS.3.1\_metadata\files.db`, mens logfilen kan findes i mappen `D:\filer\out\AVID.AARS.3.1\_metadata`.
+
+
 
 ## Fejlrettelser
+Under konvertering kan forskellige fejl opstå. Disse vil typisk ikke stoppe et konverteringsjob, med mindre antallet af fejl overskrider det tilladte. Fejl opdages ved at kigge i `convertool.log`-filen, hvori de vil stå som `WARNING`. Når et job er afsluttet, skrives også en oversigt over antallet af fejl til sidst i log-filen.
+
+!!! hint "Eksempel"
+    I det følgende ses et uddrag af en `convertool.log`-fil. Succesfuld konvertering angives med `INFO`, fejl angives med `WARNING`, og til slut ses en oversigt over antal fejl.
+    ```log
+    2021-02-25 19:25:48 INFO: Starting conversion of file.pdf
+    2021-02-25 19:25:55 INFO: Converted file.pdf successfully.
+    2021-02-26 09:19:36 WARNING: Failed to convert file.tif: Failed to save file.tif as TIF with error: Error setting from dictionary
+    2021-02-25 19:25:55 INFO: Finished conversion of 11438 files with 15 issues, 7 of which were critical.
+    ```
+
+Der skelnes mellem kritiske og ikke-kritiske fejl. Ikke-kritiske fejl er typisk timeouts fra LibreOffice -- disse indikerer, at LibreOffice ikke havde tid nok til at konvertere filen, men at filen med al sandsynlighed er velformet, og kan konverteres manuelt. Nogle gange er det også fordelagtigt at give LibreOffice en chance mere, ved at køre konverteringsjobbet igen.
+
+Når filer konverteres manuelt, er det vigtigt at opdatere `_ConvertedFiles`-tabellen, således man bevarer oversigten over, hvilke filer der er konverterede. Dette gøres ved at indsætte den manuelt konverterede fils ID og UUID, som vist i følgende eksempel.
+
+!!! hint "Eksempel"
+    Antag, at en fil med ID `144` og UUID `cd61494b-4547-43e7-97c6-adbafc6e8bd` ikke er konverteret. Den fremgår i `_NotConverted` som følger.
+
+    | id  | uuid                                | path                        | aars_path          | puid    | signature                | warning |
+    | --- | ----------------------------------- | --------------------------- | ------------------ | ------- | ------------------------ | ------- |
+    | 144 | cd61494b-4547-43e7-97c6-adbafc6e8bd | D:\files\AARS.TEST\file.tif | AARS.TEST\file.tif | fmt/353 | Tagged Image File Format |         |
+
+    Filen konverteres nu manuelt, og `_ConvertedFiles opdateres med følgende SQL-statement.
+
+    ```sql
+    INSERT INTO _ConvertedFiles VALUES (144, "cd61494b-4547-43e7-97c6-adbafc6e8bd")
+    ```
+
+    Herefter fremgår filen ikke længere i `_NotConverted`-viewet.
+
+Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes [her](https://github.com/aarhusstadsarkiv/convertool/tree/master/convertool/core/replacements). Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes [her](https://aarhuskommune.sharepoint.com/:w:/s/fnk-funksite3337/EX7fuN8PnqBKqwY5rrMfz2EBc0uF7Lld2Qz3WysfjIWgAw?e=A5tEOa).
+
+!!! hint "Eksempel"
+    Dokumentet "Konverteringsfejl" kan se ud som følger. 
+    ![Konverteringsfejl](../img/konverteringsfejl.png)
