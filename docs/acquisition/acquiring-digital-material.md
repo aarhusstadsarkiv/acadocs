@@ -16,7 +16,7 @@ Dette mønster forstås som følger.
 
 Derfor er følgende eksempler valide AARS-ID'er
 
-!!! example "Eksempel"
+!!! hint "Eksempel"
     `AVID.AARS.3.1`
 
     `AARS.TEST`
@@ -25,7 +25,7 @@ Derfor er følgende eksempler valide AARS-ID'er
 
 mens disse ikke er
 
-!!! example "Eksempel"
+!!! hint "Eksempel"
     `AVID.3.1`
 
     `AARSTEST`
