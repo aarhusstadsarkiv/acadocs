@@ -25,7 +25,11 @@ pip install --user --upgrade digiarch
 
 
 ## Forudsætninger
-Digiarch bruger [Siegfried](https://github.com/richardlehane/siegfried) til identifikation af filer, og det er derfor en forudsætning for fuld brug af Digiarch, at Siegfried er installeret og tilgængelig i `PATH` på systemet. Dette opnås nemmest ved at installere Siegfried via Go. Det anbefales, at Go installeres med [Chocolatey](chocolatey.md). 
+Digiarch bruger [Siegfried](https://github.com/richardlehane/siegfried) til identifikation af filer, og det er derfor en forudsætning for fuld brug af Digiarch, at Siegfried er installeret og tilgængelig i `PATH` på systemet. Dette opnås nemmest ved at installere Siegfried via Go. Det anbefales, at Go installeres med [Chocolatey](chocolatey.md) som følger.
+
+```powershell
+choco install golang
+```
 
 Givet en fungerende version af Go, foregår installation af Siegfried som følger.
 
@@ -33,7 +37,19 @@ Givet en fungerende version af Go, foregår installation af Siegfried som følge
 go get github.com/richardlehane/siegfried/cmd/sf
 sf -update
 ```
-Alternative installationsmetoder kan findes på [Siegfrieds GitHub](https://github.com/richardlehane/siegfried#install).
+Hvis Siegfried skal opdateres, foregår dette også gennem Go:
+
+```powershell
+go get -u github.com/richardlehane/siegfried/cmd/sf
+sf -update
+```
+
+Alternative installationsmetoder kan findes på [Siegfrieds GitHub](https://github.com/richardlehane/siegfried#install). Hvis ovenstående installation virker, men Siegfried ikke bliver opdateret ordentligt, kan det skyldes, at man har en manuel installation i sin `PATH`-miljøvariabel. Placering af Siegfriedinstallationer tilgængelig i `PATH` kan findes som følger:
+
+```powershell
+where.exe sf
+```
+
 
 ## Opbygning
 Digiarch er en CLI, og skal derfor benyttes direkte i for eksempel PowerShell. CLI'en er opbygget som følger.
