@@ -12,10 +12,20 @@ eller via download af en `.exe`-fil [her](https://www.ghostscript.com/download/g
 !!! attention "Husk"
     Chocolatey skal **altid** bruges via en administrativ PowerShell.
 
-I begge tilfælde er det nødvendigt at tilføje `bin`-folderen i installationslokationen til brugeres `PATH`-miljøvariabel. Den typiske sti er `C:\Program Files\gs\gs[version]\bin`.
+
+## Systemmiljøvariable
+
+Det er nødvendigt at tilføje `bin`-folderen i installationslokationen til brugeres `PATH`-miljøvariabel. Den typiske sti er `C:\Program Files\gs\gs[version]\bin`.
 
 !!! hint "Eksempel"
     Antag, at Ghostscript version 9.53.3 er installeret. Følgende sti skal nu tilføjes til `PATH`.
     ```powershell
     C:\Program Files\gs\gs9.53.3\bin
     ```
+
+Systemmiljøvariable opdateres som følger.
+
+1. Find indstillingen "Rediger systemmiljøvariablerne"
+
+    ![img](../img/find_env.png)
+2. 
