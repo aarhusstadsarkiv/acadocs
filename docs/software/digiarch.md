@@ -61,7 +61,7 @@ digiarch [OPTIONS] [ARGS] [COMMAND]
 Argumenter, optioner, og kommandoer er beskrevet i det følgende.
 
 ### Argumenter
-Digiarch har ét inputargument: stien til filerne, som skal behandles. Dette argument er påkrævet, og Digiarch kan køres med kun dette som input. Det forventes, at stien har et AARS-id.
+Digiarch har ét inputargument: stien til filerne, som skal behandles. Dette argument er påkrævet, og Digiarch kan køres med kun dette som input. Det forventes, at stien har et [AARS-ID](../acquisition/acquiring-digital-material.md#identifikator).
 
 !!! hint "Eksempel"
     ```powershell
