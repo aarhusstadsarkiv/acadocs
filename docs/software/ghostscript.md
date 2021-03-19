@@ -25,7 +25,18 @@ Det er nødvendigt at tilføje `bin`-folderen i installationslokationen til brug
 
 Systemmiljøvariable opdateres som følger.
 
-1. Find indstillingen "Rediger systemmiljøvariablerne"
+- Find indstillingen "Rediger systemmiljøvariablerne"
 
-    ![img](../img/find_env.png)
-2. 
+    ![Rediger systemmiljøvariablerne](../img/find_env.png)
+
+- Du kommer nu ind i "Egenskaber for system". Tryk her på "Miljøvariabler".
+
+    ![Egenskaber for system](../img/sys_attr.png)
+
+- Find `Path` i miljøvariabler og tryk "rediger".
+   
+   ![Miljøvariabler](../img/env_vars.png)
+
+- Tryk på "Ny" og tilføj den ønskede sti.
+
+    ![Ny miljøvariabel](../img/new_env_var.png)
