@@ -12,6 +12,7 @@ nav:
     - Introduktion: digitization/index.md
   - Registrering:
     - Introduktion: registration/index.md
+    - SAM-Workflows: registration/sam-workflows.md
   - Bevaring:
     - Introduktion: preservation/index.md
   - Tilgængeliggørelse:
@@ -43,6 +44,7 @@ nav:
     - Notesarkivering: archival-versions/notes-arkivering.md
   - Inbox:
     - Introduktion: inbox/index.md
+    - inbox/github.md
     - inbox/archiving_practices.md
     - inbox/database_tables.md
     - inbox/framework.md
