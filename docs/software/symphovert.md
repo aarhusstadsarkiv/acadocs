@@ -149,7 +149,7 @@ Når filer konverteres manuelt, er det vigtigt at opdatere `_ConvertedFiles`-tab
 
     Herefter fremgår filen ikke længere i `_NotConverted`-viewet.
 
-Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes [her](https://github.com/aarhusstadsarkiv/symphovert/tree/master/symphovert/core/replacements). Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes [her](https://aarhuskommune.sharepoint.com/:w:/s/fnk-funksite3337/EX7fuN8PnqBKqwY5rrMfz2EBc0uF7Lld2Qz3WysfjIWgAw?e=A5tEOa).
+Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes [her](https://github.com/aarhusstadsarkiv/symphovert/tree/master/symphovert/core/replacements). Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes [her](https://github.com/aarhusstadsarkiv/acadocs/blob/master/files/Konverteringsfejl.odt).
 
 !!! hint "Eksempel"
     Dokumentet "Konverteringsfejl" kan se ud som følger. 
