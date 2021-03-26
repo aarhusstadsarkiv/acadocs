@@ -237,3 +237,15 @@ Denne fejl indikerer, at der ikke er fundet noget PRONOM-ID og derfor ikke nogen
 Hvis en fil viser sig at være korrupt, kan man med fordel tildele den PUID'et `aca-error/2` med signaturen `File is corrupt`. Hermed kan Convertool automatisk indføre erstatningsfiler under konvertering. Det er vigtigt at dokumentere korrupte filer i `Konverteringsfejl`-dokumentet.
 ### Empty file
 Denne fejl indikerer, at filen er tom, og tomme filer har per definition ikke en gyldig filsignatur. Tomme filer skal dokumenteres i `Konverteringsfejl`-dokumentet, men man behøver ikke gøre yderligere; Convertool indfører automatisk erstatningsfiler.
+
+## Arbejdsgang
+Som opsummering kommer her en oversigt over arbejdsgangen med Digiarch.
+
+1. Åbn PowerShell
+2. Skriv `cd sti\til\data` f.eks. `cd E:\batch_7\AVID.AARS.61.1`
+3. Kør `digiarch . process`
+4. Tjek fildatabasen `files.db` som befinder sig i `_metadata`-mappen
+5. Hvis rettelse af filendelsesfejl er nødvendigt, kør da `digiarch . fix`
+6. Tjek fildatabasen igen
+7. Hvis der laves manuelle rettelser, kør da `digiarch --reindex . process`
+   
