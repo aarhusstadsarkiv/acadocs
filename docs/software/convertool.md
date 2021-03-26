@@ -145,7 +145,7 @@ Når filer konverteres manuelt, er det vigtigt at opdatere `_ConvertedFiles`-tab
     | --- | ----------------------------------- | --------------------------- | ------------------ | ------- | ------------------------ | ------- |
     | 144 | cd61494b-4547-43e7-97c6-adbafc6e8bd | D:\files\AARS.TEST\file.tif | AARS.TEST\file.tif | fmt/353 | Tagged Image File Format |         |
 
-    Filen konverteres nu manuelt, og `_ConvertedFiles opdateres med følgende SQL-statement.
+    Filen konverteres nu manuelt, og `_ConvertedFiles` opdateres med følgende SQL-statement.
 
     ```sql
     INSERT INTO _ConvertedFiles VALUES (144, "cd61494b-4547-43e7-97c6-adbafc6e8bd")
@@ -158,3 +158,14 @@ Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller
 !!! hint "Eksempel"
     Dokumentet "Konverteringsfejl" kan se ud som følger. 
     ![Konverteringsfejl](../img/konverteringsfejl.png)
+
+## Arbejdsgang
+Som opsummering kommer her en oversigt over arbejdsgangen med Convertool.
+
+1. Åbn PowerShell
+2. Skriv `cd sti\til\data` f.eks. `cd E:\batch_7\AVID.AARS.61.1`
+3. Kør `convertool .\_metadata\files.db OUTDIR main`, hvor `OUTDIR` f.eks. er `E:\batch_7\out`
+4. Tjek fildatabasen
+5. Tjek logfilen i `_metadata\convertool.log` for `WARNING`s. Ved ikke-kritiske fejl som f.eks. timeout køres convertool igen som i trin 3.
+6. Tjek database og logfil igen. Referér til eksemplet i [fejlrettelser](#fejlrettelser), hvis der skal laves manuelle rettelser.
+7. Hvis der er filer, som ikke kan konverteres, skal dette noteres i dokumentet "Konverteringsfejl", som beskrevet i [fejlrettelser](#fejlrettelser).
