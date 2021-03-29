@@ -49,6 +49,8 @@ nav:
     - inbox/archiving_practices.md
     - inbox/database_tables.md
     - inbox/framework.md
+  - Development:
+      - development/pyinstaller.md
 extra_css:
   - css/extra.css
 theme:

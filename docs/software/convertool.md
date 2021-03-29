@@ -145,7 +145,7 @@ Når filer konverteres manuelt, er det vigtigt at opdatere `_ConvertedFiles`-tab
     | --- | ----------------------------------- | --------------------------- | ------------------ | ------- | ------------------------ | ------- |
     | 144 | cd61494b-4547-43e7-97c6-adbafc6e8bd | D:\files\AARS.TEST\file.tif | AARS.TEST\file.tif | fmt/353 | Tagged Image File Format |         |
 
-    Filen konverteres nu manuelt, og `_ConvertedFiles opdateres med følgende SQL-statement.
+    Filen konverteres nu manuelt, og `_ConvertedFiles` opdateres med følgende SQL-statement.
 
     ```sql
     INSERT INTO _ConvertedFiles VALUES (144, "cd61494b-4547-43e7-97c6-adbafc6e8bd")
@@ -153,8 +153,19 @@ Når filer konverteres manuelt, er det vigtigt at opdatere `_ConvertedFiles`-tab
 
     Herefter fremgår filen ikke længere i `_NotConverted`-viewet.
 
-Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes [her](https://github.com/aarhusstadsarkiv/convertool/tree/master/convertool/core/replacements). Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes [her](https://aarhuskommune.sharepoint.com/:w:/s/fnk-funksite3337/EX7fuN8PnqBKqwY5rrMfz2EBc0uF7Lld2Qz3WysfjIWgAw?e=A5tEOa).
+Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes [her](https://github.com/aarhusstadsarkiv/convertool/tree/master/convertool/core/replacements). Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes [her](https://github.com/aarhusstadsarkiv/acadocs/blob/master/files/Konverteringsfejl.odt).
 
 !!! hint "Eksempel"
     Dokumentet "Konverteringsfejl" kan se ud som følger. 
     ![Konverteringsfejl](../img/konverteringsfejl.png)
+
+## Arbejdsgang
+Som opsummering kommer her en oversigt over arbejdsgangen med Convertool.
+
+1. Åbn PowerShell
+2. Skriv `cd sti\til\data` f.eks. `cd E:\batch_7\AVID.AARS.61.1`
+3. Kør `convertool .\_metadata\files.db OUTDIR main`, hvor `OUTDIR` f.eks. er `E:\batch_7\out`
+4. Tjek fildatabasen
+5. Tjek logfilen i `_metadata\convertool.log` for `WARNING`s. Ved ikke-kritiske fejl som f.eks. timeout køres convertool igen som i trin 3.
+6. Tjek database og logfil igen. Referér til eksemplet i [fejlrettelser](#fejlrettelser), hvis der skal laves manuelle rettelser.
+7. Hvis der er filer, som ikke kan konverteres, skal dette noteres i dokumentet "Konverteringsfejl", som beskrevet i [fejlrettelser](#fejlrettelser).
