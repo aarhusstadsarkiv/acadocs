@@ -3,7 +3,7 @@ repo_url: https://github.com/aarhusstadsarkiv/acadocs
 repo_name: aarhusstadsarkiv/acadocs
 nav:
   - Udvælgelse:
-    - selection/index.md
+    - Introduktion: selection/index.md
   - Modtagelse:
     - Introduktion: acquisition/index.md
     - Analog materiale: acquisition/acquiring-analog-material.md
@@ -12,6 +12,7 @@ nav:
     - Introduktion: digitization/index.md
   - Registrering:
     - Introduktion: registration/index.md
+    - SAM: registration/sam.md
     - SAM-Workflows: registration/sam-workflows.md
   - Bevaring:
     - Introduktion: preservation/index.md
