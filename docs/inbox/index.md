@@ -1,1 +1,0 @@
-These are disparate md-files pulled from archived or dileted repos.

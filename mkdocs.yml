@@ -2,24 +2,22 @@ site_name: ACADocs
 repo_url: https://github.com/aarhusstadsarkiv/acadocs
 repo_name: aarhusstadsarkiv/acadocs
 nav:
-  - Udvælgelse:
-    - Introduktion: selection/index.md
+  # - Udvælgelse:
+  #   - Introduktion: selection/index.md
   - Modtagelse:
     - Introduktion: acquisition/index.md
     - Analog materiale: acquisition/acquiring-analog-material.md
     - Digitalt materiale: acquisition/acquiring-digital-material.md
-  - Digitalisering:
-    - Introduktion: digitization/index.md
+  # - Digitalisering:
+  #   - Introduktion: digitization/index.md
   - Registrering:
     - Introduktion: registration/index.md
     - SAM: registration/sam.md
     - SAM-Workflows: registration/sam-workflows.md
-  - Bevaring:
-    - Introduktion: preservation/index.md
-  - Tilgængeliggørelse:
-    - Introduktion: dissemination/index.md
+
+  # - Tilgængeliggørelse:
+  #   - Introduktion: dissemination/index.md
   - Hjemmesider:
-    - Introduktion: sites/index.md
     - AarhusArkivet: sites/aarhusarkivet.md
     - AarhusWiki: sites/aarhuswiki.md
     - Smartarkivering:
@@ -38,19 +36,19 @@ nav:
     - Symphovert: software/symphovert.md
     - Ghostscript: software/ghostscript.md
     - LibreOffice: software/libreoffice.md
-  - Blanketter:
-    - Introduktion: documents/index.md
+  # - Blanketter:
+  #   - Introduktion: documents/index.md
   - Arkiveringsversioner:
     - Introduktion: archival-versions/index.md
     - Notesarkivering: archival-versions/notes-arkivering.md
-  - Inbox:
-    - Introduktion: inbox/index.md
-    - inbox/github.md
-    - inbox/archiving_practices.md
-    - inbox/database_tables.md
-    - inbox/framework.md
-  - Development:
+  # - Diverse:
+  #   - diverse/archiving_practices.md
+  #   - diverse/database_tables.md
+  #   - diverse/framework.md
+  - Dev:
+      - development/github.md
       - development/pyinstaller.md
+      - Diverse: diverse/index.md
 extra_css:
   - css/extra.css
 theme:
@@ -61,7 +59,8 @@ theme:
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
     - navigation.instant
     - navigation.tabs
-    # - navigation.sections
+    - navigation.top
+    - navigation.instant
   custom_dir: overrides
 plugins:
   # https://squidfunk.github.io/mkdocs-material/reference/variables/#macros
