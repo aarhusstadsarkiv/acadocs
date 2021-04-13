@@ -1,7 +1,7 @@
 AarhusArkivet er den primære online indgang til vores samlinger.
 
 ## Fejlmeldinger og udviklingsønsker
-Indberetning af fejl, udviklingsønsker, spørgsmål med mere foretages gennem issues, [som beskrevet under brugen af Github](../inbox/github.md#indberetninger).
+Indberetning af fejl, udviklingsønsker, spørgsmål med mere foretages gennem issues, [som beskrevet under brugen af Github](../development/github.md#indberetninger).
 
 
 ## Teknisk information

@@ -1,7 +1,7 @@
-SAM-workflows er et lille program, som blandt andet kan generere mindre billedfiler til online visninger af de digitale filer, som vi registerer i [SAM](../registration/sam.md).
+SAM-workflows er et lille program, som blandt andet kan generere mindre billedfiler til online visninger af de digitale masterfiler, som vi registerer i [SAM](../registration/sam.md).
 
 ## Fejlmeldinger og spørgsmål
-Indberetning af fejl og spørgsmål med mere foretages gennem issues, [som beskrevet under brugen af Github](../inbox/github.md#indberetninger).
+Indberetning af fejl, spørgsmål med mere foretages gennem issues, [som beskrevet under brugen af Github](../development/github.md#indberetninger).
 
 ## Installation
 SAM-workflows består af 1) et lille program (```sam_workflows.exe```-fil) og 2) en mappe med program-filer, som begge skal være på plads før programmet virker.
@@ -44,5 +44,5 @@ Dette er ikke et krav, men en anbefaling.
 SAM-workflows kan aktuelt generere access-filer (jpg-filer) ud fra originale pdf'er eller billedfiler (jpg, tif, png, gif...).
 
 ### Csv-fil fra SAM
-For at køre et workflow, der genererer access-filer, skal SAM-workflow bruge den csv-fil, som er [eksportet fra det relevante SAM-job](../registration/sam.md#eksport-af-metadata).
+For at køre et SAM-relateret workflow, skal SAM-Workflow bruge den csv-fil, som er [eksporteret fra det relevante SAM-job](../registration/sam.md#eksport-af-metadata).
 
