@@ -1,0 +1,1 @@
+SAM er vores registreringssystem.
