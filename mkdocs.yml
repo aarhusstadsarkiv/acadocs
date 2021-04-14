@@ -1,19 +1,31 @@
-site_name: ACADocs
+site_name: Aarhus Stadsarkiv
 repo_url: https://github.com/aarhusstadsarkiv/acadocs
 repo_name: aarhusstadsarkiv/acadocs
+site_author: Claus Juhl Knudsen
+site_description: >-
+  Documentation for some of the digital processes that we often
+  work with at Aarhus City Archives.
+
 nav:
   # - Udvælgelse:
   #   - Introduktion: selection/index.md
-  - Modtagelse:
-    - Introduktion: acquisition/index.md
-    - Analog materiale: acquisition/acquiring-analog-material.md
-    - Digitalt materiale: acquisition/acquiring-digital-material.md
+  # - Modtagelse:
+  #   - Introduktion: acquisition/index.md
+  #   - Analog materiale: acquisition/acquiring-analog-material.md
+  #   - Digitalt materiale: acquisition/acquiring-digital-material.md
   # - Digitalisering:
   #   - Introduktion: digitization/index.md
   - Registrering:
     - Introduktion: registration/index.md
-    - SAM: registration/sam.md
-    - SAM-Workflows: registration/sam-workflows.md
+    - SAM:
+      - Introduktion: registration/sam/index.md
+      - Installation: registration/sam/installation.md
+      - Eksport af metadata: registration/sam/export.md
+      - Import af metadata: registration/sam/import.md
+    - SAM-Workflows:
+      - Introduktion: registration/sam-workflows/index.md
+      - Installation: registration/sam-workflows/installation.md
+      - Generering af access-filer:  registration/sam-workflows/generate-access-files.md
 
   # - Tilgængeliggørelse:
   #   - Introduktion: dissemination/index.md
@@ -27,6 +39,7 @@ nav:
       - Importér til SAM: sites/smartarkivering/import-to-sam.md
     - Byrådsarkivet:
       - Publicér ny version: sites/byraadsarkivet/deploy-new-version.md
+  # Værktøjer, CLIs, GUI-applikationer, online services...
   - Software:
     - Introduktion: software/index.md
     - FileZilla: software/filezilla.md
@@ -59,6 +72,7 @@ theme:
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/
     - navigation.instant
     - navigation.tabs
+    - navigation.sections
     - navigation.top
     - navigation.instant
   custom_dir: overrides
@@ -68,14 +82,15 @@ plugins:
   - search:
       lang: da
 # Place any global vars here (macros-plugin can fetch them) to use in jinja
-extra:
-  unit:
-    price: 12
+# extra:
+#   unit:
+#     price: 12
 markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
   - meta
+  - def_list
   # Alerts
   # https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types
   - admonition 
