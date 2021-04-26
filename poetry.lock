@@ -121,7 +121,7 @@ test = ["mkdocs-macros-test", "mkdocs-material"]
 
 [[package]]
 name = "mkdocs-material"
-version = "7.1.2"
+version = "7.1.3"
 description = "A Material Design theme for MkDocs"
 category = "main"
 optional = false
@@ -253,7 +253,7 @@ telegram = ["requests"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "925c4f2910ba51fd40c75bf97b92b48c2e8e83de7ec7158c0b3a4ec0774e9071"
+content-hash = "4f486b1924d10cd07a08277a7eee90a547efbbc5d359ff40197aeeb354d660ce"
 
 [metadata.files]
 click = [
@@ -345,8 +345,8 @@ mkdocs-macros-plugin = [
     {file = "mkdocs_macros_plugin-0.5.5-py3-none-any.whl", hash = "sha256:def642db46bb42f2d7e532954dba4c5c0574079366927847da16e784b7986a9d"},
 ]
 mkdocs-material = [
-    {file = "mkdocs-material-7.1.2.tar.gz", hash = "sha256:8973786f90468c1e947eb762a89a64ac749759e7dafba911636216dd7982c7e1"},
-    {file = "mkdocs_material-7.1.2-py2.py3-none-any.whl", hash = "sha256:2ac789c380bbea0801ae34e01fbf76c8bfbebcf0bce15bc76225182f1191617e"},
+    {file = "mkdocs-material-7.1.3.tar.gz", hash = "sha256:e34bba93ad1a0e6f9afc371f4ef55bedabbf13b9a786b013b0ce26ac55ec2932"},
+    {file = "mkdocs_material-7.1.3-py2.py3-none-any.whl", hash = "sha256:437638b0de7a9113d7f1c9ddc93c0a29a3b808c71c3606713d8c1fa437697a3e"},
 ]
 mkdocs-material-extensions = [
     {file = "mkdocs-material-extensions-1.0.1.tar.gz", hash = "sha256:6947fb7f5e4291e3c61405bad3539d81e0b3cd62ae0d66ced018128af509c68f"},
