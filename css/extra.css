@@ -1,0 +1,4 @@
+/* hide navigation in footer */
+.md-footer-nav {
+    display: none;
+}
