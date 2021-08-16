@@ -1,5 +1,5 @@
 # Tiffany
-Tiffany er en CLI (Command-Line Interface), som benyttes til at udfylde relevante 'huller' i MasterDocuments med passende template filer, således de overholder de juridiske krav til en aflevering.
+Tiffany er et tekstbaseret værktøj (Command-Line Interface), som benyttes til at udfylde relevante 'huller' i MasterDocuments med passende template filer, således de overholder de juridiske krav til en aflevering.
 
 !!! warning "Bemærk"
 Tiffany er specifikt tilrettet Improventos måde at aflevere originalfiler på, så skal værktøjet bruges til andre afleveringer end Notes-baser, skal man være opmærksom på dette.
