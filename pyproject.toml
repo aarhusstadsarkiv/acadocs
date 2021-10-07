@@ -16,7 +16,6 @@ python = "^3.8"
 
 [tool.black]
 exclude = ".venv"
-line-length = 79
 
 [build-system]
 build-backend = "poetry.masonry.api"
