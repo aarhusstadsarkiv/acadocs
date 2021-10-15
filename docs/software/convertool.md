@@ -48,11 +48,13 @@ Convertool har to inputargumenter, som begge er påkrævede: `FILES` og `OUTDIR`
 Convertool genererer selv en mappe baseret på [AARS-ID'et](../acquisition/acquiring-digital-material.md#identifikator), og det er derfor kun nødvendigt at angive en overordnet folder i `OUTDIR`.
 
 ### Optioner
-Convertool har tre optioner, der, som navnet antyder, ikke er påkrævede:
+Convertool har 4 optioner. Som udgangspunk ter disse ikke påkrævede, bortset fra option 4, som skal bruges hvis kommandoen (se kommandoer) `replacepdf` kaldes:
 
 1. `--threshold` angiver det maksimale antal fejl, der må ske under konvertering
 2. `--help` printer hjælp
 3. `--version` printer versionen af Convertool
+4. `--pdf_1_7` Angiver at convertool kun skal indlæse PDF 1.7 filer. Denne Option skal bruges sammen med kammandoen `replacepdf` for at konvertere og
+                overskrive de PDF 1.7 filer som er tilbage efter første gennemkørsel.
 
 `--threshold` kan bruges, hvis man ønsker, at Convertool accepterer et andet antal fejl end standardværdien. Standardværdien udregnes som kvadratroden af det totale antal filer. Hvis få filer konverteres, kan det være fordelagtigt at sætte `--threshold` til `0`, da konvertering så stopper, første gang en fejl hænder. Det er dog ikke anbefalet for større mængder filer.
 
@@ -69,14 +71,33 @@ Convertool har tre optioner, der, som navnet antyder, ikke er påkrævede:
     convertool --version
     ```
 
+!!! hint "Eksempel"
+```powershell
+    convertool --pdf_1_7=1 D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out replacepdf
+```
+
 ### Kommandoer
-Convertool har pt. én kommando kaldet `main`. Denne kommando konverterer filer til Aarhus Stadsarkivs prædefinerede Master-formater. Disse er blandt andre Open Document Text for alle Word-lignende filer, PDF/A for PDF-filer, og TIFF for billedfiler.
+Convertool har 3 kommandoer kaldet `main`, `tiff` og `replacepdf`. 
+
+* main
+
+Denne kommando konverterer filer til Aarhus Stadsarkivs prædefinerede Master-formater. Disse er blandt andre Open Document Text for alle Word-lignende filer, PDF/A for PDF-filer, og TIFF for billedfiler.
 
 !!! hint "Eksempel"
     ```powershell
     convertool D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out main
     ```
 I fremtiden skal Convertool også kunne håndtere konvertering af alle Master-filer til arkiveringsformater, således der kan genereres juridiske afleveringer. Dette bør være en separat kommando.
+
+* tiff
+
+Denne kommando konverterer Master-filer til Tagged Image File Format (TIFF) i overenstemmelse med gældende lovgivning. En passende bitdybe og komprimering som overholder lovgivningen bliver valgt af værktøjet, og behøver ikke at specificeres. Syntaksen for agt bruge kommandoen er den samme som `main`, hvor `main` erstattes med `tiff`.
+
+
+* replacepdf
+
+Denne kommando køre funktionen `replace` fra replace_pdf.py på de restederende PDF 1.7 filer som indlæses ved brug af optionen `--pdf_1_7`.
+Da funktionen bruger GhostScript, kan den multiprocesses og køre flere konverteringer parallelt. Et eksempel på brugen kan ses under beskrivelsen af `--pdf_1_7`.
 
 
 ## Konvertering
