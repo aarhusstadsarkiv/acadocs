@@ -72,9 +72,9 @@ Convertool har 4 optioner. Som udgangspunk ter disse ikke påkrævede, bortset f
     ```
 
 !!! hint "Eksempel"
-```powershell
+    ```powershell
     convertool --pdf_1_7=1 D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out replacepdf
-```
+    ```
 
 ### Kommandoer
 Convertool har 3 kommandoer kaldet `main`, `tiff` og `replacepdf`. 
