@@ -1,1 +1,1 @@
-Kristians bedokumentation af testarbejdet i ADA
+Kristians dokumentation af testarbejdet i ADA

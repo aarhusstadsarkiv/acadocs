@@ -35,13 +35,13 @@ Efter fuldendt kopiering lægges den afleverede usb-disk til side. Vi skal ikke 
 ### Validering af dokumentstruktur
 Hvis afleveringen indeholder digitale dokumenter (OriginalDocuments), foretages nu en indledningsvis validering af disse (tjekker for tomme mappe/filer, tilstedeværelsen af *.zip*-filer, andet?).
 
-Vi benytter **[digiarch](../../software/digiarch)** til at foretage denne indledende validering af dokumenterne og strukturen i de enkelte *docCollections*. Kald *process* på den mappe, som arkiveringsversionen er kopieret til:
+Vi benytter **[digiarch](../../tools/digiarch)** til at foretage denne indledende validering af dokumenterne og strukturen i de enkelte *docCollections*. Kald *process* på den mappe, som arkiveringsversionen er kopieret til:
 
 ```powershell
 digiarch D:\filer\AVID.AARS.3.1 process
 ```
 
-[Dokumentationen til digiarch](../../software/digiarch) indeholder yderligere beskrivelser af, hvordan værktøjet benyttes
+[Dokumentationen til digiarch](../../tools/digiarch) indeholder yderligere beskrivelser af, hvordan værktøjet benyttes
 
 *Digiarch* producerer sin egen "_metadata"-mappe med en "files.db"-fil, som efter den indledningsvise test skal placeres i roden af "OriginalDocuments":
 
@@ -90,7 +90,7 @@ Hvis resultatet af dokumentvalideringen ikke nødvendiggør en genaflevering, ko
 ## Identifikation af dokumenter
 Inden dokumentkonvertering foretages en grundig identifikation af de originale dokumenter. Dette gøres både for at fange så mange problemer (filendelser, tomme filer...) som muligt inden konverteringsprocessen, men også for at finde ud af, hvilket master-format en given fil skal konverteres til.
 
-Vi benytter endnu engang **digiarch** til at styre denne omstændige proces, som er nærmere beskrevet her: [dokumentation til digiarch](../../software/digiarch).
+Vi benytter endnu engang **digiarch** til at styre denne omstændige proces, som er nærmere beskrevet her: [dokumentation til digiarch](../../tools/digiarch).
 
 Når alle fejl eller misforhold, som det har været muligt at tilrette, er afhjulpet, står man tilbage med en filliste, hvor minimum en fil almindeligvis stadig vil være fejlbehæftet og dermed have en pronomID, som indikerer en af følgende fejltyper:
 
@@ -105,7 +105,7 @@ Afleveringen er nu klar til at blive testet i ADA. Denne proces er beskrevet und
 Når ADA-testen er afsluttet og arkiveringsversionen kan godkendes, er det tid til at konvertere de originale dokumenter til Stadsarkivets [*"master"*-formater](../master-formats).
 
 ## Konvertering til master-formater
-Vi benytter **[convertool](../../software/convertool)** til at konvertere de originale dokumenter til master-formater. Denne proces er beskrevet i [convertool-dokumentationen](../../software/convertool), og her skal blot nævnes, at de konverterede dokumenter lægges i samme struktur som de originale dokumenter, blot i mappen "MasterDocuments":
+Vi benytter **[convertool](../../tools/convertool)** til at konvertere de originale dokumenter til master-formater. Denne proces er beskrevet i [convertool-dokumentationen](../../tools/convertool), og her skal blot nævnes, at de konverterede dokumenter lægges i samme struktur som de originale dokumenter, blot i mappen "MasterDocuments":
 
 ```
 /AVID.AARS.3.1
@@ -130,10 +130,10 @@ Vi benytter **[convertool](../../software/convertool)** til at konvertere de ori
     |-- docCollection2/
 ```
 
-Filerne testes og fejlrettes med **[digiarch](../../software/digiarch)**, og databasen testes med **[ADA](../ada)**. De to processer er uafhængige af hinanden og kan derfor køres både separat og parallelt.
+Filerne testes og fejlrettes med **[digiarch](../../tools/digiarch)**, og databasen testes med **[ADA](../ada)**. De to processer er uafhængige af hinanden og kan derfor køres både separat og parallelt.
 
 ## Konvertering til arkiv-formater
-Når både databasen og dokumenterne er gennemarbejdet og kan godkendes, konverteres master-dokumenterne slutteligt til arkiv-formater (tiff, jpeg2000, MPEG..). Igen benyttes **[convertool](../../software/convertool)**, og igen lægges de konverterede filer i samme struktur som de originale dokumenter, blot i mappen "Documents":
+Når både databasen og dokumenterne er gennemarbejdet og kan godkendes, konverteres master-dokumenterne slutteligt til arkiv-formater (tiff, jpeg2000, MPEG..). Igen benyttes **[convertool](../../tools/convertool)**, og igen lægges de konverterede filer i samme struktur som de originale dokumenter, blot i mappen "Documents":
 
 ```
 /AVID.AARS.3.1

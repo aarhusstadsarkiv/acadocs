@@ -14,6 +14,6 @@ mkdocs build
 
 Deploy to GitHub Pages
 
-```
+```shell
 mkdocs gh-deploy
 ```

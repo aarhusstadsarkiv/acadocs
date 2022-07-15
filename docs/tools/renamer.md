@@ -1,0 +1,2 @@
+# Renamer
+```renamer``` er et commandline værktøj til omdøbning af filer. Oftest brugt i forbindelse med konverteringsprocesser, hvor filer med manglende eller fejlagtig filendelse ofte vil skabe problemer i den senere konverteringsproces.

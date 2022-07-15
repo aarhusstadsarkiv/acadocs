@@ -1,1 +1,0 @@
-Alt om software

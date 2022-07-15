@@ -1,4 +1,5 @@
 site_name: Aarhus Stadsarkiv
+site_url: https://aarhusstadsarkiv.github.io/acadocs/
 repo_url: https://github.com/aarhusstadsarkiv/acadocs
 repo_name: aarhusstadsarkiv/acadocs
 site_author: Claus Juhl Knudsen
@@ -15,41 +16,41 @@ nav:
   #   - Digitalt materiale: acquisition/acquiring-digital-material.md
   # - Digitalisering:
   #   - Introduktion: digitization/index.md
-  - Registrering:
-    - Introduktion: registration/index.md
-    - SAM:
-      - Introduktion: registration/sam/index.md
-      - Installation: registration/sam/installation.md
-      - Eksport af metadata: registration/sam/export.md
-      - Import af metadata: registration/sam/import.md
-    - SAM-Workflows:
-      - Introduktion: registration/sam-workflows/index.md
-      - Installation: registration/sam-workflows/installation.md
-      - Generering af access-filer:  registration/sam-workflows/generate-access-files.md
+  # - Registrering:
+  #   - Introduktion: registration/index.md
+  #   - SAM:
+  #     - Introduktion: registration/sam/index.md
+  #     - Installation: registration/sam/installation.md
+  #     - Eksport af metadata: registration/sam/export.md
+  #     - Import af metadata: registration/sam/import.md
+  #   - SAM-Workflows:
+  #     - Introduktion: registration/sam-workflows/index.md
+  #     - Installation: registration/sam-workflows/installation.md
+  #     - Generering af access-filer:  registration/sam-workflows/generate-access-files.md
 
   # - Tilgængeliggørelse:
   #   - Introduktion: dissemination/index.md
   - Hjemmesider:
     - AarhusArkivet: sites/aarhusarkivet.md
     - AarhusWiki: sites/aarhuswiki.md
-    - Smartarkivering:
-      - Hent data: sites/smartarkivering/fetch-data-via-ftp.md
-      - Kør workflow: sites/smartarkivering/run-workflow.md
-      - Forbered data: sites/smartarkivering/proces-raw-data.md
-      - Importér til SAM: sites/smartarkivering/import-to-sam.md
-    - Byrådsarkivet:
-      - Publicér ny version: sites/byraadsarkivet/deploy-new-version.md
+    - Byrådsarkivet: sites/byraadsarkivet.md
+    - Smartarkivering: sites/smartarkivering.md
+
   # Værktøjer, CLIs, GUI-applikationer, online services...
-  - Software:
-    - Introduktion: software/index.md
-    - FileZilla: software/filezilla.md
-    - Chocolatey: software/chocolatey.md
-    - Digiarch: software/digiarch.md
-    - Convertool: software/convertool.md
-    - Symphovert: software/symphovert.md
-    - Tiffany: software/tiffany.md
-    - Ghostscript: software/ghostscript.md
-    - LibreOffice: software/libreoffice.md
+  - Værktøjer:
+    - Introduktion: tools/index.md
+    - GUI:
+      - FileZilla: tools/filezilla.md
+    - CLI:
+      - Chocolatey: tools/chocolatey.md
+      - Digiarch: tools/digiarch.md
+      - Convertool: tools/convertool.md
+      - Symphovert: tools/symphovert.md
+      - Renamer: tools/renamer.md
+      - Unarchiver: tools/unarchiver.md
+      - Tiffany: tools/tiffany.md
+      - Ghostscript: tools/ghostscript.md
+      - LibreOffice: tools/libreoffice.md
   # - Blanketter:
   #   - Introduktion: documents/index.md
   - Arkiveringsversioner:
@@ -59,10 +60,19 @@ nav:
   #   - diverse/archiving_practices.md
   #   - diverse/database_tables.md
   #   - diverse/framework.md
-  - Dev:
-      - development/github.md
-      - development/pyinstaller.md
-      - Diverse: diverse/index.md
+  - Development:
+    - development/index.md
+    - development/git.md
+    - development/github.md
+    - development/wsl.md
+    - development/docker.md
+    - Python:
+      - development/python/index.md
+      - development/python/pyinstaller.md
+    - Diverse:
+      - diverse/index.md
+  - Processer:
+    - Konvertering af filer: processes/convert-files.md
 extra_css:
   - css/extra.css
 theme:
@@ -75,7 +85,8 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.top
-    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
   custom_dir: overrides
 plugins:
   # https://squidfunk.github.io/mkdocs-material/reference/variables/#macros
@@ -98,6 +109,8 @@ markdown_extensions:
   # Make alerts collapsible
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   # Align images left or right
   # E.g. ![Placeholder](https://dummyimage.com/600x400/eee/aaa){: align=left }
   - attr_list
