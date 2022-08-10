@@ -20,7 +20,11 @@ Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøre
 
 
 ## 2. Omdøbning af filer
-Efter identifikationsprocessen vil der almindeligvis være filer, der enten ikke kunne identificeres, eller hvor filendelsen enten mangler eller er uforenelig med det filformat, som `digiarch` har fundet. Alle tilfælde, hvor puid ikke kunne determineres eller hvor der er mismatich til filendelsen, vil være oplistet i _IdentificationWarnings-viewet. Det er ikke alle problemer, der skal løses, men "Extension mismatch", "puid is Null", "Match on text only; extension mismatch"
+Efter identifikationsprocessen vil der almindeligvis være filer, der enten ikke kunne identificeres, eller hvor filendelsen enten mangler eller er uforenelig med det filformat, som `digiarch` har fundet. Alle tilfælde, hvor puid ikke kunne determineres eller hvor der er mismatch til filendelsen, vil være oplistet i _IdentificationWarnings-viewet. Det er kun følgende warnings, der skal løses:
+
+- "Extension mismatch"
+- "puid is Null"
+- "Match on text only; extension mismatch"
 
 Inden næste trin skal man som minimum omdøbe alle komplekse filer (.msg, winmail.dat, .7z, .zip ...), som [`unarchiver`](../tools/unarchiver.md) skal udpakke. Vi behøver ikke identificere filerne igen umiddelbart efter omdøbning, da [`renamer`](../tools/renamer.md) opdaterer både database og filnavne.
 
