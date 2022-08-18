@@ -3,7 +3,7 @@ Digiarch er en CLI (Command-Line Interface), som benyttes til at indeksere og id
 
 
 ## Installation og opdatering
-Digiarch skal installeres via master branch med pipx[pipx.md]:
+Digiarch skal installeres via master branch med (pipx)[pipx.md]:
 
 ```powershell
 pipx install git+https://github.com/aarhusstadsarkiv/digiarch.git
@@ -18,7 +18,7 @@ digiarch --version
 Når man skal opdatere Digiarch, bruges `pipx` med `--upgrade`:
 
 ```powershell
-pipx upgrade git+https://github.com/aarhusstadsarkiv/digiarch.git
+pipx upgrade digiarch
 ```
 
 
