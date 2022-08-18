@@ -34,13 +34,13 @@ choco install golang
 Givet en fungerende version af Go, foregår installation af Siegfried som følger.
 
 ```powershell
-go get github.com/richardlehane/siegfried/cmd/sf
+go install github.com/richardlehane/siegfried/cmd/sf@latest
 sf -update
 ```
 Hvis Siegfried skal opdateres, foregår dette også gennem Go:
 
 ```powershell
-go get -u github.com/richardlehane/siegfried/cmd/sf
+go install github.com/richardlehane/siegfried/cmd/sf@latest
 sf -update
 ```
 

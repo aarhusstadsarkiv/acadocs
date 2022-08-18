@@ -68,6 +68,7 @@ nav:
     - development/github.md
     - development/wsl.md
     - development/docker.md
+    - development/git_workflow.md
     - Python:
       - development/python/index.md
       - development/python/pyinstaller.md
