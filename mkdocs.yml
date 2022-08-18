@@ -30,6 +30,7 @@ nav:
 
   # - Tilgængeliggørelse:
   #   - Introduktion: dissemination/index.md
+
   - Hjemmesider:
     - AarhusArkivet: sites/aarhusarkivet.md
     - AarhusWiki: sites/aarhuswiki.md
@@ -42,6 +43,7 @@ nav:
     - GUI:
       - FileZilla: tools/filezilla.md
     - CLI:
+      - Pipx: tools/pipx.md
       - Chocolatey: tools/chocolatey.md
       - Digiarch: tools/digiarch.md
       - Convertool: tools/convertool.md
@@ -72,6 +74,7 @@ nav:
     - Diverse:
       - diverse/index.md
   - Processer:
+    - Identifikation af filer: processes/identify-files.md
     - Konvertering af filer: processes/convert-files.md
 extra_css:
   - css/extra.css

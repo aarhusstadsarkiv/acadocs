@@ -2,26 +2,24 @@
 Digiarch er en CLI (Command-Line Interface), som benyttes til at indeksere og identificere digitale filer, vi modtager til bevaring. CLI'en producerer en [SQLite](https://www.sqlite.org/index.html) database kaldet `files.db`, som indeholder oversigter og informationer om de relevante processerede filer.
 
 
-
-## Installation
-Digiarch er tilgængelig på [PyPI](https://pypi.org/project/digiarch) og kan derfor installeres direkte via `pip`, såfremt man har en fungerende Pythoninstallation. 
-
-```powershell
-pip install --user digiarch
-```
-
-Når man skal opdatere Digiarch, bruges `pip` med `--upgrade`
+## Installation og opdatering
+Digiarch skal installeres via master branch med pipx[pipx.md]:
 
 ```powershell
-pip install --user --upgrade digiarch
+pipx install git+https://github.com/aarhusstadsarkiv/digiarch.git
 ```
 
-!!! attention "Bemærk"
-    `pip` kan også bruges uden `--user`. Det anbefales dog på det kraftigste at bruge `--user`, da man så undgår at forurene systemets Pythonmiljø. Når man laver brugerinstallationer på denne måde, er det vigtigt at sikre sig, at man har brugerens Python-sti i sine systemmiljøvariable. Denne vil typisk være 
-    ```
-    C:\Users\[bruger]\AppData\Roaming\Python\Python[version]\Scripts
-    ```
+Test efterfølgende installationen med følgende kommando:
 
+```powershell
+digiarch --version
+```
+
+Når man skal opdatere Digiarch, bruges `pipx` med `--upgrade`:
+
+```powershell
+pipx upgrade git+https://github.com/aarhusstadsarkiv/digiarch.git
+```
 
 
 ## Forudsætninger
