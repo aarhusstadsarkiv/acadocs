@@ -58,10 +58,6 @@ nav:
   - Arkiveringsversioner:
     - Introduktion: archival-versions/index.md
     - Notesarkivering: archival-versions/notes-arkivering.md
-  # - Diverse:
-  #   - diverse/archiving_practices.md
-  #   - diverse/database_tables.md
-  #   - diverse/framework.md
   - Development:
     - development/index.md
     - development/git.md
@@ -70,10 +66,10 @@ nav:
     - development/docker.md
     - development/git_workflow.md
     - Python:
-      - development/python/index.md
+      - development/python/python-repos.md
       - development/python/pyinstaller.md
-    - Diverse:
-      - diverse/index.md
+    - Roadmap:
+      - development/roadmap.md
   - Processer:
     - Identifikation af filer: processes/identify-files.md
     - Konvertering af filer: processes/convert-files.md
