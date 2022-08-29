@@ -51,13 +51,15 @@ ADA test af alle FÆRDIGE arkiveringsversioner.
 ## Digiarch
 Skal være dokumenteret omkring: hvad det er, installation, files.db, warnings-betydninger, hvad gøres ved fejl af alle type, hvordan fejlrettes, hvordan dokumenteres processen i status.txt, hvordan og hvornår opdateres digiarch, hvordan opdateres json-filerne, hvordan publiceres nye releases?
 
+
 ## Convertool
-Integration af GIS- og CAD-konvertering
+1. Integration af GIS- og CAD-konvertering
+2. Skal være dokumenteret omkring: hvad det er, installation, files.db, warnings-betydninger, hvad gøres ved fejl af alle type, hvordan fejlrettes, hvordan dokumenteres processen i status.txt, hvordan og hvornår opdateres digiarch, hvordan opdateres json-filerne, hvordan publiceres nye releases?
 
 ## Digitalt Arkiv
-- Webservice, hvorigennem ALLE kald foretages (FastAPI)
+1. Webservice, hvorigennem ALLE kald (med tid) skal foretages (FastAPI)
   - database (PG)
-  - søgemaskine (PG)
+  - søgemaskine (ElasticSearch)
   - filserver 
   - brugerfunktionalitet
   - lager- og ordrestyring
