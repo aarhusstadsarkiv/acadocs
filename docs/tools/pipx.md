@@ -5,7 +5,7 @@ Pipx er en wrapper rundt om pip, og bruges til at installere Python-baserede com
 Pipx skal naturligvis installeres før alle de python-baserede commandline værktøjer, der installeres via pipx.
 
 ```
-python -m pip install --user U pipx
+python -m pip install --user pipx
 pipx ensurepath
 
 ```
@@ -14,5 +14,5 @@ Den sidste kommando tilføjer både `<USER folder>\AppData\Roaming\Python\Python
 
 Upgrade pipx med pip:
 ```
-python -m pip install --user -U pipx
+python -m pip install --user pipx
 ```
