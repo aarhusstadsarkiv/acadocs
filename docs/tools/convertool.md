@@ -87,11 +87,10 @@ Denne kommando konverterer filer til Aarhus Stadsarkivs prædefinerede Master-fo
     ```powershell
     convertool D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out main
     ```
-I fremtiden skal Convertool også kunne håndtere konvertering af alle Master-filer til arkiveringsformater, således der kan genereres juridiske afleveringer. Dette bør være en separat kommando.
+    
+* statutory
 
-* tiff
-
-Denne kommando konverterer Master-filer til Tagged Image File Format (TIFF) i overenstemmelse med gældende lovgivning. En passende bitdybe og komprimering som overholder lovgivningen bliver valgt af værktøjet, og behøver ikke at specificeres. Syntaksen for agt bruge kommandoen er den samme som `main`, hvor `main` erstattes med `tiff`.
+Denne kommando konverterer Master-filer til deres arkivformat i overenstemmelse med gældende lovgivning. Syntaksen for at bruge kommandoen er den samme som `main`, hvor `main` erstattes med `statutory`.
 
 
 * replacepdf
