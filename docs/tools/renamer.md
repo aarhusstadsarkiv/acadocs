@@ -12,4 +12,4 @@ I nedenstående eksempel giver renamer alle puid fmt/340 filendelsen lwp
 
 !!! hint "Eksempel"
     ```powershell
-    renamer D:\AVID.AARS.77.1\OriginalFiles\_metadata\files.db fmt/340 lwp
+    renamer D:\AVID.AARS.77.1\OriginalFiles\_metadata\files.db fmt/340 lwp```
