@@ -246,4 +246,19 @@ Som opsummering kommer her en oversigt over arbejdsgangen med Digiarch.
 5. Hvis rettelse af filendelsesfejl er nødvendigt, kør da `digiarch . fix`
 6. Tjek fildatabasen igen
 7. Hvis der laves manuelle rettelser, kør da `digiarch --reindex . process`
-   
+
+Efter konverteringen har kørt kan det være en fordel at bruge følgende sql statement i en database genereret af Digiarch
+for at få et bedre overblik over filer, som mangler at blive konverteret.
+```sql
+CREATE VIEW "_NotConvertedOverview" AS SELECT puid, signature, COUNT(puid) FROM _NotConverted GROUP BY puid ORDER BY (COUNT(puid)) DESC
+```
+ 
+ Denne sql statement generere et view med følgende opbygning:
+ 
+| column    | type  | description  |
+| --------- | ----- | ------------ |
+| puid      | `str` | PRONOM ID    |
+| signature | `str` | Filsignatur  |
+| count     | `int` | Antallet af filer, som mangler at blive konverteret. |
+ 
+ 
