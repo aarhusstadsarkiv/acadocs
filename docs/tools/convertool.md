@@ -180,8 +180,27 @@ Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller
     ![Konverteringsfejl](../img/konverteringsfejl.png)
 
 ## Arbejdsgang
-Som opsummering kommer her en oversigt over arbejdsgangen med Convertool.
 
+### Klargøring
+Som opsummering kommer her en oversigt over arbejdsgangen med Convertool.
+Før convertool køres, er det en god ide at bruge TemplateHandler til at indsætte tif templates for de filer, som er oplistet i Not_preservable tabellen,
+da vi gerne vil undgå at konvertere disse filer.
+Dette gøres ved brug af følgende trin:
+
+1. Først bruges nedenstående sql statement og resultatet gemmes i en txt fil. Dette skal resultere i en newline seperaret liste af checksums.
+```sql
+SELECT checksum FROM Files WHERE uuid IN (SELECT uuid FROM Not_preservable);
+```
+
+2. Dernæst kaldes TemplateHandler, hvor stien til txt filen angives som `query_parameter`. 
+For brugen af TemplateHandler, se [TemplateHandlers github side](https://github.com/aarhusstadsarkiv/TemplateHandler).
+
+3. Som sidste step skal databasen opdateres. Dette kan gøres med nedenstående statement:
+```sql
+INSERT INTO _ConvertedFiles SELECT id, uuid FROM Files WHERE uuid IN (SELECT uuid FROM Not_preservable);
+```
+
+### Convertool
 1. Åbn PowerShell
 2. Skriv `cd sti\til\data` f.eks. `cd E:\batch_7\AVID.AARS.61.1`
 3. Kør `convertool .\_metadata\files.db OUTDIR main`, hvor `OUTDIR` f.eks. er `E:\batch_7\out`
