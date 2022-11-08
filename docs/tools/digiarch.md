@@ -2,26 +2,24 @@
 Digiarch er en CLI (Command-Line Interface), som benyttes til at indeksere og identificere digitale filer, vi modtager til bevaring. CLI'en producerer en [SQLite](https://www.sqlite.org/index.html) database kaldet `files.db`, som indeholder oversigter og informationer om de relevante processerede filer.
 
 
-
-## Installation
-Digiarch er tilgængelig på [PyPI](https://pypi.org/project/digiarch) og kan derfor installeres direkte via `pip`, såfremt man har en fungerende Pythoninstallation. 
-
-```powershell
-pip install --user digiarch
-```
-
-Når man skal opdatere Digiarch, bruges `pip` med `--upgrade`
+## Installation og opdatering
+Digiarch skal installeres via master branch med [pipx](pipx.md):
 
 ```powershell
-pip install --user --upgrade digiarch
+pipx install git+https://github.com/aarhusstadsarkiv/digiarch.git
 ```
 
-!!! attention "Bemærk"
-    `pip` kan også bruges uden `--user`. Det anbefales dog på det kraftigste at bruge `--user`, da man så undgår at forurene systemets Pythonmiljø. Når man laver brugerinstallationer på denne måde, er det vigtigt at sikre sig, at man har brugerens Python-sti i sine systemmiljøvariable. Denne vil typisk være 
-    ```
-    C:\Users\[bruger]\AppData\Roaming\Python\Python[version]\Scripts
-    ```
+Test efterfølgende installationen med følgende kommando:
 
+```powershell
+digiarch --version
+```
+
+Når man skal opdatere Digiarch, bruges `pipx` med `--upgrade`:
+
+```powershell
+pipx upgrade digiarch
+```
 
 
 ## Forudsætninger
@@ -36,13 +34,13 @@ choco install golang
 Givet en fungerende version af Go, foregår installation af Siegfried som følger.
 
 ```powershell
-go get github.com/richardlehane/siegfried/cmd/sf
+go install github.com/richardlehane/siegfried/cmd/sf@latest
 sf -update
 ```
 Hvis Siegfried skal opdateres, foregår dette også gennem Go:
 
 ```powershell
-go get -u github.com/richardlehane/siegfried/cmd/sf
+go install github.com/richardlehane/siegfried/cmd/sf@latest
 sf -update
 ```
 
@@ -248,4 +246,19 @@ Som opsummering kommer her en oversigt over arbejdsgangen med Digiarch.
 5. Hvis rettelse af filendelsesfejl er nødvendigt, kør da `digiarch . fix`
 6. Tjek fildatabasen igen
 7. Hvis der laves manuelle rettelser, kør da `digiarch --reindex . process`
-   
+
+Efter konverteringen har kørt kan det være en fordel at bruge følgende sql statement i en database genereret af Digiarch
+for at få et bedre overblik over filer, som mangler at blive konverteret.
+```sql
+CREATE VIEW "_NotConvertedOverview" AS SELECT puid, signature, COUNT(puid) FROM _NotConverted GROUP BY puid ORDER BY (COUNT(puid)) DESC
+```
+ 
+ Denne sql statement generere et view med følgende opbygning:
+ 
+| column    | type  | description  |
+| --------- | ----- | ------------ |
+| puid      | `str` | PRONOM ID    |
+| signature | `str` | Filsignatur  |
+| count     | `int` | Antallet af filer, som mangler at blive konverteret. |
+ 
+ 

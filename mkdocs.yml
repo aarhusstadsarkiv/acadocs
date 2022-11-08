@@ -30,6 +30,7 @@ nav:
 
   # - Tilgængeliggørelse:
   #   - Introduktion: dissemination/index.md
+
   - Hjemmesider:
     - AarhusArkivet: sites/aarhusarkivet.md
     - AarhusWiki: sites/aarhuswiki.md
@@ -42,24 +43,25 @@ nav:
     - GUI:
       - FileZilla: tools/filezilla.md
     - CLI:
+      - Pipx: tools/pipx.md
       - Chocolatey: tools/chocolatey.md
       - Digiarch: tools/digiarch.md
-      - Convertool: tools/convertool.md
-      - Symphovert: tools/symphovert.md
       - Renamer: tools/renamer.md
       - Unarchiver: tools/unarchiver.md
+      - Convert-unmanaged: tools/convert-unmanaged.md
+      - Gisprocessor: tools/gis_processor.md
+      - Rearranger: tools/rearranger.md
       - Tiffany: tools/tiffany.md
       - Ghostscript: tools/ghostscript.md
       - LibreOffice: tools/libreoffice.md
+      - Convertool: tools/convertool.md
+      - Symphovert: tools/symphovert.md
+      - Convert-qa: tools/convert-qa.md
   # - Blanketter:
   #   - Introduktion: documents/index.md
   - Arkiveringsversioner:
     - Introduktion: archival-versions/index.md
     - Notesarkivering: archival-versions/notes-arkivering.md
-  # - Diverse:
-  #   - diverse/archiving_practices.md
-  #   - diverse/database_tables.md
-  #   - diverse/framework.md
   - Development:
     - development/index.md
     - development/git.md
@@ -68,11 +70,12 @@ nav:
     - development/docker.md
     - development/git_workflow.md
     - Python:
-      - development/python/index.md
+      - development/python/python-repos.md
       - development/python/pyinstaller.md
-    - Diverse:
-      - diverse/index.md
+    - Roadmap:
+      - development/roadmap.md
   - Processer:
+    - Identifikation af filer: processes/identify-files.md
     - Konvertering af filer: processes/convert-files.md
 extra_css:
   - css/extra.css
