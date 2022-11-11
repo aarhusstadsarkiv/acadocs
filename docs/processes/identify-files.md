@@ -10,12 +10,12 @@ Detaljerede guides til installation og brug af de enkelte værktøjer findes [`h
 !!! attention "Bemærk"
     Før hvert værktøj køres, skal man sikre sig at man benytter den nyeste version af værktøjet. Dette kan evt. gøres med kommandoen 
     
-    ```powershell
+    ```
     pipx upgrade-all
     ```.
 
 ## 1. Identifikation af indkomne filer
-Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøres med [`digiarch`](../tools/digiarch.md). Den af 'digiarch' producere 'files.db'-fil inspiceres i DB Browser.
+Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Den af 'digiarch' producerede 'files.db'-fil inspiceres i DB Browser. Her kan man få et overblik over indholdet af afleveringen, heriblandt forskellige problemr i _IdentificationWarnings-viewet samt hvilke filtyper der er i _SignatureCount-viewet.
 
 !!! Status
 
@@ -25,16 +25,12 @@ Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøre
         * I terminalen vil digiarch ofte printe en række fejlmeddelelser ud, deriblandt "decompression bomb" error/warnings. Disse kan ignoreres.
         * Andre fejl inspiceres i files.db-filen og stifinderen, og noteres i 'status.txt', hvis de er faktiske fejl.
         * winmail.dat-filer identificeres fejlagtigt som fmt/1600 ESRI ARcInfo Dat File (Internal) ()
+        * Bemærk at der ikke altid (dog for det meste) er nogle _IdentificationWarnings, men prøv alligevel at få et overblik over afleveringen.
 
     === "Problemer"
 
         * Hvorfor forsøger PIL at åbne .gif'er?
 
-    === "Mangler"
-
-        * Sed sagittis eleifend rutrum
-
-  
 
 ## 2. Omdøbning af komplekse filer
 Efter identifikationsprocessen vil der almindeligvis være filer, der enten ikke kunne identificeres, eller hvor filendelsen enten mangler eller er uforenelig med det filformat, som [`digiarch`](../tools/digiarch.md) har fundet. Alle tilfælde, hvor puid ikke kunne determineres eller hvor filendelsen ikke stemmer overens med det af digiarch fundne filformat, vil være oplistet i _IdentificationWarnings-viewet i DB Browser. 
@@ -58,7 +54,7 @@ I dette trin skal komplekse filer, identificeret af digiarch som havende følgen
 For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
 ## 3. Udpak alle komplekse filer
-Brug [`unarchiver`](../tools/unarchiver.md) til at udpakke komplekse filer. `Unarchiver` laver en .log-fil i `_metadata`-mappen, som inspiceres efter værktøjet har kørt.
+Brug [`unarchiver`](../tools/unarchiver.md) til at udpakke komplekse filer, hvor man bruger stien til den i trin 1 producerede files.db. `Unarchiver` laver en .log-fil i `_metadata`-mappen, som inspiceres efter værktøjet har kørt. 
 
 !!! Status
 
@@ -70,36 +66,10 @@ Brug [`unarchiver`](../tools/unarchiver.md) til at udpakke komplekse filer. `Una
 
         * Korrupt 7z crasher unarchiver. Burde ligge en template og gå videre med andre filer. (Måske løst?)
 
-    === "Mangler"
-
-        1. Sed sagittis eleifend rutrum
-        2. Donec vitae suscipit est
-        3. Nulla tempor lobortis orci
-
 
 ## 4. Identificér filer igen
 Efter unarchiver, skal ```digiarch``` køres igen, så alle filer i alle underliggende mapper identificeres.
-Før værktøjet køres omdøbes den gamle `files.db` til `files_preunwrap.db` el., da digiarch nu lavet en ny `files.db`
-
-!!! Status
-
-    === "Erfaringer og Tips"
-
-        * Sed sagittis eleifend rutrum
-        * Donec vitae suscipit est
-        * Nulla tempor lobortis orci
-
-    === "Problemer"
-
-        * Sed sagittis eleifend rutrum
-        * Donec vitae suscipit est
-        * Nulla tempor lobortis orci
-
-    === "Mangler"
-
-        1. Sed sagittis eleifend rutrum
-        2. Donec vitae suscipit est
-        3. Nulla tempor lobortis orci
+OBS! Før værktøjet køres omdøbes den gamle `files.db` til `files_preunwrap.db` el., da digiarch nu laver en ny `files.db`
 
 ## 5. Omdøbning af udpakkede og andre resterende filer, samt identifikation af andre problemer
 
@@ -114,6 +84,7 @@ Derudover skal man i dette trin i `status.txt` notere, hvilke binære filer der 
 
 !!! attention "Bemærk"
     Lad være med at omdøbe .eml, identificeret som .html
+
 
 Nogle gange vil det være nødvendigt at ændre PUID'et, som identificeret af digarch. Dette gøres ved at lave et "update-statement" i `Execute SQL`-fanen i DB Browser. I nedenstående eksempel ændres PUID'et for winmail.dat-filer, fejlalgtigt identificeret som fmt/1600, til vores eget PUID, aca-fmt/9:
 
@@ -137,6 +108,7 @@ Nogle gange vil det være nødvendigt at ændre PUID'et, som identificeret af di
         * Ved `aca-fmt`-PUID'er bruges listen i [`renamer`](../tools/renamer.md)-guiden.
         * Hvis flere extensions kan bruges til det samme PUID, kan man evt. se hvilke extensions andre filer med samme PUID i afleveringen har.
         * Der vil ofte være korrupte pdf'er der ikke kan identificeres, men alligevel kan åbnes i browseren. Disse er ofte bevaringsværdige, og kan evt. gemmes manuelt i et nyt pdf-format, som så skal erstatte den korrupte fil.
+        * Filer med "No match; possibilities based on extension [etc.]"-warnings er sandsynligvis korrupte.
 
     === "Problemer/mangler"
 
@@ -151,13 +123,11 @@ Nogle gange vil det være nødvendigt at ændre PUID'et, som identificeret af di
         * 'rename-all' 
         * Der er for mange undtagelser til at dette kan gøres på nuværende tidspunkt. 
 
-    
-
 ## 6. Identificér problematiske filformater
-Brug [`convert-unmanaged`]() til at identificere, hvilke filformater i indkomsten, som vores konverteringsværktøjer aktuelt ikke kan håndtere, så vi allerede på dette tidspunkt i processen ved, hvor problemerne findes.
+Brug [`convert-unmanaged`](../tools/convert-unmanaged.md), med stien til files.db'en til at identificere, hvilke filformater i indkomsten, som vores konverteringsværktøjer aktuelt ikke kan håndtere, så vi allerede på dette tidspunkt i processen ved, hvor problemerne findes.
 
 ## 7. GIS-filer skal merges
-Eter omdøbning og udpakning, skal eventuelle GIS-filer merges, så de identificeres og konverteres korrekt. Dette gøres med værktøjet [`gis_processor`] (), der flytter alle GIS-filerne i de enkelte GIS-projekter hen i mappen, hvor det enkelte projekts masterfil ligger, og erstatter de flyttede med templates. Efter værktøjet har kørt inspiceres den af værktøjet skabte log-fil.
+Eter omdøbning og udpakning, skal eventuelle GIS-filer merges, så de identificeres og konverteres korrekt. Dette gøres med værktøjet [`gis_processor`] (../tools/gis_processor.md), der flytter alle GIS-filerne i de enkelte GIS-projekter hen i mappen, hvor det enkelte projekts masterfil ligger, og erstatter de flyttede med templates (følg guiden på værktøjets egen [`side`](../tools/gis_processor.md)). Efter værktøjet har kørt, inspiceres den af værktøjet skabte log-fil.
 
 Typer af GIS-projekter:
 
@@ -173,26 +143,16 @@ Typer af GIS-projekter:
     === "Problemer"
 
         * Flere identiske GIS-projekter, der ligger ved siden af hinanden skaber problemer (måske løst?)
-        * Donec vitae suscipit est
-        * Nulla tempor lobortis orci
-
-    === "Mangler"
-
-        1. Sed sagittis eleifend rutrum
-        2. Donec vitae suscipit est
-        3. Nulla tempor lobortis orci
 
     === "Erfaringer"
 
-        * Sed sagittis eleifend rutrum
-        * Donec vitae suscipit est
-        * Nulla tempor lobortis orci
+        * Det nogle gange være svært at finde ud af, om gis_processor har kørt korrekt - hvis der er filer den ikke har flyttet, fordi de af den ene eller den anden grund ikke er identificeret korrekt (i dette eller tidligere trin), kommer de heller ikke med i log-filen, osv. Her kan det være behjælpeligt at kigge på de forskellige GIS-projekter i DB browser, og se på hvilke filer der ligger i "området".
 
 ## 8. Udpakkede filer skal rearranges
-I dette skridt skal de filer der blev udpakket i trin 3 flyttes til nye mapper, således at de ligger i hver deres mappe. Dette gøres med værktøjet [`rearranger`] ()
+I dette skridt skal de filer der blev udpakket i trin 3 flyttes til nye mapper, således at de ligger i hver deres mappe. Dette gøres med værktøjet [`rearranger`] (../tools/rearranger.md)
 
 ## 9. Identificér filer igen
-Til sidst køres digiarch endnu engang for at afleveringen klar til konvertering. Før digiarch køres skal den gamle `files.db` omdøbes til `files_preGISRearrange.db`. 
+Til sidst køres digiarch endnu engang for at afleveringen klar til konvertering. Før digiarch køres skal den gamle `files.db` omdøbes til `files_preGISRearrange.db` el. 
 Den nye `files.db` inspiceres en sidste gang for fejl.
 
 Når afleveringen findes klar til konvertering, opdateres status for aflveringen i excel-arket `Arkiveringsversioner (notes)` på funktionsdrevet.
