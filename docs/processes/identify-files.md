@@ -31,7 +31,6 @@ Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøre
 
         * Hvorfor forsøger PIL at åbne .gif'er?
 
-  
 
 ## 2. Omdøbning af komplekse filer
 Efter identifikationsprocessen vil der almindeligvis være filer, der enten ikke kunne identificeres, eller hvor filendelsen enten mangler eller er uforenelig med det filformat, som [`digiarch`](../tools/digiarch.md) har fundet. Alle tilfælde, hvor puid ikke kunne determineres eller hvor filendelsen ikke stemmer overens med det af digiarch fundne filformat, vil være oplistet i _IdentificationWarnings-viewet i DB Browser. 
@@ -85,6 +84,7 @@ Derudover skal man i dette trin i `status.txt` notere, hvilke binære filer der 
 
 !!! attention "Bemærk"
     Lad være med at omdøbe .eml, identificeret som .html
+
 
 Nogle gange vil det være nødvendigt at ændre PUID'et, som identificeret af digarch. Dette gøres ved at lave et "update-statement" i `Execute SQL`-fanen i DB Browser. I nedenstående eksempel ændres PUID'et for winmail.dat-filer, fejlalgtigt identificeret som fmt/1600, til vores eget PUID, aca-fmt/9:
 
