@@ -22,7 +22,7 @@ pipx upgrade gisprocessor
 ```
 
 ## Brug
-Gisprocessor har to kommandoer, nemlig `g-json` og `move`. 
+Gisprocessor har to kommandoer, nemlig `g-json` og `move`. Når man er igang med at klargøre en aflevering, skal begge kommandoer køres (først `g-json` dernæst `move`)
 
 `g-json` genererer en json-fil der viser, hvad værktøjet flytter.
 
