@@ -24,12 +24,8 @@ Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøre
         * Især ved store afleveringer, kan 'digiarch' tage lang tid. Kan med fordel køres i baggrunden, mens andre opgaver løses, eller natten over.
         * I terminalen vil digiarch ofte printe en række fejlmeddelelser ud, deriblandt "decompression bomb" error/warnings. Disse kan ignoreres.
         * Andre fejl inspiceres i files.db-filen og stifinderen, og noteres i 'status.txt', hvis de er faktiske fejl.
-        * winmail.dat-filer identificeres fejlagtigt som fmt/1600 ESRI ARcInfo Dat File (Internal) ()
         * Bemærk at der ikke altid (dog for det meste) er nogle _IdentificationWarnings, men prøv alligevel at få et overblik over afleveringen.
 
-    === "Problemer"
-
-        * Hvorfor forsøger PIL at åbne .gif'er?
 
 
 ## 2. Omdøbning af komplekse filer
@@ -61,15 +57,11 @@ Brug [`unarchiver`](../tools/unarchiver.md) til at udpakke komplekse filer, hvor
     === "Erfaringer og Tips"
 
         * Det er en god idé at foretage stikprøver i stifinderen for de enkelte filtyper, for at sikre sig at unarchiver har kørt succesfuldt.
-        
-    === "Problemer"
-
-        * Korrupt 7z crasher unarchiver. Burde ligge en template og gå videre med andre filer. (Måske løst?)
 
 
 ## 4. Identificér filer igen
 Efter unarchiver, skal ```digiarch``` køres igen, så alle filer i alle underliggende mapper identificeres.
-OBS! Før værktøjet køres omdøbes den gamle `files.db` til `files_preunwrap.db` el., da digiarch nu laver en ny `files.db`
+OBS! Før værktøjet køres, omdøbes den gamle `files.db` til `files_preunwrap.db` el., da digiarch nu laver en ny `files.db`
 
 ## 5. Omdøbning af udpakkede og andre resterende filer, samt identifikation af andre problemer
 
@@ -80,7 +72,7 @@ Det er kun følgende warnings, der skal løses:
 - "puid is Null"
 - "Match on text only; extension mismatch"
 
-Derudover skal man i dette trin i `status.txt` notere, hvilke binære filer der ikke kan identificeres, dvs. har advarslerne "no match" eller "match on extension only" (Ignorer her GIS-filer, som der vendes tilbage til i trin 7). Nogle af disse filer vil muligvis kunne reddes.
+Derudover skal man i dette trin i `status.txt` notere, hvilke binære filer der ikke kan identificeres, dvs. har advarslerne "no match" eller "match on extension only" (Ignorér her GIS-filer, som der vendes tilbage til i trin 7). Nogle af disse filer vil muligvis kunne reddes.
 
 !!! attention "Bemærk"
     Lad være med at omdøbe .eml, identificeret som .html
@@ -99,15 +91,15 @@ Nogle gange vil det være nødvendigt at ændre PUID'et, som identificeret af di
 
     === "Erfaringer og Tips"
 
-        * Filer .wmz- og .emz-extensions der tidligere er blevet identificeret som og omdøbt til .gz og udpakket af 'unarchiver', har nu igen .wmz- og .emz-extensions. Denne gang skal de omdøbes hhv. .wmf og .emf, ganske som digiarch siger.
-        * Filer man er i tvivl om hvad er kan inspiceres i en hex editor.
+        * Filer .wmz- og .emz-extensions der tidligere er blevet identificeret som og omdøbt til .gz og udpakket af 'unarchiver', har nu igen .wmz- og .emz-extensions. Denne gang skal de omdøbes henholdsvis .wmf og .emf, ganske som digiarch siger.
+        * Filer, man er i tvivl om, hvad er, kan inspiceres i en hex editor.
         * Brug ctrl + z til at tilbage-navngive filer i stifinderen.
-        * Brug /Ex/ (regex som filterer efter stort E) som filter i DB for at filtrere filer som stadig har "Extension mismatch".
+        * Brug /Ex/ (regex som filterer efter stort E) som filter i DB for at filtrere filer der stadig har "Extension mismatch".
         * Bemærk at Extension mismatches både gælder filer med forkert extension, men også filer helt uden extension.
-        * Brug [`PRONOM`](https://www.nationalarchives.gov.uk/pronom/BasicSearch/proBasicSearch.aspx?status=new) til at finde ud af hvilke extensions de enkelte PUID-burde have. Pronom kan dog ikke følges blindt, da der er mange undtagelser i processen.
+        * Brug [`PRONOM`](https://www.nationalarchives.gov.uk/pronom/BasicSearch/proBasicSearch.aspx?status=new) til at finde ud af, hvilke extensions de enkelte PUID-burde have. Pronom kan dog ikke følges blindt, da der er mange undtagelser i processen.
         * Ved `aca-fmt`-PUID'er bruges listen i [`renamer`](../tools/renamer.md)-guiden.
         * Hvis flere extensions kan bruges til det samme PUID, kan man evt. se hvilke extensions andre filer med samme PUID i afleveringen har.
-        * Der vil ofte være korrupte pdf'er der ikke kan identificeres, men alligevel kan åbnes i browseren. Disse er ofte bevaringsværdige, og kan evt. gemmes manuelt i et nyt pdf-format, som så skal erstatte den korrupte fil.
+        * Der vil ofte være korrupte pdf'er, der ikke kan identificeres, men alligevel kan åbnes i browseren. Disse er ofte bevaringsværdige, og kan evt. gemmes manuelt i et nyt pdf-format, som så skal erstatte den korrupte fil.
         * Filer med "No match; possibilities based on extension [etc.]"-warnings er sandsynligvis korrupte.
 
     === "Problemer/mangler"
@@ -118,16 +110,15 @@ Nogle gange vil det være nødvendigt at ændre PUID'et, som identificeret af di
 
     === "Roadmap"
 
-        * Burde `renamer` have et default kald, hvor alle identificerede filnavne UDEN extension blev omdøbt?
-        * Burde man køre et dry-run, hvor alle blev omdøbt og lagt i foldere, navngivet efter deres puid? Ville speede processen op.
-        * 'rename-all' 
-        * Der er for mange undtagelser til at dette kan gøres på nuværende tidspunkt. 
+        * `Renamer` burde have et default kald, hvor alle identificerede filnavne UDEN extension blev omdøbt.
+        * Man bør kunne køre et dry-run, hvor alle blev omdøbt og lagt i foldere, navngivet efter deres puid. Det ville speede processen op.
+        * Man kunne have en liste af extension-renames, som altid vil kunne køres med eks. 'rename-all'. Der er for mange undtagelser til at dette kan gøres på nuværende tidspunkt. 
 
 ## 6. Identificér problematiske filformater
 Brug [`convert-unmanaged`](../tools/convert-unmanaged.md), med stien til files.db'en til at identificere, hvilke filformater i indkomsten, som vores konverteringsværktøjer aktuelt ikke kan håndtere, så vi allerede på dette tidspunkt i processen ved, hvor problemerne findes.
 
 ## 7. GIS-filer skal merges
-Eter omdøbning og udpakning, skal eventuelle GIS-filer merges, så de identificeres og konverteres korrekt. Dette gøres med værktøjet [`gis_processor`] (../tools/gis_processor.md), der flytter alle GIS-filerne i de enkelte GIS-projekter hen i mappen, hvor det enkelte projekts masterfil ligger, og erstatter de flyttede med templates (følg guiden på værktøjets egen [`side`](../tools/gis_processor.md)). Efter værktøjet har kørt, inspiceres den af værktøjet skabte log-fil.
+Eter omdøbning og udpakning, skal eventuelle GIS-filer merges, så de identificeres og konverteres korrekt. Dette gøres med værktøjet [`gis_processor`](../tools/gis_processor.md), der flytter alle GIS-filerne i de enkelte GIS-projekter hen i mappen, hvor det enkelte projekts masterfil ligger, og erstatter de flyttede med templates (følg guiden på værktøjets egen [`side`](../tools/gis_processor.md)). Efter værktøjet har kørt, inspiceres den af værktøjet skabte log-fil.
 
 Typer af GIS-projekter:
 
@@ -146,13 +137,13 @@ Typer af GIS-projekter:
 
     === "Erfaringer"
 
-        * Det nogle gange være svært at finde ud af, om gis_processor har kørt korrekt - hvis der er filer den ikke har flyttet, fordi de af den ene eller den anden grund ikke er identificeret korrekt (i dette eller tidligere trin), kommer de heller ikke med i log-filen, osv. Her kan det være behjælpeligt at kigge på de forskellige GIS-projekter i DB browser, og se på hvilke filer der ligger i "området".
+        * Det nogle gange være svært at finde ud af, om gis_processor har kørt korrekt - hvis der er filer den ikke har flyttet, fordi de af den ene eller den anden grund ikke er identificeret korrekt (i dette eller tidligere trin), kommer de heller ikke med i log-filen, osv. Her kan det være behjælpeligt at kigge på de forskellige GIS-projekter i DB browser og se på, hvilke filer der ligger i "området".
 
 ## 8. Udpakkede filer skal rearranges
-I dette skridt skal de filer der blev udpakket i trin 3 flyttes til nye mapper, således at de ligger i hver deres mappe. Dette gøres med værktøjet [`rearranger`] (../tools/rearranger.md)
+I dette skridt skal de filer, der blev udpakket i trin 3, flyttes til nye mapper i en ny `docCollection`, således at de ligger i hver deres mappe. Dette gøres med værktøjet [`rearranger`] (../tools/rearranger.md), som også opdaterer/opretter de relaterede xml-filer fra en myndighedsaflevering. `DoxIndex.xml` opdateres med de udpakkede filer; der oprettes en ny tabel med relationerne mellem de originale filer og de udpakkede "child"-filer; tableIndex.xml opdateres med information om den nye tabel.
 
 ## 9. Identificér filer igen
 Til sidst køres digiarch endnu engang for at afleveringen klar til konvertering. Før digiarch køres skal den gamle `files.db` omdøbes til `files_preGISRearrange.db` el. 
 Den nye `files.db` inspiceres en sidste gang for fejl.
 
-Når afleveringen findes klar til konvertering, opdateres status for aflveringen i excel-arket `Arkiveringsversioner (notes)` på funktionsdrevet.
+Når afleveringen findes klar til konvertering, opdateres status for afleveringen i excel-arket `Arkiveringsversioner (notes)` på funktionsdrevet til "Klar til konvertering".

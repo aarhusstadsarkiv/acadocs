@@ -39,8 +39,8 @@ I nedenstående eksempel giver renamer alle puid fmt/340 filendelsen lwp
 
 
 ## Filendelser
-Ved extension mismatch-warnings, hvor digiarch har givet en fil et PUID der ikke stemmer overens med dens extension (eller mangel på samme), kan der opstå tvivl om hvilken extension filen burde have, dadette ikke er angivet i `files.db`. 
-Her bruges National Archives' hjemmeside [`pronom`] (https://www.nationalarchives.gov.uk/PRONOM/PUID/proPUIDSearch.aspx?status=new) til at undersøge, hvilken filendelse filen skal have. I de tilfælde, hvor der er flere muligheder kan man evt. kigge på andre filer i afleveringen med samme PUID. 
+Ved extension mismatch-warnings, hvor digiarch har givet en fil et PUID der ikke stemmer overens med dens extension (eller mangel på samme), kan der opstå tvivl om hvilken extension filen burde have, da dette ikke er angivet i `files.db`. 
+Her bruges National Archives' hjemmeside [`pronom`](https://www.nationalarchives.gov.uk/PRONOM/PUID/proPUIDSearch.aspx?status=new) til at undersøge, hvilken filendelse filen skal have. I de tilfælde, hvor der er flere muligheder kan man evt. kigge på andre filer i afleveringen med samme PUID. 
 For aca-PUID'er (vores egne) bruges følgende liste:
 
 | PUID       | extension |

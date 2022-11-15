@@ -42,21 +42,23 @@ nav:
     - Introduktion: tools/index.md
     - GUI:
       - FileZilla: tools/filezilla.md
-    - CLI:
-      - Pipx: tools/pipx.md
+    - CLI (ekstern):
       - Chocolatey: tools/chocolatey.md
-      - Digiarch: tools/digiarch.md
-      - Renamer: tools/renamer.md
-      - Unarchiver: tools/unarchiver.md
-      - Convert-unmanaged: tools/convert-unmanaged.md
-      - Gisprocessor: tools/gis_processor.md
-      - Rearranger: tools/rearranger.md
-      - Tiffany: tools/tiffany.md
       - Ghostscript: tools/ghostscript.md
-      - LibreOffice: tools/libreoffice.md
+      - Pipx: tools/pipx.md
+    - CLI (intern):
       - Convertool: tools/convertool.md
-      - Symphovert: tools/symphovert.md
+      - Convert-unmanaged: tools/convert-unmanaged.md
       - Convert-qa: tools/convert-qa.md
+      - Digiarch: tools/digiarch.md
+      - Gisprocessor: tools/gis_processor.md
+      - LibreOffice: tools/libreoffice.md
+      - Rearranger: tools/rearranger.md
+      - Renamer: tools/renamer.md
+      - Symphovert: tools/symphovert.md
+      - Tiffany: tools/tiffany.md
+      - Unarchiver: tools/unarchiver.md
+
   # - Blanketter:
   #   - Introduktion: documents/index.md
   - Arkiveringsversioner:

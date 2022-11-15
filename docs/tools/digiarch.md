@@ -94,19 +94,11 @@ Digiarch har tre optioner, der, som navnet antyder, ikke er påkrævede:
 
 
 ### Kommandoer
-Digiarch har to kommandoer: `process` og `fix`. Førstnævnte processerer filerne, hvor checksum udregnes og identifikation af filformat foregår, mens sidstnævnte kan fikse prædefinerede filendelsesfejl. Filidentifikation skal forelægge, før `fix` kan finde fejl at rette.
+Digiarch har en kommando: `process`, der processerer filerne, hvor checksum udregnes og identifikation af filformat foregår.
 
 !!! hint "Eksempel"
     ```
     digiarch D:\filer\AVID.AARS.3.1 process
-    digiarch D:\filer\AVID.AARS.3.1 fix
-    ```
-
-`process` og `fix` kan også kaldes i en såkaldt *chain*, således man både kan processere og rette fejl ad én gang.
-
-!!! hint "Eksempel"
-    ```
-    digiarch D:\filer\AVID.AARS.3.1 process fix
     ```
 
 
