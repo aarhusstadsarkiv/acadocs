@@ -1,22 +1,65 @@
-# Filters the backup database
-This filters the csv formatted backup database:
-Apply any number of --filter.
-## --filter [field] [operator] [value]:
-ex. --filter Samling contains Salling. Value is the variable user input.
-
-## --list:
-Lists the available fields and their operators.
-
-## --filename [filename]
-Specify the custom filename for the output file(s).
-
-## --or_
-Default concatination mode of filters are "and", this option switches it to "or".
-
-## --version
-Print the actual version of the cli.
+# Backupfilter
+The user needs the backupdatabase as a csv-file to input to this cli.
 
 
+## Installation
+```powershell
+pipx install git+https://github.com/aarhusstadsarkiv/filter_csv_generic.git
+```
+
+Test efterfølgende installationen med følgende kommando:
+
+```powershell
+backupfilter --version
+```
+
+eller
+
+```powershell
+backupfilter --list
+```
+
+eller 
+
+```powershell
+backupfilter --help
+```
+for eksempler.
+
+Opdatér med:
+```
+pipx update backupfilter
+```
+
+Afinstallation
+```
+pipx uninstall backupfilter
+```
+
+
+## Brug
+Filtrerer en backupdatabase som csv-formatteret fil.
+
+Angiv et antal --filter for at filtrere efter det ønskede:
+### --filter [field] [operator] [value]:
+hvor value er den ønskede søgeværdi:
+
+ex. --filter Samling contains Salling.
+
+### --list:
+Viser de for søgning tilgængelige felter samt deres operatorer.
+
+### --filename [filename]
+hvis der ønskes et specielt filnavn til filerne med de fundne indgange, kan det angives her. Nyttigt hvis der laves flere søgninger i streg
+til samme bibliotek, således forhindres overskrivning af tidligere resultater.l
+
+### --or_
+Hvis der er flere filtre, "and"'es de sammen som standard, men hvis denne option angives, bliver de "or"'ede sammen i stedet.
+
+### --version
+Printer den aktuelle version af programmet.
+
+### --help
 ```
 Filters the csv formatted backup database:
 Apply any number of --filter
