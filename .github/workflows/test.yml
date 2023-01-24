@@ -15,9 +15,6 @@ jobs:
           python-version: 3.8
       - name: Install Poetry
         uses: abatilo/actions-poetry@v2
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
       - name: Cache dependencies
         uses: actions/cache@v2
         with:

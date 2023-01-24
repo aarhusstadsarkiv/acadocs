@@ -28,12 +28,12 @@ for eksempler.
 
 Opdatér med:
 ```
-pipx update backupfilter
+pipx update filter-csv-generic
 ```
 
 Afinstallation
 ```
-pipx uninstall backupfilter
+pipx uninstall filter-csv-generic
 ```
 
 
