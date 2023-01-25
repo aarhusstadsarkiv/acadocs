@@ -30,3 +30,23 @@ Hvis vi ønsker at havde adgang til flere mapper, f.eks. en mappe med data til m
 
 
 [TBD]
+
+
+## At debugge i en docker container
+VS Codes inbyggede debugger er et stærkt værktøj til at finde fejl i ens kode. For at bruge den i en dokker container skal din VS Code være tilknyttet containeren som beskrevet før.
+
+Da de fleste af vores værktøjer er CLI-baseret, kan det gøre en debug sessions svær. Det nemmeste er følgende:
+1. Lav en `debug.py` file i test mappen hvor de kalder CLI'en med de parametre du gerne vil teste. Se convertool's `debug.py` for et eksempel
+2. Åben vscodes `debug` panel. Her vil der være en prompt der spørger dig om du vil lave en launch.json fil, gør det
+3. I den nye prompt, vælg python file. Du for så en standard python file template du kan definere en dbug session i.
+4. Definer følgende attributer i filen således:
+    ```
+    "name": "Python: debug",
+    "type": "python",
+    "request": "launch",
+    "program": "AbseloutStiTilTestMappen/debug.py",
+    "justMyCode": true
+    ```
+5. Kør debug scriptet i vscode
+
+Der er andre mere modelerbare måder at køre det på, men erfaring fortæller at de er mindre robuste og er mere error-prone i et container-enviroment.
