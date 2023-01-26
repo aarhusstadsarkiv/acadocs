@@ -24,7 +24,7 @@ Når billedet er bygget skal starter vi en container baseret på det. Her skal v
 
 Hvis vi f.eks. havde vores lokale kopi af convertool gemt under stien `C:\development\github\convertool`, så kan vi lavet et link til mappen i containeren ved at skrive 
 
-`docker run -v C:\development\github\convertool:/root/convertool`.
+`docker run -v C:\\development\\github\\convertool:/root/convertool`.
 
 Hvis vi ønsker at havde adgang til flere mapper, f.eks. en mappe med data til manuelle test o.l. så skriver vi blot flere `-v` flag i `docker run` kaldet.
 
@@ -40,7 +40,7 @@ Da de fleste af vores værktøjer er CLI-baseret, kan det gøre en debug session
 2. Åben vscodes `debug` panel. Her vil der være en prompt der spørger dig om du vil lave en launch.json fil, gør det
 3. I den nye prompt, vælg python file. Du for så en standard python file template du kan definere en dbug session i.
 4. Definer følgende attributer i filen således:
-    ```
+    ```json
     "name": "Python: debug",
     "type": "python",
     "request": "launch",
