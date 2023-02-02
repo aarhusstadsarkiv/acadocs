@@ -47,6 +47,8 @@ nav:
       - Ghostscript: tools/ghostscript.md
       - Pipx: tools/pipx.md
     - CLI (intern):
+      - Backupfilter: tools/backupfilter.md
+      - Byteheader: tools/byteheader.md
       - Convertool: tools/convertool.md
       - Convert-unmanaged: tools/convert-unmanaged.md
       - Convert-qa: tools/convert-qa.md
@@ -58,7 +60,7 @@ nav:
       - Symphovert: tools/symphovert.md
       - Tiffany: tools/tiffany.md
       - Unarchiver: tools/unarchiver.md
-      - Backupfilter: tools/backupfilter.md
+
 
   # - Blanketter:
   #   - Introduktion: documents/index.md
