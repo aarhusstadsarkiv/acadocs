@@ -48,13 +48,14 @@ Convertool har to inputargumenter, som begge er påkrævede: `FILES` og `OUTDIR`
 Convertool genererer selv en mappe baseret på [AARS-ID'et](../acquisition/acquiring-digital-material.md#identifikator), og det er derfor kun nødvendigt at angive en overordnet folder i `OUTDIR`.
 
 ### Optioner
-Convertool har 4 optioner. Som udgangspunk ter disse ikke påkrævede, bortset fra option 4, som skal bruges hvis kommandoen (se kommandoer) `replacepdf` kaldes:
+Convertool har 5 optioner. Som udgangspunk ter disse ikke påkrævede, bortset fra option 4, som skal bruges hvis kommandoen (se kommandoer) `replacepdf` kaldes:
 
 1. `--threshold` angiver det maksimale antal fejl, der må ske under konvertering
 2. `--help` printer hjælp
 3. `--version` printer versionen af Convertool
 4. `--pdf_1_7` Angiver at convertool kun skal indlæse PDF 1.7 filer. Denne Option skal bruges sammen med kammandoen `replacepdf` for at konvertere og
                 overskrive de PDF 1.7 filer som er tilbage efter første gennemkørsel.
+5. `--check_empty` hvis den er sat til 1, dvs. `--check_empty=1`, så tjekker convertool om nogle af de filer der er blevet converteret er tomme filer.
 
 `--threshold` kan bruges, hvis man ønsker, at Convertool accepterer et andet antal fejl end standardværdien. Standardværdien udregnes som kvadratroden af det totale antal filer. Hvis få filer konverteres, kan det være fordelagtigt at sætte `--threshold` til `0`, da konvertering så stopper, første gang en fejl hænder. Det er dog ikke anbefalet for større mængder filer.
 
