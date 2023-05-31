@@ -1,22 +1,22 @@
 # Git og Github workflow
 Denne side vil gennemgå hvordan man arbejder med Git og GitHub. Gennemgangen er delt op i tre dele:  
 1. En basal gennemgang af Git og GitHub     
-2. Hvordan man arbejder med kode fra github. Det inkluderer hvordan man cloner et repository fra GitHub, laver en ny branch til de ændringer og modifikationer man laver, committer og pusher ens kode op til github, og laver en pull-request, så koden er klar til gennemgang, inden den bliver en integreret del af projektet.  
-
+2. Hvordan man arbejder med kode fra GitHub. 
 3. Hvordan man gennemgår (reviewer) andres pull-request, kommer med kommentare og ændringsforslag.
 
 
 ## Git og GitHub
 Git er et værktøj, som hjælper med versionskontrol af softwareudvikling. Git gør det muligt altid at havde et klart overblik over hvor man er i udviklingen af ens produkt. Den tillader også en altid at gå tilbage til tidligere versioner af ens kode og lave forskellige 'forgreninger' (branches) af ens kode, som kan indeholde forskellige features, ændringer og forbedringer, som ikke er klar til at blive en del af det endelige produkt.  
-GitHub er en online tjeneste, som hoster ens Git repositories (se nedenfor) og tillader at man kan arbejde på samme kode samtidig. Samtidig er det muligt for andre at gennemgå ens ændringer, inden de bliver en del af det endelige produkt.  
+GitHub er en online tjeneste, som hoster ens Git repositories (se nedenfor) og tillader at man kan arbejde på samme kode-base og løse udfordringer med versioner, overskrivning af andres kode og hvilken kode man skal bruge når 2 har arbejdet på det samme. Samtidig er det muligt for andre at gennemgå ens ændringer, inden de bliver en del af det endelige produkt, som sikre kvalitet i det færdige arbejde.
 
-> **Takeaway:** Git er et værktøj, som hjælper med softwareudvikling og versionskontrol. GitHub er en online overbygning på Git, som gør at man kan samarbejde om at udvikle.
+> **Takeaway:** Git er et værktøj, som hjælper med softwareudvikling og versionskontrol. GitHub er en online service der benytter Git, som gør at man kan samarbejde om at udvikle.
 
 ### Terminologi
 Git og GitHub har deres egen terminologi. Herunder er en kort forklaring af de vigtigste koncepter. GitHub har også selv en ordbog, som kan findes ved dette [link](https://docs.github.com/en/get-started/quickstart/github-glossary).
 
 - **Repository** (oftest forkortet til **Repo**): Det mest essentielle element ved GitHub. Her er alle de filer som er knyttet til det projekt man arbejder på. Man kan se det som den mappe projektet er gemt i.
-- **Branch:** 
+- **Branch:** En kopi af det kode der er på ens repo, som man kan ændre og modificerer frit. Repo'et består oftest af en enkelt **Master** eller **Main** branch som er den hvor den 'færdige' version af koden er på. Andre branches laves så når man vil modificerer og forberdre denne, og på disse klan man frit eksperimentere (og fejle) inden man kommer frem til et funktionelt produkt.
+- **Pull-Request:** Når man er tilfreds med det kode man har tilføjet på en branch og mener det skal være en del af det **Main/Master** branchen sådan det kan komme ud og blive brugt, opretter man en **Pull-Request**. Når den godkendes (oftest af en anden end den der har skrevet koden), vil det nye kode eller andre ændringer bliver tilføjet til **Main/Master** branchen. Navnet **Pull-Request** er lidt dårligt, fordi man oftest bruger **pull** som en git kommando, hvor man henter filer ned fra en server (oftest GitHub). Det skal forståes som at **Main/Master** beder om tilladelse til at hente (**pull**) koden fra den anden branch.
 
 ## Workflow: udvikling
 Herunder er workflowet for, hvordan vi arbejder på et repo beskrevet. Det er delt op i fem punkter, som alle beskriver en separat del af processen. Under hvert punkt er en højniveaubeskrivelse af selve processen. Derefter følger en forklaring.
