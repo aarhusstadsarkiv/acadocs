@@ -61,6 +61,9 @@ nav:
       - Tiffany: tools/tiffany.md
       - Unarchiver: tools/unarchiver.md
 
+  - Vejledninger:
+      - Synology NAS:
+          - Opret ny bruger: manuals/synology/new_user.md
 
   # - Blanketter:
   #   - Introduktion: documents/index.md
