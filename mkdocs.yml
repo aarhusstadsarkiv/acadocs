@@ -64,6 +64,7 @@ nav:
   - Vejledninger:
       - Synology NAS:
           - Opret ny bruger: manuals/synology/new_user.md
+          - SSH-adgang: manuals/synology/ssh_access.md
 
   # - Blanketter:
   #   - Introduktion: documents/index.md
