@@ -4,7 +4,7 @@ date: 2023-08-16
 
 # Opret ny bruger
 
-1. Åbn http://nas.home.arpa:5000 i browseren.
+1. Åbn [nas.home.arpa:5000](http://nas.home.arpa:5000) i browseren.
 2. Login som administrator (spørge efter adgangskode)
 3. Åbn "Kontrolpanel"<br/>
 ![](new_user%20(1).png)
