@@ -27,27 +27,3 @@ date: 2023-08-16
 ![](new_user%20(7).png)
 11. Spring over brugerhastighedsgrænse
 12. Bekræft oplysningerne og klik på "Udført"
-
-# SSH-adgang
-
-1. Åbn terminalen
-2. Kopi personlig SSH-nøgle til NAS (brug brugeren azID)
-
-```powershell
-ssh-copy-id az00000@nas.home.arpa
-```
-
-3. Login med SSH (brug brugeren azID)
-
-
-```powershell
-ssh az00000@nas.home.arpa
-```
-
-4. Skift burgerens hjemmemappens adgangsniveau
-
-```powershell
-chmod 755 ~
-```
-
-5. Log ud
