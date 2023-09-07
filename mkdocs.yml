@@ -60,6 +60,7 @@ nav:
       - Symphovert: tools/symphovert.md
       - Tiffany: tools/tiffany.md
       - Unarchiver: tools/unarchiver.md
+      - find-relations: tools/find-relations.md
 
   - Vejledninger:
       - Synology NAS:
