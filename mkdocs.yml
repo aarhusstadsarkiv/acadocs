@@ -51,7 +51,12 @@ nav:
       - Byteheader: tools/byteheader.md
       - Convertool: tools/convertool.md
       - Convert-unmanaged: tools/convert-unmanaged.md
-      - Convert-qa: tools/convert-qa.md
+      - convert-qa:
+          - tools/convert-qa.md
+          - convert-compare: tools/convert-qa#convert-compare
+          - convert-encoding: tools/convert-qa#convert-encoding
+          - clean-empty-columns: tools/convert-qa#clean-empty-columns
+          - remove-tables: tools/convert-qa#remove-tables
       - Digiarch: tools/digiarch.md
       - Gisprocessor: tools/gis_processor.md
       - LibreOffice: tools/libreoffice.md
