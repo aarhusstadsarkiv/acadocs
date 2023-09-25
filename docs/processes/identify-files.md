@@ -26,14 +26,14 @@ Før alt andet skal de indkomne filer så vidt muligt identificeres. Dette gøre
         * Andre fejl inspiceres i files.db-filen og stifinderen, og noteres i 'status.txt', hvis de er faktiske fejl.
         * Bemærk at der ikke altid (dog for det meste) er nogle _IdentificationWarnings, men prøv alligevel at få et overblik over afleveringen.
 
-
-
 ## 2. Omdøbning af komplekse filer
 Efter identifikationsprocessen vil der almindeligvis være filer, der enten ikke kunne identificeres, eller hvor filendelsen enten mangler eller er uforenelig med det filformat, som [`digiarch`](../tools/digiarch.md) har fundet. Alle tilfælde, hvor puid ikke kunne determineres eller hvor filendelsen ikke stemmer overens med det af digiarch fundne filformat, vil være oplistet i _IdentificationWarnings-viewet i DB Browser. 
 I dette trin skal man som minimum omdøbe alle komplekse filer (se endenfor), som [`unarchiver`](../tools/unarchiver.md) skal udpakke i næste trin. Dette gøres med værktøjet [`renamer`](../tools/renamer.md).
 Vi behøver ikke identificere filerne igen umiddelbart efter omdøbning, da [`renamer`](../tools/renamer.md) opdaterer både database og filnavne.
 
 I dette trin skal komplekse filer, identificeret af digiarch som havende følgende PUID og med advarslen "Extension mismatch" i _IdentificationWarnings, omdøbes så de får tilsvarende extensions:
+
+** NOTE: Listen herunder bliver forældet lige så langsomt. Se "to_extract.json" under repository "reference-files" for komplet og opdageret liste.**
 
 | PUID      | extension |
 | --------- | --------- |
