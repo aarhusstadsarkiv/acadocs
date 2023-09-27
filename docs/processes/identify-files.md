@@ -62,22 +62,31 @@ For at rette op på det skal man gøre følgende:
 1. Sørg for først for at `renamer` er installeret og opdateret
 2. Dernærst, kig på de filer som har et `Extension_Mismatch`. Hvis nogle af dem har et af de PUID'er som er markeret nede i tabellen, så skal deres extension erstattes af den pågældende extension i tabellen.
 
-| PUID      | extension |
-| --------- | --------- |
-| fmt/411   | .rar      |
-| fmt/484   | .7z       |
-| fmt/613   | .rar      |
-| x-fmt/263 | .zip      |
-| x-fmt/264 | .rar      |
-| x-fmt/265 | .tar      |
-| x-fmt/266 | .gz       |
-| x-fmt/430 | .msg      |
-| aca-fmt/9 | .dat      |
+    | PUID      | extension |
+    | --------- | --------- |
+    | fmt/411   | .rar      |
+    | fmt/484   | .7z       |
+    | fmt/613   | .rar      |
+    | x-fmt/263 | .zip      |
+    | x-fmt/264 | .rar      |
+    | x-fmt/265 | .tar      |
+    | x-fmt/266 | .gz       |
+    | x-fmt/430 | .msg      |
+    | aca-fmt/9 | .dat      |
+
+    Der vil også være tidspunkter hvor at Digiarch har markeret nogle filer som værende .zip filer, men hvor at de ikke skal bevares af os af forskellige grunde. Hvis man møder sådan en type fil, skal den markeres som ikke bevaringsværdi manuelt i 'action' feltet. De filtyper der typisk er tale om er:
+    
+    | PUID      | extension |
+    | --------- | --------- |
+    | x-fmt/412 | .jar      |
+
 
 3. For at erstatte en specifik filtype angives den PUID og hvilken extension man øsnker at give alle filer med  `Extension_Mismatch` således:
-```Bash
-renamer db_file_path puid new_extension_without_period_sign
-```
+    ```Bash
+    renamer db_file_path puid new_extension_without_period_sign
+    ```
+
+
 
 For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
