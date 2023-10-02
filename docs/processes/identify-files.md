@@ -49,6 +49,8 @@ I dette trin skal komplekse filer, identificeret af digiarch som havende følgen
 
 For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
+** NOTE: Bemærk, hvis du bruger renamer, så skal du ikke havde databasen åben i DB Brower... Renamer vil ændre i docCollection, men ikke opdaterer _metadata/files.db
+
 ## 3. Udpak alle komplekse filer
 Brug [`unarchiver`](../tools/unarchiver.md) til at udpakke komplekse filer, hvor man bruger stien til den i trin 1 producerede files.db. `Unarchiver` laver en .log-fil i `_metadata`-mappen, som inspiceres efter værktøjet har kørt. 
 
