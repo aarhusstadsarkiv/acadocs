@@ -69,6 +69,24 @@ options:
   --log-file LOG_FILE  write change events to log file
 ```
 
+## remove-duplicate-rows
+
+Remove duplicate rows from a SQLite database.
+
+Duplicate rows are removed only if the `--commit` option is used and are otherwise ignored.
+
+```
+remove-duplicate-rows [-h] [--commit] --log-file LOG_FILE file [file ...]       
+
+positional arguments:                                                           
+  file                 the path to the database file                            
+                                                                                
+options:                                                                        
+  -h, --help           show this help message and exit
+  --commit             commit changes to database
+  --log-file LOG_FILE  write change events to log file
+```
+
 ## remove-tables
 
 Remove tables from a given archive.
