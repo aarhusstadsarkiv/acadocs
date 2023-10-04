@@ -56,6 +56,7 @@ nav:
           - convert-compare: tools/convert-qa#convert-compare
           - convert-encoding: tools/convert-qa#convert-encoding
           - clean-empty-columns: tools/convert-qa#clean-empty-columns
+          - remove-duplicate-rows: tools/convert-qa#remove-duplicate-rows
           - remove-tables: tools/convert-qa#remove-tables
       - Digiarch: tools/digiarch.md
       - Gisprocessor: tools/gis_processor.md
