@@ -47,6 +47,7 @@ nav:
       - Ghostscript: tools/ghostscript.md
       - Pipx: tools/pipx.md
     - CLI (intern):
+      - AutoGui: tools/autogui.md
       - Backupfilter: tools/backupfilter.md
       - Byteheader: tools/byteheader.md
       - Convertool: tools/convertool.md
