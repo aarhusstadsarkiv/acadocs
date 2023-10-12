@@ -67,6 +67,8 @@ OBS! Før værktøjet køres, omdøbes den gamle `files.db` til `files_preunwrap
 
 ## 5. Omdøbning af udpakkede og andre resterende filer, samt identifikation af andre problemer
 
+** NOTE: Vær opmærksom på GIS-filer, så du ikke kommer til at ændre dem. Måske skal punkt 7. GIS-filer skal merges ligge over dette punkt?
+
 I dette skridt bruges [`renamer`](../tools/renamer.md) igen til at omdøbe de filer der ikke blev omdøbt før, samt de i trin 3 udpakkede filer. I dette trin identificeres også hvilke fejl og mangler der ellers er i afleveringen. Det er kun binære fejl extension mismatches og andre fejl der skal løses/identificeres. I _IdentificationWarnings-viewet filtreres derfor 
 Det er kun følgende warnings, der skal løses:
 
