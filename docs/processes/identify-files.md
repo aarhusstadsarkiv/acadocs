@@ -33,7 +33,6 @@ renamer .\OriginalFiles\_metadata\files.db puid new_extension_without_period_sig
 
 Se [renamer](../tools/renamer.md) for mere information
 
-
 ## 4. Udpak alle komplekse filer
 Opret en mappe med navnet `save_dir` i `.\OriginalFiles\_metadata`. I mappen `save_dir` vil de originale filer blive lagt efter udvinding.
 
