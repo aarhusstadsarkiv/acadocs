@@ -83,21 +83,23 @@ For at rette op på det skal man gøre følgende:
 
 3. For at erstatte en specifik filtype angives den PUID og hvilken extension man øsnker at give alle filer med  `Extension_Mismatch` således:
     ```Bash
-    renamer db_file_path puid new_extension_without_period_sign
+    renamer [db_file_path] [puid] [new_extension_without_period_sign]
     ```
-
 
 
 For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
-## 3. Udpak alle komplekse filer
-Brug [`unarchiver`](../tools/unarchiver.md) til at udpakke komplekse filer, hvor man bruger stien til den i trin 1 producerede files.db. `Unarchiver` laver en .log-fil i `_metadata`-mappen, som inspiceres efter værktøjet har kørt. 
+## 3. Udpak alle zip-komprimerede
+Næste skridt i processen er at udpakke all zip-komprierede filer, bl.a. dem som vi lige har givet den korrekte extension i sidste trin.
+Til dette bruger vi [`unarchiver`](../tools/unarchiver.md). Måden vi bruger den her er at kalde `unarchiver` på `files.db` databasen som er blevet lavet. Dette gøres ved kalde `unarchiver` på `files.db`:
 
-!!! Status
+```Bash
+unarchiver [files_db_path]
+```
 
-    === "Erfaringer og Tips"
+`unarchiver` lægger en log, som kan findes i `_metadata` mappen. Denne skal efter en kørsel inspiseres for fejl angivet med `warning` eller `error`. Evt. fejl skal enten udbedres eller noteres i `status.txt` filen.
 
-        * Det er en god idé at foretage stikprøver i stifinderen for de enkelte filtyper, for at sikre sig at unarchiver har kørt succesfuldt.
+Det er en god idé at foretage stikprøver i stifinderen for de enkelte filtyper der er blevet håndteret, for at sikre sig at unarchiver har kørt succesfuldt.
 
 
 ## 4. Identificér filer igen
