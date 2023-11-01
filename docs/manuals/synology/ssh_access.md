@@ -18,7 +18,7 @@ ssh-copy-id az00000@nas.home.arpa
 ssh az00000@nas.home.arpa
 ```
 
-4. Skift burgerens hjemmemappens adgangsniveau
+4. Skift brugerens hjemmemappens adgangsniveau
 
 ```powershell
 chmod 755 ~

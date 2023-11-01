@@ -1,37 +1,94 @@
 # Identifikation af filer
 Identifikation af indkomne filer fra myndigheder eller private parter er en kompleks proces, som involverer en del viden, værktøjer og procestrin.
 
+Ved processens begyndelse oprettes en `status.txt` i den relevante `_metadata`-mappe (eg. `AVID.AARS.78.1\OriginalFiles\_metadata`). I dette dokument noteres hvor langt man er kommet i processen, hvilke fejl og problemer man er stødt på undervejs, og hvilke manuelle rettelser man har foretaget.
+
 Hver gang et værktøj har kørt inspiceres nogle af de berørte filer manuelt i stifinderen, for at sikre sig at værktøjet har kørt succesfuldt.
 
 Detaljerede guides til installation og brug af de enkelte værktøjer findes [`her`](https://aarhusstadsarkiv.github.io/acadocs/tools/).
 
+!!! attention "Bemærk"
+    Før hvert værktøj køres, skal man sikre sig at man benytter den nyeste version af værktøjet. Dette kan evt. gøres med kommandoen 
+    
+    ```
+    pipx upgrade-all
+    ```
 
-## 1. Klargørelse af identifikation af filer
-Alle sti henvisningerne tager udgangspunkt fra `AVID.AARS.XX`, hvoraf `XX` er nummeret på afleveringen.
+## 0. Forbered status.txt
+Som sagt før er processen at konvetere en aflevering lang og fyldt med faldgrupper. For at gøre det muligt for en selv at spore sine tanker og handlinger over de dage, uger og (nogle gange desværre) måneder man arbejder med afleveringen, er det vigtigt at man altid noterer sine tanker i `status.txt` filen.
 
-Opret `status.txt` i mappen ` .\OriginalFiles\_metadata`. Heri noteres hvor langt man er kommet i processen, hvilke fejl og problemer man er stødt på undervejs, og hvilke manuelle rettelser man foretaget.
+Vi anbefaler at man benytter den som logbog og åbner den hvergang man arbejder med en aflevering. Man laver så en overskrift med dagens dato og noterer ens handlinger og observationer derunder. Evt. kan man havde en TODO sektion med ting man skal gøre / holde øje med. Et eksempel på hvordan `status.txt` kunne være opsat på ses herunder:
 
+    D. 2/10/2023
+        Kørte Digiarch første gang på afleveringen
+        - Der ser ud til at være mange GIS relaterede filer. Hver opmærksom når rearranger skal køres.
+        - Flere .pdf filer har et extension mismatch. Det ligner .docx filer der ved en fejl er gemt som .pdf ved første øjekast
+    
+    TODO:
+        - Kig på et par stykker af .pdf filerne med extension mismatch og se om det er en kategorisk fejl
 
-## 2. Identifikation af indkomne filer
+    Manuelle rettelser
+        - File med puid 111-1112323-3423423 havde 3 extensions, jeg slettede alle bortset fra den første (.pdf) for at sikre den blev identificeret korrekt.
+
+Her betaler det sig at være udførlig.
+
+## 1. Identifikation af indkomne filer
+Før alt andet skal de indkomne filer så vidt muligt identificeres. 
+Især ved store afleveringer, kan identifiaktionen dog tage lang tid. Man kan derfor med fordel køre den i baggrunden, mens andre opgaver løses, eller natten over.
+
+Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`. Hvis man står i roden på en aflevering så køre digiarch på 'Original-files' mappen ved følgende kommando:
+
+```bash
+digiarch .\Original_files\ process
 ```
-digiarch .\OriginalFiles process
-```
 
-Noter i `status.txt` hvor mange `warnings` der findes i `files.db`
+> #### **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes.
 
-Se [digiarch](../tools/digiarch.md) for mere information
+Den af 'digiarch' producerede 'files.db'-fil inspiceres herefter i DB Browser. Det er vigtigt at danne sig et overblik over følgende:
+
+- Hvilke filetyper der er i `_SignatureCount`-viewet (Er det primært .docx? .pdf? Forskellige typer af GIS filer?) Dette har betydning for resten af processen, da store mængder 'eksotiske' filtyper eller filer som ikke akn identificeres oftest skal løses manuelt
+- Hvilke forskellige problemer der er i `_IdentificationWarnings`-viewet (Er der mange extension mismatch? Eller mange filer der skal erstattes af en template?). Bemærk at der ikke altid (dog for det meste) er nogle _IdentificationWarnings, men prøv alligevel at få et overblik over afleveringen.
+
+Man noterer sine tanker i `status.txt`. 
 
 
-## 3. Omdøbning af komplekse filer
-I dette trin skal komplekse filer med advarlsen `Extension mismatch` i `_identificationWarnings` omdøbes vha. `renamer` således, at de får den korrekte extension.
+## 2. Omdøbning af zip o.l. filer
+Digiarch benytter [Siegfried](https://www.itforarchivists.com/siegfried/) til at identificere langt størstedelen af vores filer. Den bygger så selv på PRONOM databasen og andre lignende databaser over fil typer.
 
-Se komplet og opdateret liste [her](https://github.com/aarhusstadsarkiv/reference-files/blob/main/to_extract.json)
+I sin identifikation af fil typer kan Siegfried godt være lidt pedantisk. Derfor sker det at den særligt identificerer filer i et zip-format forkert. Mange filer i zip-formater vil derfor havde en warning der siger `Extension_Mismatch`.
 
-```
-renamer .\OriginalFiles\_metadata\files.db puid new_extension_without_period_sign
-```
+For at rette op på det skal man gøre følgende:
 
-Se [renamer](../tools/renamer.md) for mere information
+1. Sørg for først for at `renamer` er installeret og opdateret
+2. Dernærst, kig på de filer som har et `Extension_Mismatch`. Hvis nogle af dem har et af de PUID'er som er markeret nede i tabellen, så skal deres extension erstattes af den pågældende extension i tabellen.
+
+    | PUID      | extension |
+    | --------- | --------- |
+    | fmt/411   | .rar      |
+    | fmt/484   | .7z       |
+    | fmt/613   | .rar      |
+    | x-fmt/263 | .zip      |
+    | x-fmt/264 | .rar      |
+    | x-fmt/265 | .tar      |
+    | x-fmt/266 | .gz       |
+    | x-fmt/430 | .msg      |
+    | aca-fmt/9 | .dat      |
+
+    Der vil også være tidspunkter hvor at Digiarch har markeret nogle filer som værende .zip filer, men hvor at de ikke skal bevares af os af forskellige grunde. Hvis man møder sådan en type fil, skal den markeres som ikke bevaringsværdi manuelt i 'action' feltet. De filtyper der typisk er tale om er:
+    
+    | PUID      | extension |
+    | --------- | --------- |
+    | x-fmt/412 | .jar      |
+
+
+3. For at erstatte en specifik filtype angives den PUID og hvilken extension man øsnker at give alle filer med  `Extension_Mismatch` således:
+    ```Bash
+    renamer db_file_path puid new_extension_without_period_sign
+    ```
+
+
+
+For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
 ## 4. Udpak alle komplekse filer
 Opret en mappe med navnet `save_dir` i `.\OriginalFiles\_metadata`. I mappen `save_dir` vil de originale filer blive lagt efter udvinding.
