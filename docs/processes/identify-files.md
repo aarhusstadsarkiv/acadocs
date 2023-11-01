@@ -3,6 +3,8 @@ Identifikation af indkomne filer fra myndigheder eller private parter er en komp
 
 Ved processens begyndelse oprettes en `status.txt` i den relevante `_metadata`-mappe (eg. `AVID.AARS.78.1\OriginalFiles\_metadata`). I dette dokument noteres hvor langt man er kommet i processen, hvilke fejl og problemer man er stødt på undervejs, og hvilke manuelle rettelser man har foretaget.
 
+Ved processens begyndelse oprettes en `status.txt` i den relevante `_metadata`-mappe (eg. `AVID.AARS.78.1\OriginalFiles\_metadata`). I dette dokument noteres hvor langt man er kommet i processen, hvilke fejl og problemer man er stødt på undervejs, og hvilke manuelle rettelser man har foretaget.
+
 Hver gang et værktøj har kørt inspiceres nogle af de berørte filer manuelt i stifinderen, for at sikre sig at værktøjet har kørt succesfuldt.
 
 Detaljerede guides til installation og brug af de enkelte værktøjer findes [`her`](https://aarhusstadsarkiv.github.io/acadocs/tools/).
@@ -28,7 +30,7 @@ Vi anbefaler at man benytter den som logbog og åbner den hvergang man arbejder 
         - Kig på et par stykker af .pdf filerne med extension mismatch og se om det er en kategorisk fejl
 
     Manuelle rettelser
-        - File med puid 111-1112323-3423423 havde 3 extensions, jeg slettede alle bortset fra den første (.pdf) for at sikre den blev markeret korrekt.
+        - File med puid 111-1112323-3423423 havde 3 extensions, jeg slettede alle bortset fra den første (.pdf) for at sikre den blev identificeret korrekt.
 
 Her betaler det sig at være udførlig.
 
@@ -38,7 +40,9 @@ Især ved store afleveringer, kan identifiaktionen dog tage lang tid. Man kan de
 
 Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`. Hvis man står i roden på en aflevering så køre digiarch på 'Original-files' mappen ved følgende kommando:
 
-`digiarch .\Original-files\ process`
+```bash
+digiarch .\Original_files\ process
+```
 
 > #### **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes.
 
@@ -50,24 +54,41 @@ Den af 'digiarch' producerede 'files.db'-fil inspiceres herefter i DB Browser. D
 Man noterer sine tanker i `status.txt`. 
 
 
-## 2. Omdøbning af komplekse filer
-Efter identifikationsprocessen vil der almindeligvis være filer, der enten ikke kunne identificeres, eller hvor filendelsen enten mangler eller er uforenelig med det filformat, som [`digiarch`](../tools/digiarch.md) har fundet. Alle tilfælde, hvor puid ikke kunne determineres eller hvor filendelsen ikke stemmer overens med det af digiarch fundne filformat, vil være oplistet i _IdentificationWarnings-viewet i DB Browser. 
-I dette trin skal man som minimum omdøbe alle komplekse filer (se endenfor), som [`unarchiver`](../tools/unarchiver.md) skal udpakke i næste trin. Dette gøres med værktøjet [`renamer`](../tools/renamer.md).
-Vi behøver ikke identificere filerne igen umiddelbart efter omdøbning, da [`renamer`](../tools/renamer.md) opdaterer både database og filnavne.
+## 2. Omdøbning af zip o.l. filer
+Digiarch benytter [Siegfried](https://www.itforarchivists.com/siegfried/) til at identificere langt størstedelen af vores filer. Den bygger så selv på PRONOM databasen og andre lignende databaser over fil typer.
 
-I dette trin skal komplekse filer, identificeret af digiarch som havende følgende PUID og med advarslen "Extension mismatch" i _IdentificationWarnings, omdøbes så de får tilsvarende extensions:
+I sin identifikation af fil typer kan Siegfried godt være lidt pedantisk. Derfor sker det at den særligt identificerer filer i et zip-format forkert. Mange filer i zip-formater vil derfor havde en warning der siger `Extension_Mismatch`.
 
-| PUID      | extension |
-| --------- | --------- |
-| fmt/411   | .rar      |
-| fmt/484   | .7z       |
-| fmt/613   | .rar      |
-| x-fmt/263 | .zip      |
-| x-fmt/264 | .rar      |
-| x-fmt/265 | .tar      |
-| x-fmt/266 | .gz       |
-| x-fmt/430 | .msg      |
-| aca-fmt/9 | .dat      |
+For at rette op på det skal man gøre følgende:
+
+1. Sørg for først for at `renamer` er installeret og opdateret
+2. Dernærst, kig på de filer som har et `Extension_Mismatch`. Hvis nogle af dem har et af de PUID'er som er markeret nede i tabellen, så skal deres extension erstattes af den pågældende extension i tabellen.
+
+    | PUID      | extension |
+    | --------- | --------- |
+    | fmt/411   | .rar      |
+    | fmt/484   | .7z       |
+    | fmt/613   | .rar      |
+    | x-fmt/263 | .zip      |
+    | x-fmt/264 | .rar      |
+    | x-fmt/265 | .tar      |
+    | x-fmt/266 | .gz       |
+    | x-fmt/430 | .msg      |
+    | aca-fmt/9 | .dat      |
+
+    Der vil også være tidspunkter hvor at Digiarch har markeret nogle filer som værende .zip filer, men hvor at de ikke skal bevares af os af forskellige grunde. Hvis man møder sådan en type fil, skal den markeres som ikke bevaringsværdi manuelt i 'action' feltet. De filtyper der typisk er tale om er:
+    
+    | PUID      | extension |
+    | --------- | --------- |
+    | x-fmt/412 | .jar      |
+
+
+3. For at erstatte en specifik filtype angives den PUID og hvilken extension man øsnker at give alle filer med  `Extension_Mismatch` således:
+    ```Bash
+    renamer db_file_path puid new_extension_without_period_sign
+    ```
+
+
 
 For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
