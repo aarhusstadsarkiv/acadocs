@@ -4,13 +4,11 @@ Konvertering af indkomne original-filer fra myndigheder eller private parter er 
 Forudsætningen for filkonvertering er [`identifikation`](../processes/identify-files.md) med digiarch og tilhørende værktøjer.
 
 ## 1. Kør convertool
-```convertool``` køres nu for første gang.
+Inden ```convertool``` køres, så opret en ny mappe ved navnet ```MasterDocuments``` i roden af afleveringen. I denne mappe glemmes de konverteret filer.
 
-!!! Status
-
-    === "Problemer"
-
-        * Convertool stopper når pc'en låses.
+```
+convertool /path/to/Original-files/_metadata/files.db /path/to/MasterDocuments ammendmaster
+```
 
 
 ## 2. Kør Symphovert
