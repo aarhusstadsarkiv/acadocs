@@ -13,8 +13,7 @@ Forudsætningen for filkonvertering er [`identifikation`](../processes/identify-
         * Convertool stopper når pc'en låses.
 
 
-## 1. Kør Symphovert
-
+## 2. Kør Symphovert
 `Symphovert` konverterer Lotus WordPerfect (lwp)-filer. Bemærk at programmet skal køres på en computer med IBM Symphony installeret.
 
 !!! attention "Bemærk"
