@@ -20,10 +20,10 @@ convertool /path/to/MasterDocuments/_metadata/files.db /path/to/MasterDocuments 
 ```
 
 ## 3. Kør ```statutory```
-Inden statutory køres, så opret en ny mappe ved navnet ```Statutory``` i roden af afleveringen.
+Inden statutory køres, så opret en ny mappe ved navnet ```StatutoryDocuments``` i roden af afleveringen.
 
 ```
-convertool /path/to/MasterDocuments/_metadata/files.db /path/to/Statutory statutory
+convertool /path/to/MasterDocuments/_metadata/files.db /path/to/StatutoryDocuments statutory
 ```
 
 Nu er afleveringen færdig.
