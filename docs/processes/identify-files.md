@@ -12,9 +12,9 @@ Detaljerede guides til installation og brug af de enkelte værktøjer findes [`h
 !!! attention "Bemærk"
     Før hvert værktøj køres, skal man sikre sig at man benytter den nyeste version af værktøjet. Dette kan evt. gøres med kommandoen 
     
-    ```
+    
     pipx upgrade-all
-    ```
+    
 
 ## 0. Forbered status.txt
 Som sagt før er processen at konvetere en aflevering lang og fyldt med faldgrupper. For at gøre det muligt for en selv at spore sine tanker og handlinger over de dage, uger og (nogle gange desværre) måneder man arbejder med afleveringen, er det vigtigt at man altid noterer sine tanker i `status.txt` filen.
@@ -38,10 +38,10 @@ Her betaler det sig at være udførlig.
 Før alt andet skal de indkomne filer så vidt muligt identificeres. 
 Især ved store afleveringer, kan identifiaktionen dog tage lang tid. Man kan derfor med fordel køre den i baggrunden, mens andre opgaver løses, eller natten over.
 
-Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`. Hvis man står i roden på en aflevering så køre digiarch på 'Original-files' mappen ved følgende kommando:
+Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`.
 
-```bash
-digiarch .\Original_files\ process
+```
+digiarch identify /path/to/Original-files
 ```
 
 > #### **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes.
@@ -103,10 +103,10 @@ Se [unarchiver](../tools/unarchiver.md) for mere information
 
 
 ## 5. Identificér filer igen
-I `.\OriginalFiles\_metadata` omdøb `files.db` til `files_preunwrap.db`.
+Man skal identificér filer igen via digiarch
 
 ```
-digiarch .\OriginalFiles process
+digiarch identify /path/to/Original-files
 ```
 
 Noter i `status.txt` hvor mange `warnings` der findes i `files.db`
@@ -194,10 +194,10 @@ rearranger .\OriginalFiles newDocCollectionnumer dIDCounter newTableNumer
 Se [rearranger](../tools/rearranger.md) for mere information
 
 ## 10. Identificér filer igen
-I `.\ OriginalFiles\_metadata` omdøb ‘files.db` til ‘files_preGISRearrange.db`.
+Til sidst identificér man filer igen via digiarch
 
 ```
-digiarch .\OriginalFiles process
+digiarch identify /path/to/Original-files
 ```
 
 Noter i `status.txt` hvor mange `warnings` der findes i `files.db`.
