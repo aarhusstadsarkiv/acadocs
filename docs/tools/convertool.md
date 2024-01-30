@@ -12,9 +12,11 @@ Convertool kræver at `docker` er installeret, da den kører i en docker contain
 
 Når docker er installeret, skal man havde docker billedet sat up lokalt. Det kan ske på to måder:
 
-Man kan hente docker billet fra [azure](https://portal.azure.com/#view/Microsoft_Azure_ContainerRegistries/ImageMetadataBlade/registryId/%2Fsubscriptions%2Fa49bde08-179c-407e-a1f9-e89b2429b039%2FresourceGroups%2FAarhusstadsarkiv_core%2Fproviders%2FMicrosoft.ContainerRegistry%2Fregistries%2Facaregistry/repositoryName/convertool/tag/latest) ved følgende kommando
+Man kan hente docker billedet fra [azure](https://portal.azure.com/#view/Microsoft_Azure_ContainerRegistries/ImageMetadataBlade/registryId/%2Fsubscriptions%2Fa49bde08-179c-407e-a1f9-e89b2429b039%2FresourceGroups%2FAarhusstadsarkiv_core%2Fproviders%2FMicrosoft.ContainerRegistry%2Fregistries%2Facaregistry/repositoryName/convertool/tag/latest) ved følgende kommando
 
 `docker pull acaregistry.azurecr.io/convertool:latest`
+
+Det kan være nødvændigt at logge ind med azure først. For at gøre dette skal du hente [azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli), åbne en ny PowerShell og først logge ind ved at skrive `az login`. Der vil så bliver åbnet en browser hvor du vil bliver logget ind på azure automatisk, hvis din browser er logget ind. Derefter skal du linke up til vores registry på azure ved at skrive `az acr login --name acaregistry`. Derefter bør den tidligere kommando for at hente billedet ned fungerer.
 
 Hvis billedet bliver hentet korrekt vil det dukke up under `images` i docker desktop.
 
