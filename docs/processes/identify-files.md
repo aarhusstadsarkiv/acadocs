@@ -41,7 +41,7 @@ Især ved store afleveringer, kan identifiaktionen dog tage lang tid. Man kan de
 Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`. Hvis man står i roden på en aflevering så køre digiarch på 'Original-files' mappen ved følgende kommando:
 
 ```bash
-digiarch .\Original_files\ process
+digiarch .\Original_files\ identify
 ```
 
 > #### **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes.
