@@ -1,19 +1,22 @@
 # Convert files
+
 Konvertering af indkomne original-filer fra myndigheder eller private parter er en kompleks proces, som involverer en del viden, værktøjer og procestrin.
 
 Forudsætningen for filkonvertering er [`identifikation`](../processes/identify-files.md) med digiarch og tilhørende værktøjer.
 
+## Opsætning
+
+For at opsætte og forstå convertool, læs da guiden [her](../tools/convertool.md). 
+
 ## 1. Kør convertool
-```convertool``` køres nu for første gang.
 
-!!! Status
+Inden `convertool` køres, så opret en ny mappe ved navnet `MasterDocuments` i roden af afleveringen. I denne mappe gemmes de konverteret filer.
 
-    === "Problemer"
+```Bash
+convertool /path/to/Original-files/_metadata/files.db /path/to/MasterDocuments ammendmaster
+```
 
-        * Convertool stopper når pc'en låses.
-
-
-## 1. Kør Symphovert
+## 2. Kør Symphovert
 
 `Symphovert` konverterer Lotus WordPerfect (lwp)-filer. Bemærk at programmet skal køres på en computer med IBM Symphony installeret.
 
