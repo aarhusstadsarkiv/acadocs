@@ -10,7 +10,7 @@ version = "0.1.1"
 
 [tool.poetry.dependencies]
 mkdocs = "^1.5.3"
-mkdocs-macros-plugin = "^1.0.4"
+mkdocs-macros-plugin = "^1.0.5"
 mkdocs-material = "^9.4.6"
 python = "^3.8"
 
