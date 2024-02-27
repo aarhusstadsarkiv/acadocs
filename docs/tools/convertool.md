@@ -2,13 +2,15 @@
 
 Convertool er en CLI (Command-Line Interface), som benyttes til at konvertere filer, således de overholder Aarhus Stadsarkivs arkiveringskrav. Der læses fra DB-filen produceret af [Digiarch](digiarch.md).
 
+Hvis du skal udvikle på convertool, se da så dokumnetationen som er på convertools GH-repo, under fanen 'wiki´. Her er der guides og tips til hvordan man udvikler med convertool.
+
 ## Forudsætninger
 
 ### Docker
 
 Convertool kræver at `docker` er installeret, da den kører i en docker container. Den nemmeste måde at tilgå docker på på windows er gennem [docker desktop](https://www.docker.com/products/docker-desktop/).
 
-## Hent convertool billedet ned
+### Hent convertool billedet ned
 
 Når docker er installeret, skal man havde docker billedet sat up lokalt. Det kan ske på to måder:
 
@@ -20,13 +22,15 @@ Det kan være nødvændigt at logge ind med azure først. For at gøre dette ska
 
 Hvis billedet bliver hentet korrekt vil det dukke up under `images` i docker desktop.
 
+### Byg billedet selv
+
 Alternativt kan man også bygge billedet selv. Dette kræver at man har en kopi a `convertool` repositoriet hentet ned på sin maskine. Man kan så åbne en terminal inde i roden af repositoriet, og køre følgende kommandoen:
 
 `docker buildx build -f Dockerfile . -t latest`
 
 Docker vil så bygge et lokalt billede med tagget 'latest'. Det vil også dukke up under images i docker desktop.
 
-## Åben en docker container med convertool billedet
+## Åben en docker container med convertool billedet til en aflevering
 
 For at begynde at konvetere en aflevering skal man åbne en convertool container, hvor man har mounted den aflevering man gerne vil konveterer ind. den nemmeste måde at gøre dette på er ved at åbne en ny PowerShell terminal i roden af den aflvering man gerne vil arbejde med og køre følgende kommando i en PowerShell terminal:
 
@@ -44,7 +48,17 @@ Når kommandoen er kørt vil den åbne terminal være din eneste indgang ind i c
 
 Frem for at starte en container op hver dag du skal arbejde på en aflevering, så kan man med fordel bare benytte den container man havde startet op sidste gang. Man kan finde containeren under 'containers' i docker desktop, og kan starte den ved at trykke på 'start' ud fra den. Man kan så, når containeren er startet, klikke på de 3 prikker ud fra den og åbne en terminal enten i 'docker desktop' eller eksternt, som så er i containeren og har de tidligere mapper mounted ind.
 
-## Opbygning
+Man kan også åbne containeren fra terminalen ved at kalde kommandoen:
+
+`docker start [CONTAINER-ID]`
+
+Hvor [CONTAINER-ID] er det ID som containeren får tildelt af docker når du starter den op første gang. Du kan se det under ´containers´ panellet i docker desktop, eller ved at skrive:
+
+`docker ps -a`
+
+Som lister alle containere, både dem der køre og dem der ikke gør.
+
+## Opbygning af convertool
 
 CLI'en er opbygget som følger.
 
@@ -99,7 +113,7 @@ Convertool har 4 optioner. Som udgangspunk ter disse ikke påkrævede, bortset f
 
 Convertool har 3 kommandoer kaldet `main`, `tiff` og `replacepdf`.
 
-* main
+- main
 
 Denne kommando konverterer filer til Aarhus Stadsarkivs prædefinerede Master-formater. Disse er blandt andre Open Document Text for alle Word-lignende filer, PDF/A for PDF-filer, og TIFF for billedfiler.
 
@@ -108,11 +122,12 @@ Denne kommando konverterer filer til Aarhus Stadsarkivs prædefinerede Master-fo
     convertool D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out main
     ```
 
-* statutory
+- statutory
 
 Denne kommando konverterer Master-filer til deres arkivformat i overenstemmelse med gældende lovgivning. Syntaksen for at bruge kommandoen er den samme som `main`, hvor `main` erstattes med `statutory`.
 
-* replacepdf
+- replacepdf
+
 
 Denne kommando køre funktionen `replace` fra replace_pdf.py på de restederende PDF 1.7 filer som indlæses ved brug af optionen `--pdf_1_7`.
 Da funktionen bruger GhostScript, kan den multiprocesses og køre flere konverteringer parallelt. Et eksempel på brugen kan ses under beskrivelsen af `--pdf_1_7`.
@@ -121,42 +136,7 @@ Da funktionen bruger GhostScript, kan den multiprocesses og køre flere konverte
 
 Når Convertool sættes i gang med at konvertere, er der ikke umiddelbart behov for yderligere brugerinput. Konvertering tager i gennemsnit 2s/fil, og det kan derfor være fordelagtigt at have processen kørende i baggrunden, mens man tager sig af andre opgaver.
 
-!!! attention "Bemærk"
-    Convertool gør *meget* brug af LibreOffices CLI. Det er ikke testet, hvorvidt brug af LibreOffice samtidig med konvertering kan foregå uden problemer. Vær derfor forsigtig, hvis LibreOffice skal benyttes sideløbende med konvertering.
-
-Under konvertering skriver Convertool til tabellen `_ConvertedFiles` i den `files.db`, som Convertool læser fra. I `files.db` laves også et såkaldt view, `_NotConverted`, der på brugervenlig vis angiver de filer, der endnu ikke er konverteret. `_ConvertedFiles`-tabellen ser ud som følger.
-
-**`_ConvertedFiles`**
-
-| column  | required | type  | description                       |
-| ------- | -------- | ----- | --------------------------------- |
-| file_id | true     | `int` | Fremmednøgle til `Files`-tabellen |
-| uuid    | true     | `str` | Universally Unique ID 4           |
-
-`_NotConverted`-viewet baserer sig på `_ConvertedFiles` og `Files`. Det ser ud som følger.
-
-**`_NotConverted`**
-
-| column    | required | type  | description               |
-| --------- | -------- | ----- | ------------------------- |
-| id        | true     | `int` | ID fra `Files`-tabellen   |
-| uuid      | true     | `str` | Universally Unique ID 4   |
-| path      | true     | `str` | Fuld sti til filen        |
-| aars_path | true     | `str` | Sti med rod i AARS-mappen |
-| puid      | false    | `str` | PRONOM ID                 |
-| signature | false    | `str` | Filsignatur               |
-| warning   | false    | `str` | Advarsel, hvis relevant   |
-
-I [afsnittet om fejlrettelser](#fejlrettelser) beskrives det, hvorledes `_ConvertedFiles` manuelt opdateres, hvis der er behov herfor.
-
 Under konvertering skrives også til en logfil, `convertool.log`, der kan findes i `_metadata` folderen under `OUTDIR\AARS-ID`.
-
-!!! hint "Eksempel"
-    Antag, at originalfilerne `D:\filer\AVID.AARS.3.1` bliver konverteret som følger.
-    ```powershell
-    convertool D:\filer\AVID.AARS.3.1\_metadata\files.db D:\filer\out main
-    ```
-    `_ConvertedFiles` og `_NotConverted` kan nu findes i databasefilen `D:\filer\AVID.AARS.3.1\_metadata\files.db`, mens logfilen kan findes i mappen `D:\filer\out\AVID.AARS.3.1\_metadata`.
 
 ## Fejlrettelser
 
@@ -175,20 +155,11 @@ Der skelnes mellem kritiske og ikke-kritiske fejl. Ikke-kritiske fejl er typisk 
 
 Når filer konverteres manuelt, er det vigtigt at opdatere `_ConvertedFiles`-tabellen, således man bevarer oversigten over, hvilke filer der er konverterede. Dette gøres ved at indsætte den manuelt konverterede fils ID og UUID, som vist i følgende eksempel.
 
-!!! hint "Eksempel"
-    Antag, at en fil med ID `144` og UUID `cd61494b-4547-43e7-97c6-adbafc6e8bd` ikke er konverteret. Den fremgår i `_NotConverted` som følger.
+Antag, at en fil med ID `144` og UUID `cd61494b-4547-43e7-97c6-adbafc6e8bd` ikke er konverteret. Den fremgår i `_NotConverted` som følger:
 
-    | id  | uuid                                | path                        | aars_path          | puid    | signature                | warning |
-    | --- | ----------------------------------- | --------------------------- | ------------------ | ------- | ------------------------ | ------- |
-    | 144 | cd61494b-4547-43e7-97c6-adbafc6e8bd | D:\files\AARS.TEST\file.tif | AARS.TEST\file.tif | fmt/353 | Tagged Image File Format |         |
-
-    Filen konverteres nu manuelt, og `_ConvertedFiles` opdateres med følgende SQL-statement.
-
-    ```sql
-    INSERT INTO _ConvertedFiles VALUES (144, "cd61494b-4547-43e7-97c6-adbafc6e8bd")
-    ```
-
-    Herefter fremgår filen ikke længere i `_NotConverted`-viewet.
+| id    | uuid | path  | aars_path | puid | signature | warning |
+| --- | --- | --- | --- | --- | --- | --- |
+| 144 | cd61494b-4547-43e7-97c6-adbafc6e8bd | D:\files\AARS.TEST\file.tif | AARS.TEST\file.tif | fmt/335 | Tagged Image File | Filen kunne ikke konveteres |
 
 Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes [her](https://github.com/aarhusstadsarkiv/convertool/tree/master/convertool/core/replacements). Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes [her](https://github.com/aarhusstadsarkiv/acadocs/blob/master/files/Konverteringsfejl.odt).
 
@@ -197,29 +168,7 @@ Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller
     ![Konverteringsfejl](../img/konverteringsfejl.png)
 
 ## Arbejdsgang
-
-### Klargøring
-
-Som opsummering kommer her en oversigt over arbejdsgangen med Convertool.
-Før convertool køres, er det en god ide at bruge TemplateHandler til at indsætte tif templates for de filer, som er oplistet i Not_preservable tabellen,
-da vi gerne vil undgå at konvertere disse filer.
-Dette gøres ved brug af følgende trin:
-
-1. Først bruges nedenstående sql statement og resultatet gemmes i en txt fil. Dette skal resultere i en newline seperaret liste af checksums.
-
-```sql
-SELECT checksum FROM Files WHERE uuid IN (SELECT uuid FROM Not_preservable);
-```
-
-2. Dernæst kaldes TemplateHandler, hvor stien til txt filen angives som `query_parameter`.
-For brugen af TemplateHandler, se [TemplateHandlers github side](https://github.com/aarhusstadsarkiv/TemplateHandler).
-
-3. Som sidste step skal databasen opdateres. Dette kan gøres med nedenstående statement:
-
-```sql
-INSERT INTO _ConvertedFiles SELECT id, uuid FROM Files WHERE uuid IN (SELECT uuid FROM Not_preservable);
-```
-
+TODO
 ### Convertool quick guide
 
 1. Åbn PowerShell

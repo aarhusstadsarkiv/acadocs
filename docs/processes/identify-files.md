@@ -12,8 +12,8 @@ Hver gang et værktøj har kørt inspiceres nogle af de berørte filer manuelt i
 Detaljerede guides til installation og brug af de enkelte værktøjer findes [`her`](https://aarhusstadsarkiv.github.io/acadocs/tools/).
 
 !!! attention "Bemærk"
-    Før hvert værktøj køres, skal man sikre sig at man benytter den nyeste version af værktøjet. Dette kan evt. gøres med kommandoen 
-    
+    Før hvert værktøj køres, skal man sikre sig at man benytter den nyeste version af værktøjet. Dette kan evt. gøres med kommandoen
+
     pipx upgrade-all
 
 ## 0. Forbered status.txt
@@ -41,13 +41,12 @@ Før alt andet skal de indkomne filer så vidt muligt identificeres.
 Især ved store afleveringer, kan identifiaktionen dog tage lang tid. Man kan derfor med fordel køre den i baggrunden, mens andre opgaver løses, eller natten over.
 
 
-Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`. Hvis man står i roden på en aflevering så køre digiarch på 'Original-files' mappen ved følgende kommando:
+```Bash
+digiarch identify /path/to/Original-files
 
-```bash
-digiarch .\Original_files\ identify
 ```
 
-> #### **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes.
+> **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes
 
 
 Den af 'digiarch' producerede 'files.db'-fil inspiceres herefter i DB Browser. Det er vigtigt at danne sig et overblik over følgende:
@@ -88,25 +87,24 @@ For at rette op på det skal man gøre følgende:
     | x-fmt/412 | .jar      |
 
 3. For at erstatte en specifik filtype angives den PUID og hvilken extension man øsnker at give alle filer med  `Extension_Mismatch` således:
-    ```Bash
-    renamer [db_file_path] [puid] [new_extension_without_period_sign]
-    ```
 
+```Bash
+renamer db_file_path puid new_extension_without_period_sign
+```
 
 For mere deltajeret beskrivelse af brugen af [`renamer`](../tools/renamer.md), se trin 5.
 
-## 3. Udpak alle zip-komprimerede
-Næste skridt i processen er at udpakke all zip-komprierede filer, bl.a. dem som vi lige har givet den korrekte extension i sidste trin.
-Til dette bruger vi [`unarchiver`](../tools/unarchiver.md). Måden vi bruger den her er at kalde `unarchiver` på `files.db` databasen som er blevet lavet. Dette gøres ved kalde `unarchiver` på `files.db`:
+## 4. Udpak alle komplekse filer
+
+Opret en mappe med navnet `save_dir` i `.\OriginalFiles\_metadata`. I mappen `save_dir` vil de originale filer blive lagt efter udvinding.
 
 ```Bash
-unarchiver [files_db_path]
+unarchiver .\_metadata\files.db .\_metadata\save_dir\
 ```
 
 `unarchiver` lægger en log, som kan findes i `_metadata` mappen. Denne skal efter en kørsel inspiseres for fejl angivet med `warning` eller `error`. Evt. fejl skal enten udbedres eller noteres i `status.txt` filen.
 
 Det er en god idé at foretage stikprøver i stifinderen for de enkelte filtyper der er blevet håndteret, for at sikre sig at unarchiver har kørt succesfuldt.
-
 
 ## 5. Identificér filer igen
 
