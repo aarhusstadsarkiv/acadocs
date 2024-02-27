@@ -30,6 +30,7 @@ nav:
 
   # - Tilgængeliggørelse:
   #   - Introduktion: dissemination/index.md
+
   - Hjemmesider:
     - AarhusArkivet: sites/aarhusarkivet.md
     - AarhusWiki: sites/aarhuswiki.md
@@ -41,25 +42,44 @@ nav:
     - Introduktion: tools/index.md
     - GUI:
       - FileZilla: tools/filezilla.md
-    - CLI:
+    - CLI (ekstern):
       - Chocolatey: tools/chocolatey.md
-      - Digiarch: tools/digiarch.md
-      - Convertool: tools/convertool.md
-      - Symphovert: tools/symphovert.md
-      - Renamer: tools/renamer.md
-      - Unarchiver: tools/unarchiver.md
-      - Tiffany: tools/tiffany.md
       - Ghostscript: tools/ghostscript.md
+      - Pipx: tools/pipx.md
+    - CLI (intern):
+      - AutoGui: tools/autogui.md
+      - Backupfilter: tools/backupfilter.md
+      - Byteheader: tools/byteheader.md
+      - Convertool: tools/convertool.md
+      - Convert-unmanaged: tools/convert-unmanaged.md
+      - convert-qa:
+          - tools/convert-qa.md
+          - convert-compare: tools/convert-qa#convert-compare
+          - convert-encoding: tools/convert-qa#convert-encoding
+          - clean-empty-columns: tools/convert-qa#clean-empty-columns
+          - remove-control-characters: tools/convert-qa#remove-control-characters
+          - remove-duplicate-rows: tools/convert-qa#remove-duplicate-rows
+          - remove-tables: tools/convert-qa#remove-tables
+      - Digiarch: tools/digiarch.md
+      - Gisprocessor: tools/gis_processor.md
       - LibreOffice: tools/libreoffice.md
+      - Rearranger: tools/rearranger.md
+      - Renamer: tools/renamer.md
+      - Symphovert: tools/symphovert.md
+      - Tiffany: tools/tiffany.md
+      - Unarchiver: tools/unarchiver.md
+      - find-relations: tools/find-relations.md
+
+  - Vejledninger:
+      - Synology NAS:
+          - Opret ny bruger: manuals/synology/new_user.md
+          - SSH-adgang: manuals/synology/ssh_access.md
+
   # - Blanketter:
   #   - Introduktion: documents/index.md
   - Arkiveringsversioner:
     - Introduktion: archival-versions/index.md
     - Notesarkivering: archival-versions/notes-arkivering.md
-  # - Diverse:
-  #   - diverse/archiving_practices.md
-  #   - diverse/database_tables.md
-  #   - diverse/framework.md
   - Development:
     - development/index.md
     - development/git.md
@@ -68,11 +88,12 @@ nav:
     - development/docker.md
     - development/git_workflow.md
     - Python:
-      - development/python/index.md
+      - development/python/python-repos.md
       - development/python/pyinstaller.md
-    - Diverse:
-      - diverse/index.md
+    - Roadmap:
+      - development/roadmap.md
   - Processer:
+    - Identifikation af filer: processes/identify-files.md
     - Konvertering af filer: processes/convert-files.md
 extra_css:
   - css/extra.css

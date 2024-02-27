@@ -1,4 +1,4 @@
-# How we develop with python
+# Python repositories
 
 - download python from python homepage
 
