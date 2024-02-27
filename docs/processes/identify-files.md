@@ -6,6 +6,7 @@ Ved processens begyndelse oprettes en `status.txt` i den relevante `_metadata`-m
 
 Ved processens begyndelse oprettes en `status.txt` i den relevante `_metadata`-mappe (eg. `AVID.AARS.78.1\OriginalFiles\_metadata`). I dette dokument noteres hvor langt man er kommet i processen, hvilke fejl og problemer man er stødt på undervejs, og hvilke manuelle rettelser man har foretaget.
 
+
 Hver gang et værktøj har kørt inspiceres nogle af de berørte filer manuelt i stifinderen, for at sikre sig at værktøjet har kørt succesfuldt.
 
 Detaljerede guides til installation og brug af de enkelte værktøjer findes [`her`](https://aarhusstadsarkiv.github.io/acadocs/tools/).
@@ -39,13 +40,14 @@ Her betaler det sig at være udførlig.
 Før alt andet skal de indkomne filer så vidt muligt identificeres.
 Især ved store afleveringer, kan identifiaktionen dog tage lang tid. Man kan derfor med fordel køre den i baggrunden, mens andre opgaver løses, eller natten over.
 
-Selve identifikationen af filer gøres med [`digiarch's`](../tools/digiarch.md) `process`-kommando. Man skal huske at køre denne på `Original-files`.
 
 ```Bash
 digiarch identify /path/to/Original-files
+
 ```
 
 > **BEMÆRK**: Hvis der allerede er en `files.db` file i `_metadata` mappen, så vil digiarch opdaterer og overskrive denne. Omdøb den til et andet navn for at undgå dette hvis den skal gemmes
+
 
 Den af 'digiarch' producerede 'files.db'-fil inspiceres herefter i DB Browser. Det er vigtigt at danne sig et overblik over følgende:
 
@@ -57,6 +59,7 @@ Man noterer sine tanker i `status.txt`.
 ## 2. Omdøbning af zip o.l. filer
 
 Digiarch benytter [Siegfried](https://www.itforarchivists.com/siegfried/) til at identificere langt størstedelen af vores filer. Den bygger så selv på PRONOM databasen og andre lignende databaser over fil typer.
+
 
 I sin identifikation af fil typer kan Siegfried godt være lidt pedantisk. Derfor sker det at den særligt identificerer filer i et zip-format forkert. Mange filer i zip-formater vil derfor havde en warning der siger `Extension_Mismatch`.
 
@@ -99,7 +102,9 @@ Opret en mappe med navnet `save_dir` i `.\OriginalFiles\_metadata`. I mappen `sa
 unarchiver .\_metadata\files.db .\_metadata\save_dir\
 ```
 
-Se [unarchiver](../tools/unarchiver.md) for mere information
+`unarchiver` lægger en log, som kan findes i `_metadata` mappen. Denne skal efter en kørsel inspiseres for fejl angivet med `warning` eller `error`. Evt. fejl skal enten udbedres eller noteres i `status.txt` filen.
+
+Det er en god idé at foretage stikprøver i stifinderen for de enkelte filtyper der er blevet håndteret, for at sikre sig at unarchiver har kørt succesfuldt.
 
 ## 5. Identificér filer igen
 

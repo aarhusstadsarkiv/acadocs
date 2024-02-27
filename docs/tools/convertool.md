@@ -128,6 +128,7 @@ Denne kommando konverterer Master-filer til deres arkivformat i overenstemmelse 
 
 - replacepdf
 
+
 Denne kommando køre funktionen `replace` fra replace_pdf.py på de restederende PDF 1.7 filer som indlæses ved brug af optionen `--pdf_1_7`.
 Da funktionen bruger GhostScript, kan den multiprocesses og køre flere konverteringer parallelt. Et eksempel på brugen kan ses under beskrivelsen af `--pdf_1_7`.
 
