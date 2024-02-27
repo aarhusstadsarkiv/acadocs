@@ -1,0 +1,2435 @@
+
+<!doctype html>
+<html lang="da" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for some of the digital processes that we often work with at Aarhus City Archives.">
+      
+      
+        <meta name="author" content="Claus Juhl Knudsen">
+      
+      
+        <link rel="canonical" href="https://aarhusstadsarkiv.github.io/acadocs/tools/symphovert/">
+      
+      
+        <link rel="prev" href="../renamer/">
+      
+      
+        <link rel="next" href="../tiffany/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Symphovert - Aarhus Stadsarkiv</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#symphovert" class="md-skip">
+          Gå til indholdet
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Sidehoved">
+    <a href="../.." title="Aarhus Stadsarkiv" class="md-header__button md-logo" aria-label="Aarhus Stadsarkiv" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aarhus Stadsarkiv
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Symphovert
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Søg" placeholder="Søg" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Søg">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Nulstil søgning" aria-label="Nulstil søgning" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Start søgning
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aarhusstadsarkiv/acadocs" title="Åbn arkiv" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aarhusstadsarkiv/acadocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Faner" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sites/aarhusarkivet/" class="md-tabs__link">
+          
+  
+    
+  
+  Hjemmesider
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Værktøjer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../manuals/synology/new_user/" class="md-tabs__link">
+          
+  
+    
+  
+  Vejledninger
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../archival-versions/" class="md-tabs__link">
+          
+  
+    
+  
+  Arkiveringsversioner
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/" class="md-tabs__link">
+          
+  
+    
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../processes/identify-files/" class="md-tabs__link">
+          
+  
+    
+  
+  Processer
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aarhus Stadsarkiv" class="md-nav__button md-logo" aria-label="Aarhus Stadsarkiv" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Aarhus Stadsarkiv
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aarhusstadsarkiv/acadocs" title="Åbn arkiv" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aarhusstadsarkiv/acadocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Hjemmesider
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hjemmesider
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/aarhusarkivet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AarhusArkivet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/aarhuswiki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AarhusWiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/byraadsarkivet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Byrådsarkivet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/smartarkivering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smartarkivering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Værktøjer
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Værktøjer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    GUI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            GUI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filezilla/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FileZilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CLI (ekstern)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            CLI (ekstern)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chocolatey/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chocolatey
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ghostscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ghostscript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CLI (intern)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            CLI (intern)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autogui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AutoGui
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backupfilter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backupfilter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../byteheader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Byteheader
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convertool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convertool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-unmanaged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert-unmanaged
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    convert-qa
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            convert-qa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert QA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#convert-compare" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    convert-compare
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#convert-encoding" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    convert-encoding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#clean-empty-columns" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    clean-empty-columns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#remove-control-characters" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remove-control-characters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#remove-duplicate-rows" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remove-duplicate-rows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#remove-tables" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remove-tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../digiarch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digiarch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gis_processor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gisprocessor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libreoffice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rearranger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rearranger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../renamer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Renamer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Symphovert
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Symphovert
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forudstninger" class="md-nav__link">
+    Forudsætninger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opbygning" class="md-nav__link">
+    Opbygning
+  </a>
+  
+    <nav class="md-nav" aria-label="Opbygning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumenter" class="md-nav__link">
+    Argumenter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optioner" class="md-nav__link">
+    Optioner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kommandoer" class="md-nav__link">
+    Kommandoer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konvertering" class="md-nav__link">
+    Konvertering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fejlrettelser" class="md-nav__link">
+    Fejlrettelser
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tiffany/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tiffany
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unarchiver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unarchiver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../find-relations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    find-relations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Vejledninger
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vejledninger
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Synology NAS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Synology NAS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manuals/synology/new_user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opret ny bruger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manuals/synology/ssh_access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-adgang
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../archival-versions/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Arkiveringsversioner
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Arkiveringsversioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archival-versions/notes-arkivering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notesarkivering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../development/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Subsystem for Linux (WSL)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git og Github workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/python/python-repos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python repositories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/python/pyinstaller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyInstaller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Roadmap
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Processer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Processer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../processes/identify-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Identifikation af filer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../processes/convert-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konvertering af filer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forudstninger" class="md-nav__link">
+    Forudsætninger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opbygning" class="md-nav__link">
+    Opbygning
+  </a>
+  
+    <nav class="md-nav" aria-label="Opbygning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumenter" class="md-nav__link">
+    Argumenter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optioner" class="md-nav__link">
+    Optioner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kommandoer" class="md-nav__link">
+    Kommandoer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#konvertering" class="md-nav__link">
+    Konvertering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fejlrettelser" class="md-nav__link">
+    Fejlrettelser
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="symphovert">Symphovert<a class="headerlink" href="#symphovert" title="Permanent link">&para;</a></h1>
+<p>Symphovert er en CLI (Command-Line Interface), som benyttes til at konvertere filer, således de overholder Aarhus Stadsarkivs arkiveringskrav. Der læses fra DB-filen produceret af <a href="../digiarch/">Digiarch</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Symphovert skal installeres via <a href="https://github.com/aarhusstadsarkiv/symphovert/releases">releases</a> på GitHub. Download først den seneste <code>.whl</code>-fil, og installér herefter denne via <code>pip</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="n">C</span><span class="p">:\</span><span class="n">Downloads</span><span class="p">\</span><span class="n">symphovert</span><span class="p">-</span><span class="n">0</span><span class="p">.</span><span class="n">2</span><span class="p">.</span><span class="n">1-py3-none-any</span><span class="p">.</span><span class="n">whl</span>
+</code></pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Bemærk</p>
+<p>Installation via <code>.whl</code>-filer kræver, at pakken <code>wheel</code> er installeret. Dette skal kun foregå første gang man har behov for at installere wheels, og det gøres som følger.
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="n">wheel</span>
+</code></pre></div></p>
+</div>
+<p>Når Symphovert skal opdateres, bruges igen <code>pip</code> med en ny <code>.whl</code>-fil og <code>--upgrade</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-user</span> <span class="p">-</span><span class="n">-upgrade</span> <span class="n">C</span><span class="p">:\</span><span class="n">Downloads</span><span class="p">\</span><span class="n">symphovert</span><span class="p">-</span><span class="no">[new version]</span><span class="n">-py3-none-any</span><span class="p">.</span><span class="n">whl</span>
+</code></pre></div>
+</div>
+<h2 id="forudstninger">Forudsætninger<a class="headerlink" href="#forudstninger" title="Permanent link">&para;</a></h2>
+<p>Symphovert gør brug af IBM Lotus Symphony. Det er vigtigt, at installationslokationen tilføjes til brugerens <code>PATH</code>-miljøvariabel på lige fod med <a href="../libreoffice/#systemmiljvariable">LibreOffice</a>. Den typiske sti er <code>C:\Program Files (x86)\IBM\Lotus\Symphony</code>.</p>
+<h2 id="opbygning">Opbygning<a class="headerlink" href="#opbygning" title="Permanent link">&para;</a></h2>
+<p>Symphovert er en CLI, og skal derfor benyttes direkte i for eksempel PowerShell. CLI'en er opbygget som følger.</p>
+<div class="highlight"><pre><span></span><code><span class="n">symphovert</span> <span class="no">[OPTIONS] [ARGS] [COMMAND]</span> 
+</code></pre></div>
+<p>Argumenter, optioner, og kommandoer er beskrevet i det følgende.</p>
+<h3 id="argumenter">Argumenter<a class="headerlink" href="#argumenter" title="Permanent link">&para;</a></h3>
+<p>Symphovert har to inputargumenter, som begge er påkrævede: <code>FILES</code> og <code>OUTDIR</code>. <code>FILES</code> skal angive stien til den <code>files.db</code> fil, der tidligere i processen er genereret af <a href="../digiarch/">Digiarch</a>, mens <code>OUTDIR</code> skal angive stien, hvori de konverterede filer skal gemmes.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">symphovert</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">AVID</span><span class="p">.</span><span class="n">AARS</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">1</span><span class="p">\</span><span class="n">_metadata</span><span class="p">\</span><span class="n">files</span><span class="p">.</span><span class="n">db</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">out</span> <span class="no">[COMMAND]</span>
+</code></pre></div>
+</div>
+<p>Symphovert genererer selv en mappe baseret på <a href="../../acquisition/acquiring-digital-material/#identifikator">AARS-ID'et</a>, og det er derfor kun nødvendigt at angive en overordnet folder i <code>OUTDIR</code>.</p>
+<h3 id="optioner">Optioner<a class="headerlink" href="#optioner" title="Permanent link">&para;</a></h3>
+<p>Symphovert har to optioner, der, som navnet antyder, ikke er påkrævede:</p>
+<ol>
+<li><code>--help</code> printer hjælp</li>
+<li><code>--version</code> printer versionen af Symphovert</li>
+</ol>
+<p>Bemærk, at Symphovert ikke har en <code>--threshold</code>-option. Dette er fordi det forventes, at der sker relativt mange fejl i konvertering med Symphovert, og det derfor bedst giver mening bare at lade den forsøge.</p>
+<p><code>--help</code> og <code>--version</code> kan som de eneste kaldes <em>uden</em> at angive argumenter, da de blot giver information om selve CLI'en.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">symphovert</span> <span class="p">-</span><span class="n">-help</span>
+<span class="n">symphovert</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+</div>
+<h3 id="kommandoer">Kommandoer<a class="headerlink" href="#kommandoer" title="Permanent link">&para;</a></h3>
+<p>Symphovert har pt. én kommando kaldet <code>main</code>. Denne kommando konverterer filer til Aarhus Stadsarkivs prædefinerede Master-formater. Disse er blandt andre Open Document Text for alle Word-lignende filer, PDF/A for PDF-filer, og TIFF for billedfiler.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">symphovert</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">AVID</span><span class="p">.</span><span class="n">AARS</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">1</span><span class="p">\</span><span class="n">_metadata</span><span class="p">\</span><span class="n">files</span><span class="p">.</span><span class="n">db</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">out</span> <span class="n">main</span>
+</code></pre></div>
+</div>
+<p>I fremtiden skal Symphovert også kunne håndtere konvertering af alle Master-filer til arkiveringsformater, således der kan genereres juridiske afleveringer. Dette bør være en separat kommando.</p>
+<h2 id="konvertering">Konvertering<a class="headerlink" href="#konvertering" title="Permanent link">&para;</a></h2>
+<p>Når Symphovert sættes i gang med at konvertere, er der ikke umiddelbart behov for yderligere brugerinput. Konvertering tager i gennemsnit 20s/fil.</p>
+<div class="admonition attention">
+<p class="admonition-title">Bemærk</p>
+<p>Symphovert-konvertering er en særdeles ustabil proces. Det anbefales at væbne sig med tålmodighed, og man skal være forberedt på at skulle køre konverteringen flere gange. Åbn altid IBM Symphony før en konvertering, da en kold start for programmet er meget langsom.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Vigtigt</p>
+<p>Det er <em>ikke</em> muligt at bruge den computer, Symphovert kører på, samtidig med konvertering, da Symphovert overtager både mus- og tastaturinput.</p>
+</div>
+<p>Under konvertering skriver Symphovert til tabellen <code>_ConvertedFiles</code> i den <code>files.db</code>, som Symphovert læser fra. I <code>files.db</code> laves også et såkaldt view, <code>_NotConverted</code>, der på brugervenlig vis angiver de filer, der endnu ikke er konverteret. <code>_ConvertedFiles</code>-tabellen ser ud som følger.</p>
+<p><strong><code>_ConvertedFiles</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>required</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file_id</td>
+<td>true</td>
+<td><code>int</code></td>
+<td>Fremmednøgle til <code>Files</code>-tabellen</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Universally Unique ID 4</td>
+</tr>
+</tbody>
+</table>
+<p><code>_NotConverted</code>-viewet baserer sig på <code>_ConvertedFiles</code> og <code>Files</code>. Det ser ud som følger.</p>
+<p><strong><code>_NotConverted</code></strong></p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>required</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td><code>int</code></td>
+<td>ID fra <code>Files</code>-tabellen</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Universally Unique ID 4</td>
+</tr>
+<tr>
+<td>path</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Fuld sti til filen</td>
+</tr>
+<tr>
+<td>aars_path</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Sti med rod i AARS-mappen</td>
+</tr>
+<tr>
+<td>puid</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>PRONOM ID</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>Filsignatur</td>
+</tr>
+<tr>
+<td>warning</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>Advarsel, hvis relevant</td>
+</tr>
+</tbody>
+</table>
+<p>I <a href="#fejlrettelser">afsnittet om fejlrettelser</a> beskrives det, hvorledes <code>_ConvertedFiles</code> manuelt opdateres, hvis der er behov herfor.</p>
+<p>Under konvertering skrives også til en logfil, <code>symphovert.log</code>, der kan findes i <code>_metadata</code> folderen under <code>OUTDIR\AARS-ID</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<p>Antag, at originalfilerne <code>D:\filer\AVID.AARS.3.1</code> bliver konverteret som følger.
+<div class="highlight"><pre><span></span><code><span class="n">symphovert</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">AVID</span><span class="p">.</span><span class="n">AARS</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">1</span><span class="p">\</span><span class="n">_metadata</span><span class="p">\</span><span class="n">files</span><span class="p">.</span><span class="n">db</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">out</span> <span class="n">main</span>
+</code></pre></div>
+<code>_ConvertedFiles</code> og <code>_NotConverted</code> kan nu findes i databasefilen <code>D:\filer\AVID.AARS.3.1\_metadata\files.db</code>, mens logfilen kan findes i mappen <code>D:\filer\out\AVID.AARS.3.1\_metadata</code>.</p>
+</div>
+<h2 id="fejlrettelser">Fejlrettelser<a class="headerlink" href="#fejlrettelser" title="Permanent link">&para;</a></h2>
+<p>Under konvertering kan fejl opstå. Faktisk er det mere eller mindre garanteret ved konvertering med Symphovert. Fejl opdages ved at kigge i <code>symphovert.log</code>-filen, hvori de vil stå som <code>WARNING</code>. Når et job er afsluttet, skrives også en oversigt over antallet af fejl til sidst i log-filen.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<p>I det følgende ses et uddrag af en <code>symphovert.log</code>-fil. Succesfuld konvertering angives med <code>INFO</code>, fejl angives med <code>WARNING</code>, og til slut ses en oversigt over antal fejl.
+<div class="highlight"><pre><span></span><code>2021-02-25 19:25:48 INFO: Starting conversion of file.lwp
+2021-02-25 19:25:55 INFO: Converted file.lwp successfully.
+2021-02-26 09:19:16 INFO: Starting conversion of file_2.lwp
+2021-02-26 09:19:36 Failed to convert file_2.lwp: Conversion of file_2.lwp failed!
+2021-02-26 19:25:55 INFO: Finished conversion of 11438 files with 15 issues.
+</code></pre></div></p>
+</div>
+<p>Alle fejl i konvertering med Symphovert er kritiske. Det anbefales at køre konverteringsjobbet et par gange, og til sidst lave eventuelle manuelle rettelser. Hvis filen ikke kan åbnes i Symphony, kan man med fordel prøve i LibreOffice - nogle gange er outputtet herfra acceptabelt.</p>
+<p>Når filer konverteres manuelt, er det vigtigt at opdatere <code>_ConvertedFiles</code>-tabellen, således man bevarer oversigten over, hvilke filer der er konverterede. Dette gøres ved at indsætte den manuelt konverterede fils ID og UUID, som vist i følgende eksempel.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<p>Antag, at en fil med ID <code>6</code> og UUID <code>1bac98f5-156c-4a8d-813c-39ac559b3e93</code> ikke er konverteret. Den fremgår i <code>_NotConverted</code> som følger.</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>uuid</th>
+<th>path</th>
+<th>aars_path</th>
+<th>puid</th>
+<th>signature</th>
+<th>warning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>1bac98f5-156c-4a8d-813c-39ac559b3e93</td>
+<td>D:\files\AARS.TEST\file.lwp</td>
+<td>AARS.TEST\file.lwp</td>
+<td>fmt/340</td>
+<td>Lotus WordPro Document</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Filen konverteres nu manuelt, og `_ConvertedFiles opdateres med følgende SQL-statement.</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">_ConvertedFiles</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;1bac98f5-156c-4a8d-813c-39ac559b3e93&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Herefter fremgår filen ikke længere i <code>_NotConverted</code>-viewet.</p>
+</div>
+<p>Til tider kan filer ikke konverteres, fordi de viser sig at være korrupte eller på anden vis fejlbehæftede. Alle filer, der ikke kan eller skal konverteres, skal noteres i et dokument kaldet "Konverteringsfejl", og herudover skal en TIFF-fil, der forklarer den specifikke fejl, bruges som erstatning for den konverterede fil. Disse erstatningsfiler kan findes <a href="https://github.com/aarhusstadsarkiv/convertool/tree/master/convertool/core/replacements">her</a>. Til slut skal dette dokument gemmes som TIFF og fremgå i kontekstdokumentationen. Skabelonen til dokumentet kan findes <a href="https://github.com/aarhusstadsarkiv/acadocs/blob/master/files/Konverteringsfejl.odt">her</a>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<p>Dokumentet "Konverteringsfejl" kan se ud som følger. 
+<img alt="Konverteringsfejl" src="../../img/konverteringsfejl.png" /></p>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Tilbage til start
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Kopieret til udklipsholderen", "clipboard.copy": "Kopi\u00e9r til udklipsholderen", "search.result.more.one": "1 resultat mere p\u00e5 denne side", "search.result.more.other": "# resultater mere p\u00e5 denne side", "search.result.none": "Ingen resultater fundet", "search.result.one": "1 resultat", "search.result.other": "# resultater", "search.result.placeholder": "Indtast s\u00f8geord", "search.result.term.missing": "Mangler", "select.version": "V\u00e6lg version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>

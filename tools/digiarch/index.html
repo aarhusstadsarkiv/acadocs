@@ -1,0 +1,2778 @@
+
+<!doctype html>
+<html lang="da" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for some of the digital processes that we often work with at Aarhus City Archives.">
+      
+      
+        <meta name="author" content="Claus Juhl Knudsen">
+      
+      
+        <link rel="canonical" href="https://aarhusstadsarkiv.github.io/acadocs/tools/digiarch/">
+      
+      
+        <link rel="prev" href="../convert-qa/">
+      
+      
+        <link rel="next" href="../gis_processor/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.6">
+    
+    
+      
+        <title>Digiarch - Aarhus Stadsarkiv</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35e1ed30.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#digiarch" class="md-skip">
+          Gå til indholdet
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Sidehoved">
+    <a href="../.." title="Aarhus Stadsarkiv" class="md-header__button md-logo" aria-label="Aarhus Stadsarkiv" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Aarhus Stadsarkiv
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Digiarch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Søg" placeholder="Søg" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Søg">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Nulstil søgning" aria-label="Nulstil søgning" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Start søgning
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/aarhusstadsarkiv/acadocs" title="Åbn arkiv" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aarhusstadsarkiv/acadocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Faner" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sites/aarhusarkivet/" class="md-tabs__link">
+          
+  
+    
+  
+  Hjemmesider
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  Værktøjer
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../manuals/synology/new_user/" class="md-tabs__link">
+          
+  
+    
+  
+  Vejledninger
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../archival-versions/" class="md-tabs__link">
+          
+  
+    
+  
+  Arkiveringsversioner
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/" class="md-tabs__link">
+          
+  
+    
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../processes/identify-files/" class="md-tabs__link">
+          
+  
+    
+  
+  Processer
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Aarhus Stadsarkiv" class="md-nav__button md-logo" aria-label="Aarhus Stadsarkiv" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Aarhus Stadsarkiv
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/aarhusstadsarkiv/acadocs" title="Åbn arkiv" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    aarhusstadsarkiv/acadocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Hjemmesider
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hjemmesider
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/aarhusarkivet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AarhusArkivet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/aarhuswiki/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AarhusWiki
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/byraadsarkivet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Byrådsarkivet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sites/smartarkivering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smartarkivering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Værktøjer
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Værktøjer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    GUI
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            GUI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../filezilla/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FileZilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CLI (ekstern)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            CLI (ekstern)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chocolatey/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chocolatey
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ghostscript/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ghostscript
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pipx
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CLI (intern)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            CLI (intern)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autogui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AutoGui
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backupfilter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backupfilter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../byteheader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Byteheader
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convertool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convertool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-unmanaged/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert-unmanaged
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4_6" id="__nav_2_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    convert-qa
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            convert-qa
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Convert QA
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#convert-compare" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    convert-compare
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#convert-encoding" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    convert-encoding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#clean-empty-columns" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    clean-empty-columns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#remove-control-characters" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remove-control-characters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#remove-duplicate-rows" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remove-duplicate-rows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-qa#remove-tables" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    remove-tables
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Digiarch
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Digiarch
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-og-opdatering" class="md-nav__link">
+    Installation og opdatering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forudstninger" class="md-nav__link">
+    Forudsætninger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opbygning" class="md-nav__link">
+    Opbygning
+  </a>
+  
+    <nav class="md-nav" aria-label="Opbygning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumenter" class="md-nav__link">
+    Argumenter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optioner" class="md-nav__link">
+    Optioner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kommandoer" class="md-nav__link">
+    Kommandoer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indeksering" class="md-nav__link">
+    Indeksering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processering" class="md-nav__link">
+    Processering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fildatabase" class="md-nav__link">
+    Fildatabase
+  </a>
+  
+    <nav class="md-nav" aria-label="Fildatabase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabeller" class="md-nav__link">
+    Tabeller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fejlrettelser" class="md-nav__link">
+    Fejlrettelser
+  </a>
+  
+    <nav class="md-nav" aria-label="Fejlrettelser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-mismatch" class="md-nav__link">
+    Extension mismatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-on-text-only-extension-mismatch" class="md-nav__link">
+    Match on text only; extension mismatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-on-extension-only" class="md-nav__link">
+    Match on extension only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-match" class="md-nav__link">
+    No match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empty-file" class="md-nav__link">
+    Empty file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arbejdsgang" class="md-nav__link">
+    Arbejdsgang
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gis_processor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Gisprocessor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../libreoffice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LibreOffice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rearranger/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rearranger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../renamer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Renamer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../symphovert/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Symphovert
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tiffany/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tiffany
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unarchiver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unarchiver
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../find-relations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    find-relations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Vejledninger
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vejledninger
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Synology NAS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Synology NAS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manuals/synology/new_user/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opret ny bruger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manuals/synology/ssh_access/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SSH-adgang
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../archival-versions/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Arkiveringsversioner
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Arkiveringsversioner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archival-versions/notes-arkivering/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Notesarkivering
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../development/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Github
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/wsl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Subsystem for Linux (WSL)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git og Github workflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/python/python-repos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python repositories
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/python/pyinstaller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PyInstaller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_8">
+            <span class="md-nav__icon md-icon"></span>
+            Roadmap
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roadmap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Processer
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Processer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../processes/identify-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Identifikation af filer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../processes/convert-files/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konvertering af filer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Indholdsfortegnelse
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-og-opdatering" class="md-nav__link">
+    Installation og opdatering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forudstninger" class="md-nav__link">
+    Forudsætninger
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#opbygning" class="md-nav__link">
+    Opbygning
+  </a>
+  
+    <nav class="md-nav" aria-label="Opbygning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argumenter" class="md-nav__link">
+    Argumenter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optioner" class="md-nav__link">
+    Optioner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kommandoer" class="md-nav__link">
+    Kommandoer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indeksering" class="md-nav__link">
+    Indeksering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#processering" class="md-nav__link">
+    Processering
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fildatabase" class="md-nav__link">
+    Fildatabase
+  </a>
+  
+    <nav class="md-nav" aria-label="Fildatabase">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabeller" class="md-nav__link">
+    Tabeller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fejlrettelser" class="md-nav__link">
+    Fejlrettelser
+  </a>
+  
+    <nav class="md-nav" aria-label="Fejlrettelser">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#extension-mismatch" class="md-nav__link">
+    Extension mismatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-on-text-only-extension-mismatch" class="md-nav__link">
+    Match on text only; extension mismatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-on-extension-only" class="md-nav__link">
+    Match on extension only
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-match" class="md-nav__link">
+    No match
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empty-file" class="md-nav__link">
+    Empty file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arbejdsgang" class="md-nav__link">
+    Arbejdsgang
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="digiarch">Digiarch<a class="headerlink" href="#digiarch" title="Permanent link">&para;</a></h1>
+<p>Digiarch er en CLI (Command-Line Interface), som benyttes til at indeksere og identificere digitale filer, vi modtager til bevaring. CLI'en producerer en <a href="https://www.sqlite.org/index.html">SQLite</a> database kaldet <code>files.db</code>, som indeholder oversigter og informationer om de relevante processerede filer.</p>
+<h2 id="installation-og-opdatering">Installation og opdatering<a class="headerlink" href="#installation-og-opdatering" title="Permanent link">&para;</a></h2>
+<p>Digiarch skal installeres via master branch med <a href="../pipx/">pipx</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pipx</span> <span class="n">install</span> <span class="n">git</span><span class="p">+</span><span class="n">https</span><span class="p">://</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">aarhusstadsarkiv</span><span class="p">/</span><span class="n">digiarch</span><span class="p">.</span><span class="n">git</span>
+</code></pre></div>
+<p>Test efterfølgende installationen med følgende kommando:</p>
+<div class="highlight"><pre><span></span><code><span class="n">digiarch</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+<p>Når man skal opdatere Digiarch, bruges <code>pipx</code> med <code>--upgrade</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pipx</span> <span class="n">upgrade</span> <span class="n">digiarch</span>
+</code></pre></div>
+<h2 id="forudstninger">Forudsætninger<a class="headerlink" href="#forudstninger" title="Permanent link">&para;</a></h2>
+<p>Digiarch bruger <a href="https://github.com/richardlehane/siegfried">Siegfried</a> til identifikation af filer, og det er derfor en forudsætning for fuld brug af Digiarch, at Siegfried er installeret og tilgængelig i <code>PATH</code> på systemet. Dette opnås nemmest ved at installere Siegfried via Go. Det anbefales, at Go installeres med <a href="../chocolatey/">Chocolatey</a> som følger.</p>
+<div class="highlight"><pre><span></span><code><span class="n">choco</span> <span class="n">install</span> <span class="n">golang</span>
+</code></pre></div>
+<div class="admonition attention">
+<p class="admonition-title">Bemærk</p>
+<p>Chocolatey skal <strong>altid</strong> bruges via en administrativ PowerShell.</p>
+</div>
+<p>Givet en fungerende version af Go, foregår installation af Siegfried som følger.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">go</span> <span class="n">install</span> <span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">richardlehane</span><span class="p">/</span><span class="n">siegfried</span><span class="p">/</span><span class="n">cmd</span><span class="p">/</span><span class="n">sf</span><span class="nv">@latest</span>
+<span class="n">sf</span> <span class="n">-update</span>
+</code></pre></div>
+Hvis Siegfried skal opdateres, foregår dette også gennem Go:</p>
+<div class="highlight"><pre><span></span><code><span class="n">go</span> <span class="n">install</span> <span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">richardlehane</span><span class="p">/</span><span class="n">siegfried</span><span class="p">/</span><span class="n">cmd</span><span class="p">/</span><span class="n">sf</span><span class="nv">@latest</span>
+<span class="n">sf</span> <span class="n">-update</span>
+</code></pre></div>
+<p>Alternative installationsmetoder kan findes på <a href="https://github.com/richardlehane/siegfried#install">Siegfrieds GitHub</a>. Hvis ovenstående installation virker, men Siegfried ikke bliver opdateret ordentligt, kan det skyldes, at man har en manuel installation i sin <code>PATH</code>-miljøvariabel. Placering af Siegfriedinstallationer tilgængelig i <code>PATH</code> kan findes som følger:</p>
+<div class="highlight"><pre><span></span><code><span class="n">where</span><span class="p">.</span><span class="n">exe</span> <span class="n">sf</span>
+</code></pre></div>
+<h2 id="opbygning">Opbygning<a class="headerlink" href="#opbygning" title="Permanent link">&para;</a></h2>
+<p>Digiarch er en CLI, og skal derfor benyttes direkte i for eksempel PowerShell. CLI'en er opbygget som følger.</p>
+<div class="highlight"><pre><span></span><code><span class="n">digiarch</span> <span class="no">[OPTIONS] [ARGS] [COMMAND]</span> 
+</code></pre></div>
+<p>Argumenter, optioner, og kommandoer er beskrevet i det følgende.</p>
+<h3 id="argumenter">Argumenter<a class="headerlink" href="#argumenter" title="Permanent link">&para;</a></h3>
+<p>Digiarch har ét inputargument: stien til filerne, som skal behandles. Dette argument er påkrævet, og Digiarch kan køres med kun dette som input. Det forventes, at stien har et <a href="../../acquisition/acquiring-digital-material/#identifikator">AARS-ID</a>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">digiarch</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">AVID</span><span class="p">.</span><span class="n">AARS</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">1</span>
+</code></pre></div>
+</div>
+<p>Når Digiarch køres som i ovenstående, indekseres filerne uden yderligere processering. Indeksering er yderligere forklaret <a href="#indeksering">her</a>.</p>
+<h3 id="optioner">Optioner<a class="headerlink" href="#optioner" title="Permanent link">&para;</a></h3>
+<p>Digiarch har tre optioner, der, som navnet antyder, ikke er påkrævede:</p>
+<ol>
+<li><code>--reindex</code> genindekserer filer</li>
+<li><code>--help</code> printer hjælp</li>
+<li><code>--version</code> printer versionen af Digiarch</li>
+</ol>
+<p><code>--reindex</code> er brugbar, hvis man har lavet manuelle ændringer i filerne, som Digiarch har indekseret. I <a href="#fejlrettelser">afsnittet om fejlrettelser</a> beskrives situationer, hvori denne option kan være relevant.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">digiarch</span> <span class="p">-</span><span class="n">-reindex</span> <span class="n">D</span><span class="p">:\</span><span class="n">filer</span><span class="p">\</span><span class="n">AVID</span><span class="p">.</span><span class="n">AARS</span><span class="p">.</span><span class="n">3</span><span class="p">.</span><span class="n">1</span>
+</code></pre></div>
+</div>
+<p><code>--help</code> og <code>--version</code> kan som de eneste kaldes <em>uden</em> at angive en sti, da de blot giver information om selve CLI'en.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code><span class="n">digiarch</span> <span class="p">-</span><span class="n">-help</span>
+<span class="n">digiarch</span> <span class="p">-</span><span class="n">-version</span>
+</code></pre></div>
+</div>
+<h3 id="kommandoer">Kommandoer<a class="headerlink" href="#kommandoer" title="Permanent link">&para;</a></h3>
+<p>Digiarch har en kommando: <code>process</code>, der processerer filerne, hvor checksum udregnes og identifikation af filformat foregår.</p>
+<div class="admonition hint">
+<p class="admonition-title">Eksempel</p>
+<div class="highlight"><pre><span></span><code>digiarch D:\filer\AVID.AARS.3.1 process
+</code></pre></div>
+</div>
+<h2 id="indeksering">Indeksering<a class="headerlink" href="#indeksering" title="Permanent link">&para;</a></h2>
+<p>Indeksering af filer er en grundlæggende funktion i Digiarch. Når Digiarch kaldes første gang i en folder med arkiveringsparate filer, gennemgås folderstrukturen rekursivt, og et indeks over filerne opbygges. Dette indeks gemmes i databasen <code>files.db</code>, som er beskrevet yderligere i <a href="#fildatabase">afsnittet om fildatabaser</a>. </p>
+<p>Under indeksering tjekkes også, om der er tomme foldere, og om foldere indeholder flere filer, da vi typisk forventer af arkiveringsparate afleveringer, at dette ikke er tilfældet.</p>
+<p>Digiarch genbruger dette filindeks, når filerne efterfølgende skal behandles. Det er derfor vigtigt, at indekset holdes opdateret ved eventuelle ændringer i filstrukturen. Man kan genindeksere ved brug af optionen <code>--reindex</code>, som beskrevet <a href="#optioner">her</a>.</p>
+<h2 id="processering">Processering<a class="headerlink" href="#processering" title="Permanent link">&para;</a></h2>
+<p>Processering af filer til digital arkivering er Digiarchs hovedfunktion. Under processering bliver der udregnet SHA-256 checksummer, og filerne bliver identificeret via <a href="https://github.com/richardlehane/siegfried">Siegfried</a>, således de kan knyttes til en <a href="http://www.nationalarchives.gov.uk/PRONOM/Default.aspx">PRONOM-ID</a>. </p>
+<p>PRONOM-ID'et er centralt for det videre arbejde med filer, da det giver et entydigt svar på, hvilken filtype, der er tale om. Under processering tjekkes også for tomme filer, som gives en fejlbeskrivelse i PRONOM-ID'et. En filidentifikation er opbygget som følger.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PUID</th>
+<th>Signature</th>
+<th>Warning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Eksempel</strong></td>
+<td><code>fmt/18</code></td>
+<td>Acrobat PDF 1.4 - Portable Document Format</td>
+<td>Extension mismatch</td>
+</tr>
+</tbody>
+</table>
+<p>I ovenstående tabel bruges <code>fmt/18</code> som eksempel. Dette er et Acrobat PDF version 1.4 dokument. I dette tilfælde er der også knyttet en advarsel på, fordi filen i dette eksempel ikke har den korrekte filendelse. De fleste filer i en aflevering vil have et PUID og en signatur uden en tilknyttet advarsel. Det er derfor primært vigtigt at tage hånd om de filer, der har tilknyttede advarsler. <a href="#fildatabase">Fildatabasen</a>, som Digiarch genererer, indeholder derfor blandt andet brugervenlige oversigter over filer, der har tilknyttede advarsler.</p>
+<h2 id="fildatabase">Fildatabase<a class="headerlink" href="#fildatabase" title="Permanent link">&para;</a></h2>
+<p>Som tidligere nævnt genererer Digiarch en fildatabase, som indeholder oplysninger om de indekserede og eventuelt processerede filer. Denne database hedder <code>files.db</code> og befinder sig i <code>_metadata</code>-mappen. <code>files.db</code> er en <a href="https://www.sqlite.org/index.html">SQLite</a> database, og det kan derfor anbefales at installere <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>, når man skal arbejde med fildatabaser fra Digiarch.</p>
+<p>I det følgende beskrives de tabeller og views, der eksisterer i <code>files.db</code>, når Digiarch har færdiggjort en kørsel.</p>
+<h3 id="tabeller">Tabeller<a class="headerlink" href="#tabeller" title="Permanent link">&para;</a></h3>
+<p><code>files.db</code> fødes med fire tabeller: <code>Files</code>, <code>Metadata</code>, <code>_EmptyDirectories</code>, og <code>_MultipleFiles</code>. Sidstnævnte er præfikseret med <code>_</code> for at facilitere mere logisk sortering i DB Browser for SQLite. Tabellerne er bygget op som følger.</p>
+<p><strong><code>Files</code></strong></p>
+<p>Denne tabel er det primære filindeks, og indeholder oplysninger om alle filer fundet i filstrukturen, Digiarch behandler.</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>required</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td><code>int</code></td>
+<td>Primærnøgle</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Universally Unique ID 4</td>
+</tr>
+<tr>
+<td>path</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Fuld sti til filen</td>
+</tr>
+<tr>
+<td>checksum</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>SHA-256 checksum</td>
+</tr>
+<tr>
+<td>aars_path</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Sti med rod i AARS-mappen</td>
+</tr>
+<tr>
+<td>puid</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>PRONOM ID</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>Filsignatur</td>
+</tr>
+<tr>
+<td>warning</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>Advarsel, hvis relevant</td>
+</tr>
+</tbody>
+</table>
+<p><code>checksum</code>, <code>puid</code>, <code>signature</code>, og <code>warning</code> bliver udfyldt under processering. Disse vil derfor være <code>NULL</code>, hvis der kun er kørt indeksering af filer.</p>
+<p><strong><code>Metadata</code></strong></p>
+<p>Denne tabel indeholder en oversigt over, hvornår Digiarch sidst er blevet kørt på de relevante filer.</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>required</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>last_run</td>
+<td>true</td>
+<td><code>datetime</code></td>
+<td>Tidspunkt for seneste kørsel</td>
+</tr>
+<tr>
+<td>processed_dir</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Den folder hvori Digiarch er kaldt</td>
+</tr>
+<tr>
+<td>file_count</td>
+<td>false</td>
+<td><code>int</code></td>
+<td>Antal indekserede filer</td>
+</tr>
+<tr>
+<td>total_size</td>
+<td>false</td>
+<td><code>str</code></td>
+<td>Samlet filstørrelse</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>_EmptyDirectories_</code></strong></p>
+<p>Denne tabel indeholder eventuelle mapper i filstrukturen, der er tomme.</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>required</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Den fulde sti til den tomme folder</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>_MultipleFiles_</code></strong></p>
+<p>Denne tabel indeholder eventuelle mapper i filstrukturen, der indeholder mere end én fil.</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>required</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>true</td>
+<td><code>str</code></td>
+<td>Den fulde sti til folderen med flere filer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&para;</a></h3>
+<p><code>files.db</code> fødes med to views: <code>_IdentificationWarnings</code> og <code>_SignatureCount</code>. Disse er bygget op som følger.</p>
+<p><strong><code>_IdentificationWarnings</code></strong></p>
+<p>Dette view har samme opbygning som <code>Files</code>-tabellen, men indeholder kun de filer, der har værdier i <code>warning</code>-kolonnen. Viewet er brugbart i forbindelse med fejlrettelser.</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td><code>int</code></td>
+<td>Primærnøgle</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td><code>str</code></td>
+<td>Universally Unique ID 4</td>
+</tr>
+<tr>
+<td>path</td>
+<td><code>str</code></td>
+<td>Fuld sti til filen</td>
+</tr>
+<tr>
+<td>checksum</td>
+<td><code>str</code></td>
+<td>SHA-256 checksum</td>
+</tr>
+<tr>
+<td>aars_path</td>
+<td><code>str</code></td>
+<td>Sti med rod i AARS-mappen</td>
+</tr>
+<tr>
+<td>puid</td>
+<td><code>str</code></td>
+<td>PRONOM ID</td>
+</tr>
+<tr>
+<td>signature</td>
+<td><code>str</code></td>
+<td>Filsignatur</td>
+</tr>
+<tr>
+<td>warning</td>
+<td><code>str</code></td>
+<td>Advarsel</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>_SignatureCount</code></strong></p>
+<p>Dette view viser en oversigt over antallet af signaturer og PUID'er, der findes i fildatabasen. Viewet er brugbart til at vurdere, hvilke filer der skal håndteres, og hvorledes konvertering skal foregå.</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>puid</td>
+<td><code>str</code></td>
+<td>PRONOM ID</td>
+</tr>
+<tr>
+<td>signature</td>
+<td><code>str</code></td>
+<td>Filsignatur</td>
+</tr>
+<tr>
+<td>count</td>
+<td><code>int</code></td>
+<td>Samlet antal</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fejlrettelser">Fejlrettelser<a class="headerlink" href="#fejlrettelser" title="Permanent link">&para;</a></h2>
+<p>Når filer til arkivering er blevet indekserede og processerede, vil der typisk være en andel, der er fejlbehæftede. Der er overordnet fem typer fejl, som bliver gennemgået i det følgende.</p>
+<h3 id="extension-mismatch">Extension mismatch<a class="headerlink" href="#extension-mismatch" title="Permanent link">&para;</a></h3>
+<p>Denne fejl indikerer, at det er lykkedes at finde en filsignatur, men at den aktuelle filendelse ikke stemmer overens med den forventede. Dette kan for eksempel være en PDF-fil, der er gemt som <code>.tiff</code>. </p>
+<p>Digiarch-kommandoen <code>fix</code> kan med fordel bruges til at rette <a href="https://github.com/aarhusstadsarkiv/digiarch/blob/master/digiarch/_data/ext_map.json">visse prædefinerede</a> <em>Extension mismatch</em> fejl. Det er dog ikke alle fejl, <code>fix</code> kan rette, og man må derfor belave sig på, at nogle filer skal rettes manuelt, hvis muligt. Dette gøres typisk ved at slå PRONOM-ID'et op i <a href="http://www.nationalarchives.gov.uk/PRONOM/PUID/proPUIDSearch.aspx?status=new">PRONOM-databasen</a>, hvor den korrekte filendelse vil være at finde under "Signatures".</p>
+<div class="admonition attention">
+<p class="admonition-title">Bemærk</p>
+<p>Når der laves manuelle rettelser af filer, skal Digiarch køres igen med <code>--reindex</code>-optionen, således de opdaterede filer bliver indekseret korrekt.</p>
+</div>
+<h3 id="match-on-text-only-extension-mismatch">Match on text only; extension mismatch<a class="headerlink" href="#match-on-text-only-extension-mismatch" title="Permanent link">&para;</a></h3>
+<p>Denne fejl indikerer, at der er tale om en tekstfil, men at filendelsen ikke stemmer overens med de forventede, e.g. <code>.txt</code>, <code>.csv</code> mv. Disse filer skal manuelt inspiceres, og kan typisk gemmes som <code>.txt</code> på sikker vis, med mindre det er tydeligt, at der er tale om en anden filtype.</p>
+<h3 id="match-on-extension-only">Match on extension only<a class="headerlink" href="#match-on-extension-only" title="Permanent link">&para;</a></h3>
+<p>Denne fejl bruges, når filsignaturen ikke er entydigt bestemt, men derimod primært beror på filendelsen. Dette er for eksempel tilfældet med <code>.csv</code> filer, da de bytemæssigt blot er tekstfiler, og man derfor bruger filendelsen til den endelige signatur. Der kan sagtens være tale om en korrekt identifikation, men det er vigtigt at forholde sig til. </p>
+<h3 id="no-match">No match<a class="headerlink" href="#no-match" title="Permanent link">&para;</a></h3>
+<p>Denne fejl indikerer, at der ikke er fundet noget PRONOM-ID og derfor ikke nogen filsignatur. Dette kan betyde flere ting: filen er korrupt, filen er gemt med fejl men stadig konverterbar, eller filtypen findes ikke i PRONOM-databasen. I alle tilfælde er der behov for manuel inspektion. </p>
+<div class="admonition attention">
+<p class="admonition-title">Bemærk</p>
+<p>Til tider er PDF-filer gemt forkert på en måde, hvor der er en masse tomme bytes efter <code>%EOF</code>-signaturen til sidst i filen. Disse filer kan typisk reddes ved at blive åbnet i en PDF-viewer og gemt igen, hvorefter de tomme bytes er væk. </p>
+</div>
+<p>Hvis en fil viser sig at være korrupt, kan man med fordel tildele den PUID'et <code>aca-error/2</code> med signaturen <code>File is corrupt</code>. Hermed kan Convertool automatisk indføre erstatningsfiler under konvertering. Det er vigtigt at dokumentere korrupte filer i <code>Konverteringsfejl</code>-dokumentet.</p>
+<h3 id="empty-file">Empty file<a class="headerlink" href="#empty-file" title="Permanent link">&para;</a></h3>
+<p>Denne fejl indikerer, at filen er tom, og tomme filer har per definition ikke en gyldig filsignatur. Tomme filer skal dokumenteres i <code>Konverteringsfejl</code>-dokumentet, men man behøver ikke gøre yderligere; Convertool indfører automatisk erstatningsfiler.</p>
+<h2 id="arbejdsgang">Arbejdsgang<a class="headerlink" href="#arbejdsgang" title="Permanent link">&para;</a></h2>
+<p>Som opsummering kommer her en oversigt over arbejdsgangen med Digiarch.</p>
+<ol>
+<li>Åbn PowerShell</li>
+<li>Skriv <code>cd sti\til\data</code> f.eks. <code>cd E:\batch_7\AVID.AARS.61.1</code></li>
+<li>Kør <code>digiarch . process</code></li>
+<li>Tjek fildatabasen <code>files.db</code> som befinder sig i <code>_metadata</code>-mappen</li>
+<li>Hvis rettelse af filendelsesfejl er nødvendigt, kør da <code>digiarch . fix</code></li>
+<li>Tjek fildatabasen igen</li>
+<li>Hvis der laves manuelle rettelser, kør da <code>digiarch --reindex . process</code></li>
+</ol>
+<p>Efter konverteringen har kørt kan det være en fordel at bruge følgende sql statement i en database genereret af Digiarch
+for at få et bedre overblik over filer, som mangler at blive konverteret.
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="ss">&quot;_NotConvertedOverview&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">puid</span><span class="p">,</span><span class="w"> </span><span class="n">signature</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">puid</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">_NotConverted</span><span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">puid</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="n">puid</span><span class="p">))</span><span class="w"> </span><span class="k">DESC</span>
+</code></pre></div></p>
+<p>Denne sql statement generere et view med følgende opbygning:</p>
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>puid</td>
+<td><code>str</code></td>
+<td>PRONOM ID</td>
+</tr>
+<tr>
+<td>signature</td>
+<td><code>str</code></td>
+<td>Filsignatur</td>
+</tr>
+<tr>
+<td>count</td>
+<td><code>int</code></td>
+<td>Antallet af filer, som mangler at blive konverteret.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Tilbage til start
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Kopieret til udklipsholderen", "clipboard.copy": "Kopi\u00e9r til udklipsholderen", "search.result.more.one": "1 resultat mere p\u00e5 denne side", "search.result.more.other": "# resultater mere p\u00e5 denne side", "search.result.none": "Ingen resultater fundet", "search.result.one": "1 resultat", "search.result.other": "# resultater", "search.result.placeholder": "Indtast s\u00f8geord", "search.result.term.missing": "Mangler", "select.version": "V\u00e6lg version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
+      
+    
+  </body>
+</html>
